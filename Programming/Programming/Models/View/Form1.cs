@@ -20,6 +20,7 @@ namespace Programming
 
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+			//TODO: Именование элементов
             ValueListBox.Items.Clear();// для чистой записи 
             ListBox lb = (ListBox)sender;// создаем объект листбокса 
             string elem = lb.SelectedItem as string;// переменная для записи выбора 
@@ -52,6 +53,7 @@ namespace Programming
             IntTextBox.Text = ValueListBox.SelectedIndex.ToString(); // получаем нужный индекс
         }
 
+		//TODO: Именование
         private void ParseButton_Click_1(object sender, EventArgs e)
         {
             Weekday week;//переменная перечисления 
@@ -61,8 +63,10 @@ namespace Programming
 
         }
 
+		//TODO: Именование
         private void GoButton_Click_1(object sender, EventArgs e)
         {
+			//TODO: Именование элементов
             string selectedSeason = SeasonComboBox.SelectedItem.ToString(); // получаем выбоанный объект
             switch (selectedSeason)
             {
