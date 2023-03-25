@@ -20,9 +20,10 @@ namespace Programming
 
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            ValueListBox.Items.Clear();
-            ListBox lb = (ListBox)sender; 
-            string elem = lb.SelectedItem as string;
+			//TODO: Именование элементов
+            ValueListBox.Items.Clear();// для чистой записи 
+            ListBox lb = (ListBox)sender;// создаем объект листбокса 
+            string elem = lb.SelectedItem as string;// переменная для записи выбора 
             switch (elem)
             {
                 case "Colors":
@@ -52,6 +53,7 @@ namespace Programming
             IntTextBox.Text = ValueListBox.SelectedIndex.ToString(); 
         }
 
+		//TODO: Именование
         private void ParseButton_Click_1(object sender, EventArgs e)
         {
             Weekday week; 
@@ -61,9 +63,11 @@ namespace Programming
 
         }
 
+		//TODO: Именование
         private void GoButton_Click_1(object sender, EventArgs e)
         {
-            string selectedSeason = SeasonComboBox.SelectedItem.ToString(); 
+			//TODO: Именование элементов
+            string selectedSeason = SeasonComboBox.SelectedItem.ToString(); // получаем выбоанный объект
             switch (selectedSeason)
             {
                 case "Winter":
