@@ -13,7 +13,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Compile Update="Models\View\Form1.cs">
+    <Compile Update="Models\View\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
   </ItemGroup>

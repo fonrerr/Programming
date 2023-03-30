@@ -20,15 +20,14 @@ namespace Programming
 
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-			//TODO: Именование элементов
-            ValueListBox.Items.Clear();// для чистой записи 
-            ListBox lb = (ListBox)sender;// создаем объект листбокса 
-            string elem = lb.SelectedItem as string;// переменная для записи выбора 
+            ValueListBox.Items.Clear();
+            ListBox listbox = (ListBox)sender; 
+            string elem = listbox.SelectedItem as string; 
             switch (elem)
             {
                 case "Colors":
 
-                    ValueListBox.Items.AddRange(typeof(Colors).GetEnumNames()); 
+                    ValueListBox.Items.AddRange(typeof(Colors).GetEnumNames());
                     break;
                 case "EducationForm":
                     ValueListBox.Items.AddRange(typeof(EducationForm).GetEnumNames());
@@ -50,24 +49,20 @@ namespace Programming
 
         private void ValueListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            IntTextBox.Text = ValueListBox.SelectedIndex.ToString(); 
+            IntTextBox.Text = ValueListBox.SelectedIndex.ToString();
         }
 
-		//TODO: Именование
-        private void ParseButton_Click_1(object sender, EventArgs e)
+        private void ParseButton_Click(object sender, EventArgs e)
         {
-            Weekday week; 
+            Weekday week;
             if (Enum.TryParse<Weekday>(ParseTextBox.Text, out week)) 
                 ParseLabel.Text = $"«Это день недели ({week} = {((int)week + 1)})»";
             else ParseLabel.Text = "Нет такого дня недели!";
-
         }
 
-		//TODO: Именование
-        private void GoButton_Click_1(object sender, EventArgs e)
+        private void GoButton_Click(object sender, EventArgs e)
         {
-			//TODO: Именование элементов
-            string selectedSeason = SeasonComboBox.SelectedItem.ToString(); // получаем выбоанный объект
+            string selectedSeason = SeasonComboBox.SelectedItem.ToString();
             switch (selectedSeason)
             {
                 case "Winter":
@@ -77,10 +72,10 @@ namespace Programming
                     MessageBox.Show("Ура! Солнце!");
                     break;
                 case "Spring":
-                    splitContainer1.Panel2.BackColor = Color.GreenYellow; 
+                    GroupBox.BackColor = Color.GreenYellow; 
                     break;
                 case "Autumn":
-                    splitContainer1.Panel2.BackColor = Color.Orange;
+                    GroupBox.BackColor = Color.Orange;
                     break;
             }
         }
