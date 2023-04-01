@@ -418,6 +418,7 @@
             this.FindButton.TabIndex = 7;
             this.FindButton.Text = "Find";
             this.FindButton.UseVisualStyleBackColor = true;
+            this.FindButton.Click += new System.EventHandler(this.FindButton_Click);
             // 
             // ColorTextBox
             // 
@@ -425,6 +426,7 @@
             this.ColorTextBox.Name = "ColorTextBox";
             this.ColorTextBox.Size = new System.Drawing.Size(188, 27);
             this.ColorTextBox.TabIndex = 6;
+            this.ColorTextBox.TextChanged += new System.EventHandler(this.ColorTextBox_TextChanged);
             // 
             // label8
             // 

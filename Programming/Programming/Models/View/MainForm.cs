@@ -79,5 +79,42 @@ namespace Programming
                     break;
             }
         }
+
+        private void FindButton_Click(object sender, EventArgs e)
+        {
+            max = 0;
+            int index = 0;
+            for (int i = 0; i < _rectangles.Length; i++)
+            {
+                if (max < _rectangles[i].getWith())
+                {
+                    max = _rectangles[i].getWith();
+                    index = i;
+
+                }
+
+            }
+            MessageBox.Show($"Наибольший прямоугольник с индексом - {index}");
+            RectListBox.SetSelected(index, true);
+        }
+
+        private void ColorTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (LenghtTextBox.Text != "" & WidthTextBox.Text != "" & ColorTextBox.Text != "")
+            {
+                try
+                {
+                    ColorTextBox.BackColor = Color.White;
+                    _currentRectangle = new Rectangle(Convert.ToInt32(LenghtTextBox.Text), Convert.ToInt32(WidthTextBox.Text), ColorTextBox.Text);
+                    _rectangles[(int)RectListBox.SelectedIndex] = _currentRectangle;
+                }
+                catch
+                {
+                    ColorTextBox.BackColor = Color.LightPink;
+                }
+
+            }
+        }
+
     }
 }

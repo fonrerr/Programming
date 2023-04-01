@@ -8,7 +8,7 @@ namespace Programming.Models.Classes
 {
     internal class Rectangle
     {
-        private string name { get; set; }
+        private string _name { get; set; }
         private double Width { get; set; }
         private double Height { get; set; }
 
@@ -37,7 +37,7 @@ namespace Programming.Models.Classes
         }
         public string[] answRec()
         {
-            string[] answ = { name, Width.ToString(), Height.ToString(), Color };
+            string[] answ = { _name, Width.ToString(), Height.ToString(), Color };
             return answ;
         }
         public void Chenge(double width, double height, string color)
