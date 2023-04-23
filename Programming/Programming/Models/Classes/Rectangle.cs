@@ -1,52 +1,61 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Programming.Models.Classes
+﻿namespace Programming.Models.Classes
 {
     internal class Rectangle
     {
-        private string _name { get; set; }
-        private double Width { get; set; }
-        private double Height { get; set; }
+        private double _width;
+        private double _lenght;
+        public string Name { get; set; }
 
-        private string Color { get; set; }
+        public string Color { get; set; }
 
-
-        public Rectangle(double width, double height, string color)
+        public double Width
         {
+            get { return _width; }
+            set
+            {
+                if (value > 0.0d)
+                {
+                    _width = value;
+                }
+                else
+                {
+                    throw new ArgumentException(String.Format("{0} не является подходящим числом", _width), "width");
+                }
+            }
+        }
+        public double Lenght
+        {
+            get { return _lenght; }
+            set
+            {
+                if (value > 0.0d) 
+                {
+                    _lenght = value;
+                }
+                else
+                {
+                    throw new ArgumentException(String.Format("{0} не является подходящим числом", _lenght), "lenght");
+                }
+            }
+        }
 
-            Check(width, height);
+        public Rectangle(double width, double lenght, string color)
+        {
             Color = color;
+            Width= width;
+            Lenght= lenght;
         }
-        public Rectangle() { }
- 
-        private void Check(double width, double height)
+        public Rectangle() 
         {
-            if (width > 0.0 & height > 0.0)
-            {
-                Width = width;
-                Height = height;
-            }
-            else
-            {
-                throw new ArgumentException(String.Format("{0} не является подходящим числом", width), "width");
-            }
         }
+
         public string[] answRec()
         {
-            string[] answ = { _name, Width.ToString(), Height.ToString(), Color };
+            string[] answ = { Name, Width.ToString(), Lenght.ToString(), Color };
             return answ;
         }
-        public void Chenge(double width, double height, string color)
-        {
-            Check(width, height);
-            Color = color;
 
-        }
-        public int getWith()
+        public int FindRectangleWithMaxWidth()
         {
 
             return (int)Width;

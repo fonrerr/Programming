@@ -1,39 +1,69 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Programming.Models.Classes
+﻿namespace Programming.Models.Classes
 {
     internal class Time
     {
-        private int Watch { get; set; }
+        private int _hours;
+        private int _minutes;
+        private int _seconds;
 
-        private int Minutes { get; set; }
-
-        private int Seconds { get; set; }
-
-        public Time(int watch, int min, int sec)
+        public int Hours
         {
 
-            Check(watch, min, sec);
-
-
+            get { return _hours; }
+            set
+            {
+                if (value >= 0 && value <= 23)
+                {
+                    _hours = value;
+                }
+                else
+                {
+                    throw new ArgumentException(String.Format("{0} не является подходящим числом"));
+                }
+            }
         }
-        private void Check(int watch, int min, int sec)
-        {
-            if (watch >= 0 & watch <= 23 & min >= 0 & min <= 60 & sec >= 0 & sec <= 60)
-            {
-                Watch = watch;
-                Minutes = min;
-                Seconds = sec;
-            }
-            else
-            {
-                throw new ArgumentException(String.Format("{0} не является подходящим числом"));
 
+        public int Minutes
+        {
+            get { return _minutes; }
+            set
+            {
+                if (value >= 0 && value <= 60)
+                {
+                    _minutes = value;
+                }
+                else
+                {
+                    throw new ArgumentException(String.Format("{0} не является подходящим числом"));
+                }
             }
+        }
+
+        public int Seconds
+        {
+            get { return _seconds; }
+            set
+            {
+                if (value >= 0 && value <= 60)
+                {
+                    _seconds = value;
+                }
+                else
+                {
+                    throw new ArgumentException(String.Format("{0} не является подходящим числом"));
+                }
+            }
+        }
+
+        public Time()
+        {
+        } 
+
+        public Time(int hours, int minutes, int seconds)
+        {
+            Seconds = seconds;  
+            Hours = hours;
+            Minutes = minutes;
         }
     }
 }
