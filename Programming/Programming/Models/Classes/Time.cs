@@ -18,6 +18,7 @@
                 }
                 else
                 {
+                    //TODO: Уточнить сообщение об ошибке
                     throw new ArgumentException(String.Format("{0} не является подходящим числом"));
                 }
             }

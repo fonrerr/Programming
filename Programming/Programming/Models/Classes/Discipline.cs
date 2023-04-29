@@ -1,5 +1,6 @@
 ﻿namespace Programming.Models.Classes
 {
+    //TODO: Именование
     internal class Discipline
     {
         private string Title { get; set; }
@@ -16,7 +17,7 @@
                 }
                 else
                 {
-                    throw new ArgumentException(String.Format("{0} не является подходящим числом"));
+                    throw new ArgumentException($"{Number_of_hours} не является подходящим числом");
                 }
             }
         }
