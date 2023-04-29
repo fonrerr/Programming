@@ -2,12 +2,12 @@
 {
     public class Contact
     {
-        public string Name { get; set; }
         //TODO: поле private
-        public int _number;
+        private int _number;
         public string Surname { get; set; }
         public string Address { get; set; }
         public string Post { get; set; }
+        public string Name { get; set; }
 
         public int Number
         {

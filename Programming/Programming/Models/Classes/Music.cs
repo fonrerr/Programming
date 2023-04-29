@@ -3,9 +3,9 @@
     public class Music
     {
         //TODO: С заглавной буквы
-        public string _group { get; set; }
-        public string _genre { get; set; }
-        public string _song { get; set; }
+        public string Group { get; set; }
+        public string Genre { get; set; }
+        public string Song { get; set; }
 
         public Music()
         {
@@ -13,9 +13,9 @@
 
         public Music(string group, string genre, string song)
         {
-            _group = group;
-            _genre = genre;
-            _song = song;
+            Group = group;
+            Genre = genre;
+            Song = song;
         }
     }
 }

@@ -2,12 +2,12 @@
 {
     public class Movie
     {
-        public string Title { get; set; }
-        public double _duration;
-        public int _year;
-        public string Genre { get; set; }
-        public double _rating;
+        private double _duration;
+        private int _year;
+        private double _rating;
 
+        public string Title { get; set; }
+        public string Genre { get; set; }
         public double Rating
         {
             get { return _rating; }
@@ -70,8 +70,8 @@
         }
         public string[] GetMovie()
         {
-            string[] answ = { Title, Duration.ToString(), Year.ToString(), Genre, Rating.ToString() };
-            return answ;
+            string[] mov = { Title, Duration.ToString(), Year.ToString(), Genre, Rating.ToString() };
+            return mov;
         }
         public int FindMovieWithMaxRating()
         {

@@ -3,8 +3,8 @@ namespace Programming.Models.Enums
 {
     internal enum EducationForm
     {
-        Full_time,
-        Part_time,
+        FullTime,
+        PartTime,
         Evening,
         Remote
     }

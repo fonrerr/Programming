@@ -2,10 +2,10 @@
 {
     public class Discipline
     {
-        public string Title { get; set; }
-        public int _numberOfhours;
-        public int _scores;
+        private int _numberOfhours;
+        private int _scores;
 
+        public string Title { get; set; }
         public int NumberOfHours
         {
             get { return _numberOfhours; }

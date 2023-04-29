@@ -2,11 +2,11 @@
 {
     public class Rectangle
     {
-        public double _width;
-        public double _lenght;
+        private double _width;
+        private double _lenght;
+
         public string Name { get; set; }
         public string Color { get; set; }
-
         public double Width
         {
             get { return _width; }
@@ -52,8 +52,8 @@
         public string[] GetRectangle()
         {
             //TODO: переименовать
-            string[] answ = { Name, Width.ToString(), Lenght.ToString(), Color };
-            return answ;
+            string[] rect = { Name, Width.ToString(), Lenght.ToString(), Color };
+            return rect;
         }
 
         public int FindRectangleWithMaxWidth()

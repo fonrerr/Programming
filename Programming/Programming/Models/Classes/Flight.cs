@@ -2,10 +2,10 @@
 {
     public class Flight
     {
-        public string _departurePoint;
-        public string _destination;
-        public double _flightTime;
+        private double _flightTime;
 
+        public string DeparturePoint { get; set; }
+        public string Destination { get; set; }
         public double FlightTime
         {
             get { return _flightTime; }
@@ -28,8 +28,8 @@
 
         public Flight(string departurepoint, string destination, int time)
         {
-            _departurePoint = departurepoint;
-            _destination = destination;
+            DeparturePoint = departurepoint;
+            Destination = destination;
             _flightTime = time;
         }
     }

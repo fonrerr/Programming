@@ -2,9 +2,9 @@
 {
     public class Time
     {
-        public int _hours;
-        public int _minutes;
-        public int _seconds;
+        private int _hours;
+        private int _minutes;
+        private int _seconds;
 
         public int Hours
         {
