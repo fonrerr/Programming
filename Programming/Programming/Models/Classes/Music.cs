@@ -2,6 +2,7 @@
 {
     public class Music
     {
+        //TODO: С заглавной буквы
         public string _group { get; set; }
         public string _genre { get; set; }
         public string _song { get; set; }

@@ -51,6 +51,7 @@
 
         public string[] GetRectangle()
         {
+            //TODO: переименовать
             string[] answ = { Name, Width.ToString(), Lenght.ToString(), Color };
             return answ;
         }
