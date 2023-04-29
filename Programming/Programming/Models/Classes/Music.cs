@@ -1,11 +1,14 @@
 ﻿namespace Programming.Models.Classes
 {
-    internal class Music
+    public class Music
     {
-        //TODO: добавить свойства
-        private string _group;
-        private string _genre;
-        private string _song;
+        public string _group { get; set; }
+        public string _genre { get; set; }
+        public string _song { get; set; }
+
+        public Music()
+        {
+        }
 
         public Music(string group, string genre, string song)
         {

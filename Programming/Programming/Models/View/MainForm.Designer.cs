@@ -43,12 +43,6 @@
             this.label9 = new System.Windows.Forms.Label();
             this.MovieListBox = new System.Windows.Forms.ListBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.label16 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.XTextBox = new System.Windows.Forms.TextBox();
-            this.YTextBox = new System.Windows.Forms.TextBox();
-            this.IdTextBox = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
             this.FindButton = new System.Windows.Forms.Button();
             this.ColorTextBox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
@@ -152,6 +146,7 @@
             this.RatingTextBox.Name = "RatingTextBox";
             this.RatingTextBox.Size = new System.Drawing.Size(187, 27);
             this.RatingTextBox.TabIndex = 8;
+            this.RatingTextBox.TextChanged += new System.EventHandler(this.RatingTextBox_TextChanged);
             // 
             // GenreTextBox
             // 
@@ -159,6 +154,7 @@
             this.GenreTextBox.Name = "GenreTextBox";
             this.GenreTextBox.Size = new System.Drawing.Size(187, 27);
             this.GenreTextBox.TabIndex = 7;
+            this.GenreTextBox.TextChanged += new System.EventHandler(this.GenreTextBox_TextChanged);
             // 
             // YearTextBox
             // 
@@ -166,6 +162,7 @@
             this.YearTextBox.Name = "YearTextBox";
             this.YearTextBox.Size = new System.Drawing.Size(187, 27);
             this.YearTextBox.TabIndex = 6;
+            this.YearTextBox.TextChanged += new System.EventHandler(this.YearTextBox_TextChanged);
             // 
             // DurationTextBox
             // 
@@ -173,6 +170,7 @@
             this.DurationTextBox.Name = "DurationTextBox";
             this.DurationTextBox.Size = new System.Drawing.Size(187, 27);
             this.DurationTextBox.TabIndex = 5;
+            this.DurationTextBox.TextChanged += new System.EventHandler(this.DurationTextBox_TextChanged);
             // 
             // label11
             // 
@@ -226,12 +224,6 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.label16);
-            this.groupBox2.Controls.Add(this.label15);
-            this.groupBox2.Controls.Add(this.XTextBox);
-            this.groupBox2.Controls.Add(this.YTextBox);
-            this.groupBox2.Controls.Add(this.IdTextBox);
-            this.groupBox2.Controls.Add(this.label14);
             this.groupBox2.Controls.Add(this.FindButton);
             this.groupBox2.Controls.Add(this.ColorTextBox);
             this.groupBox2.Controls.Add(this.label8);
@@ -247,56 +239,6 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Rectangles";
             // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(248, 341);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(93, 20);
-            this.label16.TabIndex = 13;
-            this.label16.Text = "Y coordinate";
-            // 
-            // label15
-            // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(248, 281);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(94, 20);
-            this.label15.TabIndex = 12;
-            this.label15.Text = "X coordinate";
-            // 
-            // XTextBox
-            // 
-            this.XTextBox.Location = new System.Drawing.Point(248, 304);
-            this.XTextBox.Name = "XTextBox";
-            this.XTextBox.ReadOnly = true;
-            this.XTextBox.Size = new System.Drawing.Size(188, 27);
-            this.XTextBox.TabIndex = 11;
-            // 
-            // YTextBox
-            // 
-            this.YTextBox.Location = new System.Drawing.Point(248, 364);
-            this.YTextBox.Name = "YTextBox";
-            this.YTextBox.ReadOnly = true;
-            this.YTextBox.Size = new System.Drawing.Size(188, 27);
-            this.YTextBox.TabIndex = 10;
-            // 
-            // IdTextBox
-            // 
-            this.IdTextBox.Location = new System.Drawing.Point(248, 58);
-            this.IdTextBox.Name = "IdTextBox";
-            this.IdTextBox.Size = new System.Drawing.Size(188, 27);
-            this.IdTextBox.TabIndex = 9;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(247, 35);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(22, 20);
-            this.label14.TabIndex = 8;
-            this.label14.Text = "Id";
-            // 
             // FindButton
             // 
             this.FindButton.Location = new System.Drawing.Point(278, 410);
@@ -309,7 +251,7 @@
             // 
             // ColorTextBox
             // 
-            this.ColorTextBox.Location = new System.Drawing.Point(248, 245);
+            this.ColorTextBox.Location = new System.Drawing.Point(248, 275);
             this.ColorTextBox.Name = "ColorTextBox";
             this.ColorTextBox.Size = new System.Drawing.Size(188, 27);
             this.ColorTextBox.TabIndex = 6;
@@ -318,7 +260,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(248, 222);
+            this.label8.Location = new System.Drawing.Point(248, 252);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(48, 20);
             this.label8.TabIndex = 5;
@@ -326,7 +268,7 @@
             // 
             // WidthTextBox
             // 
-            this.WidthTextBox.Location = new System.Drawing.Point(248, 181);
+            this.WidthTextBox.Location = new System.Drawing.Point(248, 168);
             this.WidthTextBox.Name = "WidthTextBox";
             this.WidthTextBox.Size = new System.Drawing.Size(188, 27);
             this.WidthTextBox.TabIndex = 4;
@@ -335,7 +277,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(248, 158);
+            this.label7.Location = new System.Drawing.Point(248, 137);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(52, 20);
             this.label7.TabIndex = 3;
@@ -343,15 +285,16 @@
             // 
             // LenghtTextBox
             // 
-            this.LenghtTextBox.Location = new System.Drawing.Point(248, 117);
+            this.LenghtTextBox.Location = new System.Drawing.Point(248, 67);
             this.LenghtTextBox.Name = "LenghtTextBox";
             this.LenghtTextBox.Size = new System.Drawing.Size(188, 27);
             this.LenghtTextBox.TabIndex = 2;
+            this.LenghtTextBox.TextChanged += new System.EventHandler(this.LenghtTextBox_TextChanged);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(248, 94);
+            this.label6.Location = new System.Drawing.Point(248, 44);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(57, 20);
             this.label6.TabIndex = 1;
@@ -625,11 +568,5 @@
         private ListBox EnumsListBox;
         private Label label1;
         private TabControl TabControl;
-        private Label label16;
-        private Label label15;
-        private TextBox XTextBox;
-        private TextBox YTextBox;
-        private TextBox IdTextBox;
-        private Label label14;
     }
 }

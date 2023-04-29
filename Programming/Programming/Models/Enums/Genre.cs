@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Programming.Models.Enums
+﻿namespace Programming.Models.Enums
 {
     internal enum Genre
     {

@@ -1,41 +1,52 @@
 ﻿namespace Programming.Models.Classes
 {
-    //TODO: Именование
-    internal class Discipline
+    public class Discipline
     {
-        private string Title { get; set; }
-        private int _numberOfhours;
-        private int _scores;
-        public int Number_of_hours
+        public string Title { get; set; }
+        public int _numberOfhours;
+        public int _scores;
+
+        public int NumberOfHours
         {
             get { return _numberOfhours; }
             set
             {
                 if (value > 0)
                 {
-                    Number_of_hours = value;
+                    _numberOfhours = value;
                 }
                 else
                 {
-                    throw new ArgumentException($"{Number_of_hours} не является подходящим числом");
+                    throw new ArgumentException($"{NumberOfHours} не является подходящим числом");
                 }
             }
         }
+
         public int Scores
         {
             get { return _scores; }
             set
             {
-                Validator.AssertOnPositiveValue(value);
+                if (value > 0)
+                {
+                    _scores = value;
+                }
+                else
+                {
+                    throw new ArgumentException($"{Scores} не является подходящим числом");
+                }
+               
             }
         }
+
         public Discipline()
         {
         }
+
         public Discipline(string title, int number, int scores)
         {
             Title = title;
-            Number_of_hours = number;
+            NumberOfHours = number;
             Scores = scores;
         }
     }

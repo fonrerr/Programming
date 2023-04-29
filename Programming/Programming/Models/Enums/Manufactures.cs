@@ -2,7 +2,7 @@
 
 namespace Programming.Models.Enums
 {
-    internal enum Menufactures
+    internal enum Manufactures
     {
         Apple,
         Mi,

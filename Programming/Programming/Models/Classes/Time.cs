@@ -1,14 +1,13 @@
 ﻿namespace Programming.Models.Classes
 {
-    internal class Time
+    public class Time
     {
-        private int _hours;
-        private int _minutes;
-        private int _seconds;
+        public int _hours;
+        public int _minutes;
+        public int _seconds;
 
         public int Hours
         {
-
             get { return _hours; }
             set
             {
@@ -18,8 +17,7 @@
                 }
                 else
                 {
-                    //TODO: Уточнить сообщение об ошибке
-                    throw new ArgumentException(String.Format("{0} не является подходящим числом"));
+                    throw new ArgumentException($"{Hours} не является подходящим числом");
                 }
             }
         }
@@ -35,7 +33,7 @@
                 }
                 else
                 {
-                    throw new ArgumentException(String.Format("{0} не является подходящим числом"));
+                    throw new ArgumentException($"{Minutes} не является подходящим числом");
                 }
             }
         }
@@ -51,7 +49,7 @@
                 }
                 else
                 {
-                    throw new ArgumentException(String.Format("{0} не является подходящим числом"));
+                    throw new ArgumentException($"{Seconds} не является подходящим числом");
                 }
             }
         }

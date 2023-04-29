@@ -49,7 +49,7 @@ namespace Programming
                     ValueListBox.Items.AddRange(typeof(Season).GetEnumNames());
                     break;
                 case "Menufactures":
-                    ValueListBox.Items.AddRange(typeof(Menufactures).GetEnumNames());
+                    ValueListBox.Items.AddRange(typeof(Manufactures).GetEnumNames());
                     break;
                 case "Weekday":
                     ValueListBox.Items.AddRange(typeof(Weekday).GetEnumNames());
@@ -126,16 +126,14 @@ namespace Programming
         }
         private void WidthTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (LenghtTextBox.Text != "" && WidthTextBox.Text != "" && ColorTextBox.Text != "" && IdTextBox.Text != "")
+            if (LenghtTextBox.Text != "" && WidthTextBox.Text != "" && ColorTextBox.Text != "")
             {
                 try
                 {
                     WidthTextBox.BackColor = Color.White;
                     _currentRectangle = new Models.Classes.Rectangle(
                         Convert.ToInt32(LenghtTextBox.Text), 
-                        Convert.ToInt32(WidthTextBox.Text),
-                        ColorTextBox.Text);
-                    Point2D ct = _rectangles[RectListBox.SelectedIndex].Center();
+                        Convert.ToInt32(WidthTextBox.Text), ColorTextBox.Text);
                     _rectangles[(int)RectListBox.SelectedIndex] = _currentRectangle;
                 }
                 catch
@@ -145,13 +143,13 @@ namespace Programming
 
             }
         }
+
         private void RectListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Rectangle answr = _rectangles[RectListBox.SelectedIndex];
             ColorTextBox.Text = answr.Color.ToString();
             LenghtTextBox.Text = answr.Lenght.ToString();
             WidthTextBox.Text = answr.Width.ToString();
-            IdTextBox.Text = answr.Id.ToString();
             _currentRectangle = _rectangles[(int)RectListBox.SelectedIndex];
         }
 
@@ -190,7 +188,6 @@ namespace Programming
             {
                 _rectangles[i] = new Rectangle(Convert.ToDouble(rd.Next(1, 244)),
                     Convert.ToDouble(rd.Next(1, 244)), _colors[rd.Next(0, 4)]);
-
                 RectListBox.Items[i] = ($"Rectangle {i + 1}");
             }
             RectListBox.SetSelected(0, true);
@@ -209,6 +206,117 @@ namespace Programming
             }
 
             MovieListBox.SetSelected(0, true);
+        }
+
+        private void DurationTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (DurationTextBox.Text != "" && YearTextBox.Text != "" && RatingTextBox.Text != "" && GenreTextBox.Text != "" && TitleTextBox.Text != "")
+            {
+                try
+                {
+                    DurationTextBox.BackColor = Color.White;
+                    _currentMovie = new Models.Classes.Movie(
+                        TitleTextBox.Text,
+                        Convert.ToInt32(DurationTextBox.Text),
+                        Convert.ToInt32(YearTextBox.Text),
+                        GenreTextBox.Text,
+                        Convert.ToInt32(RatingTextBox.Text));
+                    _movie[(int)MovieListBox.SelectedIndex] = _currentMovie;
+                }
+                catch
+                {
+                    DurationTextBox.BackColor = Color.LightPink;
+                }
+
+            }
+        }
+
+        private void YearTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (DurationTextBox.Text != "" && YearTextBox.Text != "" && RatingTextBox.Text != "" && GenreTextBox.Text != "" && TitleTextBox.Text != "")
+            {
+                try
+                {
+                    YearTextBox.BackColor = Color.White;
+                    _currentMovie = new Models.Classes.Movie(
+                        TitleTextBox.Text,
+                        Convert.ToInt32(DurationTextBox.Text),
+                        Convert.ToInt32(YearTextBox.Text),
+                        GenreTextBox.Text,
+                        Convert.ToInt32(RatingTextBox.Text));
+                    _movie[(int)MovieListBox.SelectedIndex] = _currentMovie;
+                }
+                catch
+                {
+                    YearTextBox.BackColor = Color.LightPink;
+                }
+
+            }
+        }
+
+        private void LenghtTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (LenghtTextBox.Text != "" && WidthTextBox.Text != "" && ColorTextBox.Text != "")
+            {
+                try
+                {
+                    LenghtTextBox.BackColor = Color.White;
+                    _currentRectangle = new Models.Classes.Rectangle(
+                        Convert.ToInt32(LenghtTextBox.Text),
+                        Convert.ToInt32(WidthTextBox.Text), ColorTextBox.Text);
+                    _rectangles[(int)RectListBox.SelectedIndex] = _currentRectangle;
+                }
+                catch
+                {
+                    LenghtTextBox.BackColor = Color.LightPink;
+                }
+            }
+        }
+
+        private void RatingTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (DurationTextBox.Text != "" && YearTextBox.Text != "" && RatingTextBox.Text != "" && GenreTextBox.Text != "" && TitleTextBox.Text != "")
+            {
+                try
+                {
+                    RatingTextBox.BackColor = Color.White;
+                    _currentMovie = new Models.Classes.Movie(
+                        TitleTextBox.Text,
+                        Convert.ToInt32(DurationTextBox.Text),
+                        Convert.ToInt32(YearTextBox.Text),
+                        GenreTextBox.Text,
+                        Convert.ToInt32(RatingTextBox.Text));
+                    _movie[(int)MovieListBox.SelectedIndex] = _currentMovie;
+                }
+                catch
+                {
+                    RatingTextBox.BackColor = Color.LightPink;
+                }
+
+            }
+        }
+
+        private void GenreTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (DurationTextBox.Text != "" && YearTextBox.Text != "" && RatingTextBox.Text != "" && GenreTextBox.Text != "" && TitleTextBox.Text != "")
+            {
+                try
+                {
+                    GenreTextBox.BackColor = Color.White;
+                    _currentMovie = new Models.Classes.Movie(
+                        TitleTextBox.Text,
+                        Convert.ToInt32(DurationTextBox.Text),
+                        Convert.ToInt32(YearTextBox.Text),
+                        GenreTextBox.Text,
+                        Convert.ToInt32(RatingTextBox.Text));
+                    _movie[(int)MovieListBox.SelectedIndex] = _currentMovie;
+                }
+                catch
+                {
+                    GenreTextBox.BackColor = Color.LightPink;
+                }
+
+            }
         }
     }
 }
