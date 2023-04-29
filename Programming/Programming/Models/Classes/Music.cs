@@ -2,6 +2,7 @@
 {
     internal class Music
     {
+        //TODO: добавить свойства
         private string _group;
         private string _genre;
         private string _song;

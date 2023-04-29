@@ -1,5 +1,6 @@
 ﻿namespace Programming.Models.Classes
 {
+    //TODO: Именование
     internal class Discipline
     {
         private string Title { get; set; }
@@ -10,7 +11,14 @@
             get { return _numberOfhours; }
             set
             {
-                Validator.AssertOnPositiveValue(value);
+                if (value > 0)
+                {
+                    Number_of_hours = value;
+                }
+                else
+                {
+                    throw new ArgumentException($"{Number_of_hours} не является подходящим числом");
+                }
             }
         }
         public int Scores

@@ -12,7 +12,15 @@
             get { return _hours; }
             set
             {
-                Validator.AssertValueInRange(value);
+                if (value >= 0 && value <= 23)
+                {
+                    _hours = value;
+                }
+                else
+                {
+                    //TODO: Уточнить сообщение об ошибке
+                    throw new ArgumentException(String.Format("{0} не является подходящим числом"));
+                }
             }
         }
 

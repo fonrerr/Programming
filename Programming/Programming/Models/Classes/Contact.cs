@@ -1,7 +1,10 @@
 ﻿namespace Programming.Models.Classes
 {
+    //TOOD: Класс публичным 
+    //TODO: Сначала поля, потом свойства. Разделять пустой строкой
     internal class Contact
     {
+       //TODO: Свойства публичные
         private string Name { get; set; }
         private int _number;
         private string Surname { get; set; }
@@ -14,13 +17,13 @@
             {
                 if (value.ToString().Length == 10)
                 {
-
+                    //TODO: присвоение в поле
                     Number = value;
                 }
                 else
                 {
                     throw new ArgumentException(String.Format("{0} не является подходящим числом", _number),
-                                        "number");
+                                       nameof(Number));
                 }
             }
         }
