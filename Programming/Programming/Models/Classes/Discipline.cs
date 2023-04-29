@@ -10,14 +10,7 @@
             get { return _numberOfhours; }
             set
             {
-                if (value > 0)
-                {
-                    Number_of_hours = value;
-                }
-                else
-                {
-                    throw new ArgumentException(String.Format("{0} не является подходящим числом"));
-                }
+                Validator.AssertOnPositiveValue(value);
             }
         }
         public int Scores
@@ -25,14 +18,7 @@
             get { return _scores; }
             set
             {
-                if (value > 0)
-                {
-                    Scores = value;
-                }
-                else
-                {
-                    throw new ArgumentException(String.Format("{0} не является подходящим числом"));
-                }
+                Validator.AssertOnPositiveValue(value);
             }
         }
         public Discipline()

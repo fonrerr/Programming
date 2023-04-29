@@ -12,14 +12,7 @@
             get { return _hours; }
             set
             {
-                if (value >= 0 && value <= 23)
-                {
-                    _hours = value;
-                }
-                else
-                {
-                    throw new ArgumentException(String.Format("{0} не является подходящим числом"));
-                }
+                Validator.AssertValueInRange(value);
             }
         }
 

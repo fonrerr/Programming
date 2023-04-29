@@ -126,15 +126,16 @@ namespace Programming
         }
         private void WidthTextBox_TextChanged(object sender, EventArgs e)
         {
-            if (LenghtTextBox.Text != "" && WidthTextBox.Text != "" && ColorTextBox.Text != "")
+            if (LenghtTextBox.Text != "" && WidthTextBox.Text != "" && ColorTextBox.Text != "" && IdTextBox.Text != "")
             {
                 try
                 {
                     WidthTextBox.BackColor = Color.White;
                     _currentRectangle = new Models.Classes.Rectangle(
                         Convert.ToInt32(LenghtTextBox.Text), 
-                        Convert.ToInt32(WidthTextBox.Text), 
+                        Convert.ToInt32(WidthTextBox.Text),
                         ColorTextBox.Text);
+                    Point2D ct = _rectangles[RectListBox.SelectedIndex].Center();
                     _rectangles[(int)RectListBox.SelectedIndex] = _currentRectangle;
                 }
                 catch
@@ -150,6 +151,7 @@ namespace Programming
             ColorTextBox.Text = answr.Color.ToString();
             LenghtTextBox.Text = answr.Lenght.ToString();
             WidthTextBox.Text = answr.Width.ToString();
+            IdTextBox.Text = answr.Id.ToString();
             _currentRectangle = _rectangles[(int)RectListBox.SelectedIndex];
         }
 

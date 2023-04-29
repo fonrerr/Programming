@@ -5,22 +5,32 @@
         private double _width;
         private double _lenght;
         public string Name { get; set; }
-
+        private double _height;
         public string Color { get; set; }
-
+        private int _id;
+        private static int _allRectanglesCount = 0;
+        public double Height
+        {
+            get { return _height; }
+            set
+            {
+                Validator.AssertOnPositiveValue(value);
+            }
+        }
+        public int Id
+        {
+            get { return _id; }
+            set
+            {
+                Validator.AssertOnPositiveValue(value);
+            }
+        }
         public double Width
         {
             get { return _width; }
             set
             {
-                if (value > 0.0d)
-                {
-                    _width = value;
-                }
-                else
-                {
-                    throw new ArgumentException(String.Format("{0} не является подходящим числом", _width), "width");
-                }
+                Validator.AssertOnPositiveValue(value);
             }
         }
         public double Lenght
@@ -28,25 +38,20 @@
             get { return _lenght; }
             set
             {
-                if (value > 0.0d) 
-                {
-                    _lenght = value;
-                }
-                else
-                {
-                    throw new ArgumentException(String.Format("{0} не является подходящим числом", _lenght), "lenght");
-                }
+                Validator.AssertOnPositiveValue(value);
             }
         }
 
-        public Rectangle(double width, double lenght, string color)
+        public Rectangle(double width, double lenght, string color, int id)
         {
             Color = color;
             Width= width;
             Lenght= lenght;
+            Id = id;
         }
         public Rectangle() 
         {
+            _allRectanglesCount += 1;
         }
 
         public string[] answRec()
@@ -59,6 +64,11 @@
         {
 
             return (int)Width;
+        }
+        public Point2D Center()
+        {
+            int x_center = (int)Width / 2;
+            int y_center = (int)Height / 2;
         }
     }
 }
