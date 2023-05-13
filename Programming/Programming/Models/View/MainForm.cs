@@ -147,9 +147,12 @@ namespace Programming
         private void RectListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Rectangle answr = _rectangles[RectListBox.SelectedIndex];
+            IdTextBox.Text = answr.Id.ToString();
             ColorTextBox.Text = answr.Color.ToString();
             LenghtTextBox.Text = answr.Lenght.ToString();
             WidthTextBox.Text = answr.Width.ToString();
+            XCoordinateTextBox.Text = answr.Center.X.ToString();
+            YCoordinateTextBox.Text = answr.Center.Y.ToString();
             _currentRectangle = _rectangles[(int)RectListBox.SelectedIndex];
         }
 

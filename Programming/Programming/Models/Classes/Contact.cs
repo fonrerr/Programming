@@ -1,20 +1,19 @@
-﻿namespace Programming.Models.Classes
+﻿using System.Text.RegularExpressions;
+
+namespace Programming.Models.Classes
 {
     public class Contact
     {
-        //TODO: поле private
         private int _number;
-        public string Surname { get; set; }
-        public string Address { get; set; }
-        public string Post { get; set; }
-        public string Name { get; set; }
+        private string _lastName;
+        private string _firstName;
 
         public int Number
         {
             get { return _number; }
             set 
             {
-                if (value.ToString().Length == 10)
+                if (value.ToString().Length == 11)
                 {
                     _number = value;
                 }
@@ -24,17 +23,42 @@
                 }
             }
         }
+        public string FirstName
+        {
+            get { return _firstName; }
+            set
+            {
+                AssertStringContainsOnlyLetters(value, nameof(FirstName));
+                _firstName = value;
+            }
+        }
+
+        public string LastName
+        {
+            get { return _lastName; }
+            set
+            {
+                AssertStringContainsOnlyLetters(value, nameof(LastName));
+                _lastName = value;
+            }
+        }
 
         public Contact()
         {
         }
 
-        public Contact(string name, int number, string adress, string post)
+        public Contact(string firstName, int number, string lastName)
         {
-            Name = name;
-            Address = adress;
-            Post = post;
+            FirstName = firstName;
+            LastName = lastName;
             Number = number;
+        }
+        private void AssertStringContainsOnlyLetters(string value, string name)
+        {
+            if (!Regex.IsMatch(value, "^[a-zA-Z]+$"))
+            {
+                throw new ArgumentException($"{name}: {value}. Введено не корректно");
+            }
         }
     }
 }

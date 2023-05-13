@@ -13,14 +13,8 @@
             get { return _rating; }
             set
             {
-                if (value > 0.0 && value <= 10.0)
-                {
-                    _rating = value;
-                }
-                else
-                {
-                    throw new ArgumentException($"{Rating} не является подходящим числом");
-                }
+                Validator.AssertValueInRange(value, nameof(Rating), 0, 10);
+                _rating = value; 
             }
         }
 
@@ -29,14 +23,8 @@
             get { return _duration; }
             set
             {
-                if (value > 0.0)
-                {
-                    _duration = value;
-                }
-                else
-                {
-                    throw new ArgumentException($"{Duration} не является подходящим числом");
-                }
+                Validator.AssertOnPositiveValue(value, nameof(Duration));
+                _duration = value;
             }
         }
 
@@ -45,14 +33,8 @@
             get { return _year; }
             set
             {
-                if(value > 0 && value <= 2023)
-                {
-                    _year = value;
-                }
-                else
-                {
-                    throw new ArgumentException($"{Year} не является подходящим числом");
-                }
+                Validator.AssertValueInRange(value, nameof(Year), 0, 2023);
+                _year = value;
             }
         }
 

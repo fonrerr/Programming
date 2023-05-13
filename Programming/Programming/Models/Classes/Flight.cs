@@ -11,14 +11,8 @@
             get { return _flightTime; }
             set
             {
-                if(value > 0.0)
-                {
-                    _flightTime = value;
-                }
-                else
-                {
-                    throw new ArgumentException($"{FlightTime} не является подходящим числом");
-                }
+                Validator.AssertOnPositiveValue(value, nameof(FlightTime));
+                _flightTime = value;
             }
         }
 

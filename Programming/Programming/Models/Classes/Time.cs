@@ -11,14 +11,8 @@
             get { return _hours; }
             set
             {
-                if (value >= 0 && value <= 23)
-                {
-                    _hours = value;
-                }
-                else
-                {
-                    throw new ArgumentException($"{Hours} не является подходящим числом");
-                }
+                Validator.AssertValueInRange(value, nameof(Hours), 0, 23);
+                _hours = value;
             }
         }
 
@@ -27,14 +21,8 @@
             get { return _minutes; }
             set
             {
-                if (value >= 0 && value <= 60)
-                {
-                    _minutes = value;
-                }
-                else
-                {
-                    throw new ArgumentException($"{Minutes} не является подходящим числом");
-                }
+                Validator.AssertValueInRange(value, nameof(Minutes), 0, 60);
+                _minutes = value;
             }
         }
 
@@ -43,14 +31,8 @@
             get { return _seconds; }
             set
             {
-                if (value >= 0 && value <= 60)
-                {
-                    _seconds = value;
-                }
-                else
-                {
-                    throw new ArgumentException($"{Seconds} не является подходящим числом");
-                }
+                Validator.AssertValueInRange(value, nameof(Seconds), 0, 60);
+                _seconds = value;
             }
         }
 

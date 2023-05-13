@@ -11,14 +11,8 @@
             get { return _numberOfhours; }
             set
             {
-                if (value > 0)
-                {
-                    _numberOfhours = value;
-                }
-                else
-                {
-                    throw new ArgumentException($"{NumberOfHours} не является подходящим числом");
-                }
+                Validator.AssertOnPositiveValue(value, nameof(NumberOfHours));
+                _numberOfhours = value;
             }
         }
 
@@ -27,15 +21,8 @@
             get { return _scores; }
             set
             {
-                if (value > 0)
-                {
-                    _scores = value;
-                }
-                else
-                {
-                    throw new ArgumentException($"{Scores} не является подходящим числом");
-                }
-               
+                Validator.AssertOnPositiveValue(value, nameof(Scores));
+                _scores = value;
             }
         }
 
