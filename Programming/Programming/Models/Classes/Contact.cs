@@ -4,12 +4,12 @@ namespace Programming.Models.Classes
 {
     public class Contact
     {
-        private int _number;
+        private string _number;
         private string _lastName;
         private string _firstName;
 
         //TODO: в string
-        public int Number
+        public string Number
         {
             get { return _number; }
             set 
@@ -48,7 +48,7 @@ namespace Programming.Models.Classes
         {
         }
 
-        public Contact(string firstName, int number, string lastName)
+        public Contact(string firstName, string number, string lastName)
         {
             FirstName = firstName;
             LastName = lastName;

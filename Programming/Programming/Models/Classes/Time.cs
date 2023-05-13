@@ -22,7 +22,7 @@
             set
             {
                 //TODO: 59 sec
-                Validator.AssertValueInRange(value, nameof(Minutes), 0, 60);
+                Validator.AssertValueInRange(value, nameof(Minutes), 0, 59);
                 _minutes = value;
             }
         }
@@ -32,7 +32,7 @@
             get { return _seconds; }
             set
             {
-                Validator.AssertValueInRange(value, nameof(Seconds), 0, 60);
+                Validator.AssertValueInRange(value, nameof(Seconds), 0, 59);
                 _seconds = value;
             }
         }

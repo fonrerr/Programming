@@ -1,4 +1,6 @@
-﻿namespace Programming.Models.Classes
+﻿using System;
+
+namespace Programming.Models.Classes
 {
     public static class Validator
     {
@@ -7,7 +9,7 @@
         {
             if (value <= 0)
             {
-                throw new System.ArgumentException($"{name} не является подходящим числом");
+                throw new ArgumentException($"{name} не является подходящим числом");
             }
         }
 
@@ -15,7 +17,7 @@
         {
             if (value <= 0)
             {
-                throw new System.ArgumentException($"{name} не является подходящим числом");
+                throw new ArgumentException($"{name} не является подходящим числом");
             }
         }
 
@@ -23,14 +25,14 @@
         {
             if (value < min || value > max)
             {
-                throw new System.ArgumentException($"{name} должно быть от {min} до {max}"); 
+                throw new ArgumentException($"{name} должно быть от {min} до {max}"); 
             }
         }
         public static void AssertValueInRange(double value, string name, int min, int max)
         {
             if (value < min || value > max)
             {
-                throw new System.ArgumentException($"{name} должно быть от {min} до {max}");
+                throw new ArgumentException($"{name} должно быть от {min} до {max}");
             }
         }
     }

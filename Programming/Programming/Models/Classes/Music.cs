@@ -4,7 +4,9 @@
     {
         //TODO: С заглавной буквы
         public string Group { get; set; }
+
         public string Genre { get; set; }
+
         public string Song { get; set; }
 
         public Music()

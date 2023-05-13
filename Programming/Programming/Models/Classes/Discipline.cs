@@ -6,6 +6,7 @@
         private int _scores;
 
         public string Title { get; set; }
+
         public int NumberOfHours
         {
             get { return _numberOfhours; }

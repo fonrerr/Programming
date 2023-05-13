@@ -5,7 +5,9 @@
         private double _flightTime;
 
         public string DeparturePoint { get; set; }
+
         public string Destination { get; set; }
+
         public double FlightTime
         {
             get { return _flightTime; }

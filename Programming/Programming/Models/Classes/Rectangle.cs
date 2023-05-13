@@ -9,9 +9,13 @@
 
         //TODO: пустые строки
         public string Name { get; set; }
+
         public string Color { get; set; }
+
         public static int AllRectanglesCount { get { return _allRectanglesCount; } }
+
         public int Id { get { return _id; } }
+
         public double Width
         {
             get { return _width; }
@@ -31,6 +35,7 @@
                 _lenght = value;
             }
         }
+
         public Point2D Center { get; private set; }
 
         public Rectangle(double width, double lenght, string color)
@@ -44,6 +49,7 @@
             _allRectanglesCount++;
             _id = AllRectanglesCount;
         }
+
         public Rectangle() 
         {
         }
