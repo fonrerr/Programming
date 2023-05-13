@@ -21,7 +21,6 @@
             get { return _minutes; }
             set
             {
-                //TODO: 59 sec
                 Validator.AssertValueInRange(value, nameof(Minutes), 0, 59);
                 _minutes = value;
             }
