@@ -14,14 +14,8 @@ namespace Programming.Models.Classes
             get { return _number; }
             set 
             {
-                if (value.ToString().Length == 11)
-                {
-                    _number = value;
-                }
-                else
-                {
-                    throw new ArgumentException($"{Number} не является подходящим числом");
-                }
+                AssertStringContainsOnlyNumbers(value, nameof(Number));
+                _number = value;
             }
         }
         public string FirstName
@@ -57,6 +51,14 @@ namespace Programming.Models.Classes
         private void AssertStringContainsOnlyLetters(string value, string name)
         {
             if (!Regex.IsMatch(value, "^[a-zA-Z]+$"))
+            {
+                throw new ArgumentException($"{name}: {value}. Введено не корректно");
+            }
+        }
+
+        private void AssertStringContainsOnlyNumbers(string value, string name)
+        {
+            if(!Regex.IsMatch(value, @"^[+]\d{11}$"))
             {
                 throw new ArgumentException($"{name}: {value}. Введено не корректно");
             }
