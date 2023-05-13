@@ -7,6 +7,7 @@
         private double _lenght;
         private static int _allRectanglesCount;
 
+        //TODO: пустые строки
         public string Name { get; set; }
         public string Color { get; set; }
         public static int AllRectanglesCount { get { return _allRectanglesCount; } }

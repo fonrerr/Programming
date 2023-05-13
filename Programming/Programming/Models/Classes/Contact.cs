@@ -8,6 +8,7 @@ namespace Programming.Models.Classes
         private string _lastName;
         private string _firstName;
 
+        //TODO: в string
         public int Number
         {
             get { return _number; }
