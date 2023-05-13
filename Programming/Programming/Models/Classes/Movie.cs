@@ -33,7 +33,7 @@
             get { return _year; }
             set
             {
-                Validator.AssertValueInRange(value, nameof(Year), 0, 2023);
+                Validator.AssertValueInRange(value, nameof(Year), 1980, 2023);
                 _year = value;
             }
         }
