@@ -8,16 +8,14 @@
 
         public double InnerRadius
         {
-            get => _innerRadius;
+            get { return _innerRadius; }
             set
             {
-                if (value <= 0)
-                {
-                    throw new ArgumentException("Внутренний радиус должен быть положительным числом.");
-                }
+                Validator.AssertOnPositiveValue(value, nameof(InnerRadius));
+
                 if (value >= OuterRadius)
                 {
-                    throw new ArgumentException("Внутренний радиус должен быть меньше внешнего радиуса..");
+                    throw new ArgumentException("Внутренний радиус должен быть меньше внешнего радиуса.");
                 }
                 _innerRadius = value;
             }
@@ -28,10 +26,8 @@
             get => _outerRadius;
             set
             {
-                if (value <= 0)
-                {
-                    throw new ArgumentException("Внешний радиус должен быть положительным числом.");
-                }
+                Validator.AssertOnPositiveValue(value, nameof(OuterRadius));
+
                 if (value <= InnerRadius)
                 {
                     throw new ArgumentException("Внешний радиус должен быть больше внутреннего радиуса.");
