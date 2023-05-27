@@ -573,10 +573,15 @@
             // 
             // TabControl
             // 
+            this.TabControl.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.TabControl.Controls.Add(this.tabPage1);
             this.TabControl.Controls.Add(this.ClassTabPage);
             this.TabControl.Controls.Add(this.Rectangles);
+            this.TabControl.ItemSize = new System.Drawing.Size(60, 25);
             this.TabControl.Location = new System.Drawing.Point(0, 0);
+            this.TabControl.MinimumSize = new System.Drawing.Size(1226, 604);
             this.TabControl.Name = "TabControl";
             this.TabControl.SelectedIndex = 0;
             this.TabControl.Size = new System.Drawing.Size(1226, 604);
@@ -607,6 +612,7 @@
             this.Rectangles.TabIndex = 2;
             this.Rectangles.Text = "Rectangles";
             this.Rectangles.UseVisualStyleBackColor = true;
+            this.Rectangles.Resize += new System.EventHandler(this.MainForm_Load);
             // 
             // DeleteButton
             // 
@@ -743,6 +749,9 @@
             // 
             // RectanglesPanel
             // 
+            this.RectanglesPanel.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.RectanglesPanel.AutoSize = true;
             this.RectanglesPanel.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.RectanglesPanel.Location = new System.Drawing.Point(592, 6);
@@ -754,10 +763,10 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1226, 604);
             this.Controls.Add(this.TabControl);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(1226, 604);
             this.Name = "MainForm";
             this.Text = "Programming Demo";
             this.Load += new System.EventHandler(this.MainForm_Load);

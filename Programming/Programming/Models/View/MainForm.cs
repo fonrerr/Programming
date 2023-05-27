@@ -366,7 +366,7 @@ namespace Programming
         }
 
         //TODO: объяснить почему передача по ссылке
-        private void UpdateRectangleInfo(ref Rectangle rectangle)
+        private void UpdateRectangleInfo(Rectangle rectangle)
         {
             rectangle = _rectanglesList[RectanglesListBox.SelectedIndex];
 
@@ -395,7 +395,7 @@ namespace Programming
         {
             try
             {
-                UpdateRectangleInfo(ref _currentRectangleFromList);
+                UpdateRectangleInfo(_currentRectangleFromList);
             }
             catch
             {
