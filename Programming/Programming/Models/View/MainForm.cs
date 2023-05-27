@@ -426,10 +426,10 @@ namespace Programming
 
         private void FindCollision()
         {
-          // foreach (Panel rectangle in RectanglesPanel.Controls)
-            //{
-             //   rectangle.BackColor = AppColors.CollisionFalse;
-            //}
+            foreach (Panel rectangle in RectanglesPanel.Controls)
+            {
+                rectangle.BackColor = AppColors.CollisionFalse;
+            }
 
             for (int i = 0; i < _rectanglesList.Count; i++)
             {

@@ -44,7 +44,7 @@
             Lenght = lenght;
             double centerX = width / 2.0;
             double centerY = lenght / 2.0;
-            Center = coordinates; //new Point2D(centerX, centerY;
+            Center = coordinates; 
             _allRectanglesCount++;
             _id = AllRectanglesCount;
 

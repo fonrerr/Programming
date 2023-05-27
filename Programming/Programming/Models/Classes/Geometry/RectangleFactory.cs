@@ -8,8 +8,6 @@ namespace Programming.Models.Classes.Geometry
 
         public static Rectangle Randomize()
         {
-           // Random _random = new Random();
-
             var width = _random.Next(30, 100);
             var height = _random.Next(30, 110);
 

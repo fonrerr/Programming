@@ -4,14 +4,6 @@
     {
         public static bool IsCollision(Rectangle rectangle1, Rectangle rectangle2)
         {
-
-            //double diffx = Math.Abs(rectangle1.Center.X - rectangle2.Center.X);
-            //double diffy = Math.Abs(rectangle1.Center.Y - rectangle2.Center.Y);
-
-
-            //bool res =  (diffx < (rectangle1.Width + rectangle2.Width) / 2) && (diffy < (rectangle1.Lenght + rectangle2.Lenght) / 2);
-            //return res;
-
             return Math.Abs(rectangle1.Center.X - rectangle2.Center.X) < rectangle1.Lenght / 2 + rectangle2.Lenght / 2
                 && Math.Abs(rectangle1.Center.Y - rectangle2.Center.Y) < rectangle1.Width / 2 + rectangle2.Width / 2;
         }
