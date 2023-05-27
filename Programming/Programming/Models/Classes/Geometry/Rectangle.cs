@@ -1,4 +1,4 @@
-﻿namespace Programming.Models.Classes
+﻿namespace Programming.Models.Classes.Geometry
 {
     public class Rectangle
     {
@@ -35,21 +35,23 @@
             }
         }
 
-        public Point2D Center { get; private set; }
+        public Point2D Center { get; set; }
 
-        public Rectangle(double width, double lenght, string color)
+        public Rectangle(double width, double lenght, string color, Point2D coordinates)
         {
             Color = color;
-            Width= width;
-            Lenght= lenght;
+            Width = width;
+            Lenght = lenght;
             double centerX = width / 2.0;
             double centerY = lenght / 2.0;
-            Center = new Point2D(centerX, centerY);
+            Center = coordinates; //new Point2D(centerX, centerY;
             _allRectanglesCount++;
             _id = AllRectanglesCount;
+
+ 
         }
 
-        public Rectangle() 
+        public Rectangle()
         {
         }
 
