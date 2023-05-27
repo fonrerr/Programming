@@ -1,4 +1,4 @@
-using Programming.Models.Classes;
+п»їusing Programming.Models.Classes;
 using Programming.Models.Classes.Geometry;
 using Programming.Models.Enums;
 using Rectangle = Programming.Models.Classes.Geometry.Rectangle;
@@ -7,7 +7,7 @@ namespace Programming
 {
     public partial class MainForm : Form
     {
-        
+        //TODO: RSDN
         string[] enums = { "Colors", "EducationForm", "Genre", "Menufactures", "Season", "Weekday" };
         private Rectangle[] _rectangles;
         private Movie[] _movie;
@@ -16,6 +16,7 @@ namespace Programming
         private string[] _colors = { "Orange", "Black", "Red", "Green", "Blue" };
         private int max = 0;
         private List<Rectangle> _rectanglesList = new List<Rectangle>();
+        //TODO: РёР·РјРµРЅРёС‚СЊ РЅР°Р·РІР°РЅРёРµ
         private Rectangle _currentRectangleList;
         private List<Panel> _rectanglePanel = new List<Panel>();
         public MainForm()
@@ -70,8 +71,8 @@ namespace Programming
         {
             Weekday week;
             if (Enum.TryParse<Weekday>(ParseTextBox.Text, out week)) 
-                ParseLabel.Text = $"«Это день недели ({week} = {((int)week + 1)})»";
-            else ParseLabel.Text = "Нет такого дня недели!";
+                ParseLabel.Text = $"В«ГќГІГ® Г¤ГҐГ­Гј Г­ГҐГ¤ГҐГ«ГЁ ({week} = {((int)week + 1)})В»";
+            else ParseLabel.Text = "ГЌГҐГІ ГІГ ГЄГ®ГЈГ® Г¤Г­Гї Г­ГҐГ¤ГҐГ«ГЁ!";
         }
 
         private void GoButton_Click(object sender, EventArgs e)
@@ -80,10 +81,10 @@ namespace Programming
             switch (selectedSeason)
             {
                 case "Winter":
-                    MessageBox.Show("Брр, холодища!");
+                    MessageBox.Show("ГЃГ°Г°, ГµГ®Г«Г®Г¤ГЁГ№Г !");
                     break;
                 case "Summer":
-                    MessageBox.Show("Ура! Солнце!");
+                    MessageBox.Show("Г“Г°Г ! Г‘Г®Г«Г­Г¶ГҐ!");
                     break;
                 case "Spring":
                     GroupBox.BackColor = Color.GreenYellow; 
@@ -106,7 +107,7 @@ namespace Programming
 
                 }
             }
-            MessageBox.Show($"Наибольший прямоугольник с индексом - {index}");
+            MessageBox.Show($"ГЌГ ГЁГЎГ®Г«ГјГёГЁГ© ГЇГ°ГїГ¬Г®ГіГЈГ®Г«ГјГ­ГЁГЄ Г± ГЁГ­Г¤ГҐГЄГ±Г®Г¬ - {index}");
             RectListBox.SetSelected(index, true);
         }
 
@@ -176,7 +177,7 @@ namespace Programming
                 }
 
             }
-            MessageBox.Show($"Самый рейтинговый фильм с индексом - {index}");
+            MessageBox.Show($"Г‘Г Г¬Г»Г© Г°ГҐГ©ГІГЁГ­ГЈГ®ГўГ»Г© ГґГЁГ«ГјГ¬ Г± ГЁГ­Г¤ГҐГЄГ±Г®Г¬ - {index}");
             MovieListBox.SetSelected(index, true);
         }
 
@@ -203,16 +204,16 @@ namespace Programming
             RectListBox.SetSelected(0, true);
             var Movie = new[]
             {
-                new Movie("Дракула", 320, 1999, "Ужасы", 7),
-                new Movie("Золушка", 170, 1989, "Мультфильм", 8),
-                new Movie("Зебра", 620, 2013, "Научный", 5),
-                new Movie("Аватар2", 330, 2023, "Фантастика", 9),
-                new Movie("Пинокио", 120, 2013, "Мультфильм", 6)
+                new Movie("Г„Г°Г ГЄГіГ«Г ", 320, 1999, "Г“Г¦Г Г±Г»", 7),
+                new Movie("Г‡Г®Г«ГіГёГЄГ ", 170, 1989, "ГЊГіГ«ГјГІГґГЁГ«ГјГ¬", 8),
+                new Movie("Г‡ГҐГЎГ°Г ", 620, 2013, "ГЌГ ГіГ·Г­Г»Г©", 5),
+                new Movie("ГЂГўГ ГІГ Г°2", 330, 2023, "Г”Г Г­ГІГ Г±ГІГЁГЄГ ", 9),
+                new Movie("ГЏГЁГ­Г®ГЄГЁГ®", 120, 2013, "ГЊГіГ«ГјГІГґГЁГ«ГјГ¬", 6)
             };
             _movie = Movie.ToArray();
             for (int j = 0; j < _movie.Length; j++)
             {
-                MovieListBox.Items[j] = ($"Фильм {j + 1}");
+                MovieListBox.Items[j] = ($"Г”ГЁГ«ГјГ¬ {j + 1}");
             }
 
             MovieListBox.SetSelected(0, true);
@@ -364,6 +365,7 @@ namespace Programming
             return info;
         }
 
+        //TODO: РѕР±СЉСЏСЃРЅРёС‚СЊ РїРѕС‡РµРјСѓ РїРµСЂРµРґР°С‡Р° РїРѕ СЃСЃС‹Р»РєРµ
         private void UpdateRectangleInfo(ref Rectangle rectangle)
         {
             rectangle = _rectanglesList[RectanglesListBox.SelectedIndex];
