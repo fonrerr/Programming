@@ -8,16 +8,16 @@ namespace Programming
     public partial class MainForm : Form
     {
         //TODO: RSDN
-        string[] enums = { "Colors", "EducationForm", "Genre", "Menufactures", "Season", "Weekday" };
+        string[] _enums = { "Colors", "EducationForm", "Genre", "Menufactures", "Season", "Weekday" };
         private Rectangle[] _rectangles;
         private Movie[] _movie;
         private Rectangle _currentRectangle = new Rectangle();
         private Movie _currentMovie = new Movie();
         private string[] _colors = { "Orange", "Black", "Red", "Green", "Blue" };
-        private int max = 0;
+        private int _max = 0;
         private List<Rectangle> _rectanglesList = new List<Rectangle>();
         //TODO: изменить название
-        private Rectangle _currentRectangleList;
+        private Rectangle _currentRectangleFromList;
         private List<Panel> _rectanglePanel = new List<Panel>();
         public MainForm()
         {
@@ -29,7 +29,7 @@ namespace Programming
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            EnumsListBox.Items.AddRange(enums);
+            EnumsListBox.Items.AddRange(_enums);
             EnumsListBox.SetSelected(0, true); 
         }
 
@@ -96,13 +96,13 @@ namespace Programming
         }
         private void FindButton_Click(object sender, EventArgs e)
         {
-            max = 0;
+            _max = 0;
             int index = 0;
             for (int i = 0; i < _rectangles.Length; i++)
             {
-                if (max < _rectangles[i].FindRectangleWithMaxWidth())
+                if (_max < _rectangles[i].FindRectangleWithMaxWidth())
                 {
-                    max = _rectangles[i].FindRectangleWithMaxWidth();
+                    _max = _rectangles[i].FindRectangleWithMaxWidth();
                     index = i;
 
                 }
@@ -165,13 +165,13 @@ namespace Programming
 
         private void FindMovieButton_Click(object sender, EventArgs e)
         {
-            max = 0;
+            _max = 0;
             int index = 0;
             for (int i = 0; i < _movie.Length; i++)
             {
-                if (max < _movie[i].FindMovieWithMaxRating())
+                if (_max < _movie[i].FindMovieWithMaxRating())
                 {
-                    max = _movie[i].FindMovieWithMaxRating();
+                    _max = _movie[i].FindMovieWithMaxRating();
                     index = i;
 
                 }
@@ -395,7 +395,7 @@ namespace Programming
         {
             try
             {
-                UpdateRectangleInfo(ref _currentRectangleList);
+                UpdateRectangleInfo(ref _currentRectangleFromList);
             }
             catch
             {
@@ -410,12 +410,12 @@ namespace Programming
                 XTextBox.BackColor = AppColors.NormalColor;
 
                 var x = Convert.ToDouble(XTextBox.Text);
-                var y = _currentRectangleList.Center.Y;
+                var y = _currentRectangleFromList.Center.Y;
                 var coordinatePoint2D = new Point2D(x, y);
                 var coordinatePoint = new Point(Convert.ToInt32(x), Convert.ToInt32(y));
-                var info = TakeInfoFromRectangle(_currentRectangleList);
+                var info = TakeInfoFromRectangle(_currentRectangleFromList);
 
-                _currentRectangleList.Center = coordinatePoint2D;
+                _currentRectangleFromList.Center = coordinatePoint2D;
                 _rectanglePanel[RectanglesListBox.SelectedIndex].Location = coordinatePoint;
                 RectanglesListBox.Items[RectanglesListBox.SelectedIndex] = info;
                 FindCollision();
@@ -461,12 +461,12 @@ namespace Programming
                 YTextBox.BackColor = AppColors.NormalColor;
 
                 var y = Convert.ToDouble(YTextBox.Text);
-                var x = _currentRectangleList.Center.X;
+                var x = _currentRectangleFromList.Center.X;
                 var coordinatePoint2D = new Point2D(x, y);
                 var coordinatePoint = new Point(Convert.ToInt32(x), Convert.ToInt32(y));
-                var info = TakeInfoFromRectangle(_currentRectangleList);
+                var info = TakeInfoFromRectangle(_currentRectangleFromList);
 
-                _currentRectangleList.Center = coordinatePoint2D;
+                _currentRectangleFromList.Center = coordinatePoint2D;
                 _rectanglePanel[RectanglesListBox.SelectedIndex].Location = coordinatePoint;
                 RectanglesListBox.Items[RectanglesListBox.SelectedIndex] = info;
                 FindCollision();
@@ -484,9 +484,9 @@ namespace Programming
                 WhTextBox.BackColor = AppColors.NormalColor;
                 var widthDouble = Convert.ToDouble(WhTextBox.Text);
                 var widthInt = Convert.ToInt32(WhTextBox.Text);
-                var info = TakeInfoFromRectangle(_currentRectangleList);
+                var info = TakeInfoFromRectangle(_currentRectangleFromList);
 
-                _currentRectangleList.Width = widthDouble;
+                _currentRectangleFromList.Width = widthDouble;
                 _rectanglePanel[RectanglesListBox.SelectedIndex].Width = widthInt;
                 RectanglesListBox.Items[RectanglesListBox.SelectedIndex] = info;
                 FindCollision();
@@ -504,9 +504,9 @@ namespace Programming
                 HeightTextBox.BackColor = AppColors.NormalColor;
                 var heightDouble = Convert.ToDouble(HeightTextBox.Text);
                 var heightInt = Convert.ToInt32(HeightTextBox.Text);
-                var info = TakeInfoFromRectangle(_currentRectangleList);
+                var info = TakeInfoFromRectangle(_currentRectangleFromList);
 
-                _currentRectangleList.Lenght = heightDouble;
+                _currentRectangleFromList.Lenght = heightDouble;
                 _rectanglePanel[RectanglesListBox.SelectedIndex].Height = heightInt;
                 RectanglesListBox.Items[RectanglesListBox.SelectedIndex] = info;
                 FindCollision();
