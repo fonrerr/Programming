@@ -5,9 +5,9 @@
         public static bool IsCollision(Rectangle rectangle1, Rectangle rectangle2)
         {
             double halfWidth1 = rectangle1.Width / 2;
-            double halfHeight1 = rectangle1.Lenght / 2;
+            double halfHeight1 = rectangle1.Height / 2;
             double halfWidth2 = rectangle2.Width / 2;
-            double halfHeight2 = rectangle2.Lenght / 2;
+            double halfHeight2 = rectangle2.Height / 2;
 
             double centerX1 = rectangle1.Center.X + halfWidth1;
             double centerY1 = rectangle1.Center.Y + halfHeight1;

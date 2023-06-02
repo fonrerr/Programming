@@ -9,5 +9,11 @@
         public static Color CollisionFalse = Color.FromArgb(127, 127, 255, 127);
         
         public static Color CollisionTrue = Color.FromArgb(127, 255, 127, 127);
+
+        public static Color SpringColor = Color.Green;
+        /// <summary>
+        /// Цвет фона ComboBox для осени.
+        /// </summary>
+        public static Color AutumnColor = Color.Orange;
     }
 }

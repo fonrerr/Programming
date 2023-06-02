@@ -7,7 +7,6 @@ namespace Programming
 {
     public partial class MainForm : Form
     {
-        //TODO: RSDN
         string[] _enums = { "Colors", "EducationForm", "Genre", "Menufactures", "Season", "Weekday" };
         private Rectangle[] _rectangles;
         private Movie[] _movie;
@@ -16,7 +15,6 @@ namespace Programming
         private string[] _colors = { "Orange", "Black", "Red", "Green", "Blue" };
         private int _max = 0;
         private List<Rectangle> _rectanglesList = new List<Rectangle>();
-        //TODO: изменить название
         private Rectangle _currentRectangleFromList;
         private List<Panel> _rectanglePanel = new List<Panel>();
         public MainForm()
@@ -30,14 +28,14 @@ namespace Programming
         private void MainForm_Load(object sender, EventArgs e)
         {
             EnumsListBox.Items.AddRange(_enums);
-            EnumsListBox.SetSelected(0, true); 
+            EnumsListBox.SetSelected(0, true);
         }
 
         private void EnumsListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             ValueListBox.Items.Clear();
-            ListBox listbox = (ListBox)sender; 
-            string elem = listbox.SelectedItem as string; 
+            ListBox listbox = (ListBox)sender;
+            string elem = listbox.SelectedItem as string;
             switch (elem)
             {
                 case "Colors":
@@ -70,7 +68,7 @@ namespace Programming
         private void ParseButton_Click(object sender, EventArgs e)
         {
             Weekday week;
-            if (Enum.TryParse<Weekday>(ParseTextBox.Text, out week)) 
+            if (Enum.TryParse<Weekday>(ParseTextBox.Text, out week))
                 ParseLabel.Text = $"«Ýòî äåíü íåäåëè ({week} = {((int)week + 1)})»";
             else ParseLabel.Text = "Íåò òàêîãî äíÿ íåäåëè!";
         }
@@ -87,7 +85,7 @@ namespace Programming
                     MessageBox.Show("Óðà! Ñîëíöå!");
                     break;
                 case "Spring":
-                    GroupBox.BackColor = Color.GreenYellow; 
+                    GroupBox.BackColor = Color.GreenYellow;
                     break;
                 case "Autumn":
                     GroupBox.BackColor = Color.Orange;
@@ -120,7 +118,7 @@ namespace Programming
                     ColorTextBox.BackColor = Color.White;
                     _currentRectangle = new Models.Classes.Geometry.Rectangle(
                         Convert.ToInt32(LenghtTextBox.Text),
-                        Convert.ToInt32(WidthTextBox.Text), ColorTextBox.Text, 
+                        Convert.ToInt32(WidthTextBox.Text), ColorTextBox.Text,
                         new Point2D(Convert.ToInt32(XCoordinateTextBox.Text), Convert.ToInt32(YCoordinateTextBox.Text)));
                     _rectangles[(int)RectListBox.SelectedIndex] = _currentRectangle;
                 }
@@ -156,7 +154,7 @@ namespace Programming
             Rectangle answr = _rectangles[RectListBox.SelectedIndex];
             IdTextBox.Text = answr.Id.ToString();
             ColorTextBox.Text = answr.Color.ToString();
-            LenghtTextBox.Text = answr.Lenght.ToString();
+            LenghtTextBox.Text = answr.Height.ToString();
             WidthTextBox.Text = answr.Width.ToString();
             XCoordinateTextBox.Text = answr.Center.X.ToString();
             YCoordinateTextBox.Text = answr.Center.Y.ToString();
@@ -342,7 +340,7 @@ namespace Programming
             _rectanglesList.Add(rectangle);
             RectanglesListBox.Items.Add(info);
 
-            panel.Height = Convert.ToInt32(rectangle.Lenght);
+            panel.Height = Convert.ToInt32(rectangle.Height);
             panel.Width = Convert.ToInt32(rectangle.Width);
             var x = Convert.ToInt32(rectangle.Center.X);
             var y = Convert.ToInt32(rectangle.Center.Y);
@@ -360,13 +358,13 @@ namespace Programming
                        $"(X={rectangle.Center.X}; " +
                        $"Y={rectangle.Center.Y};" +
                        $" W={rectangle.Width}; " +
-                       $"L={rectangle.Lenght})";
+                       $"L={rectangle.Height})";
 
             return info;
         }
 
         //TODO: объяснить почему передача по ссылке
-        private void UpdateRectangleInfo(Rectangle rectangle)
+        private void UpdateRectangleInfo(ref Rectangle rectangle)
         {
             rectangle = _rectanglesList[RectanglesListBox.SelectedIndex];
 
@@ -374,7 +372,7 @@ namespace Programming
             XTextBox.Text = rectangle.Center.X.ToString();
             YTextBox.Text = rectangle.Center.Y.ToString();
             WhTextBox.Text = rectangle.Width.ToString();
-            HeightTextBox.Text = rectangle.Lenght.ToString();
+            HeightTextBox.Text = rectangle.Height.ToString();
         }
 
         private void ClearRectangleInfo()
@@ -395,7 +393,7 @@ namespace Programming
         {
             try
             {
-                UpdateRectangleInfo(_currentRectangleFromList);
+                UpdateRectangleInfo(ref _currentRectangleFromList);
             }
             catch
             {
@@ -408,7 +406,6 @@ namespace Programming
             try
             {
                 XTextBox.BackColor = AppColors.NormalColor;
-
                 var x = Convert.ToDouble(XTextBox.Text);
                 var y = _currentRectangleFromList.Center.Y;
                 var coordinatePoint2D = new Point2D(x, y);
@@ -442,7 +439,7 @@ namespace Programming
             {
                 for (int j = 0; j < _rectanglesList.Count; j++)
                 {
-                    if( i != j)
+                    if (i != j)
                     {
                         if (CollisionManager.IsCollision(_rectanglesList[i], _rectanglesList[j]))
                         {
@@ -506,7 +503,7 @@ namespace Programming
                 var heightInt = Convert.ToInt32(HeightTextBox.Text);
                 var info = TakeInfoFromRectangle(_currentRectangleFromList);
 
-                _currentRectangleFromList.Lenght = heightDouble;
+                _currentRectangleFromList.Height = heightDouble;
                 _rectanglePanel[RectanglesListBox.SelectedIndex].Height = heightInt;
                 RectanglesListBox.Items[RectanglesListBox.SelectedIndex] = info;
                 FindCollision();

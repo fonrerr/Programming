@@ -4,7 +4,7 @@
     {
         private int _id;
         private double _width;
-        private double _lenght;
+        private double _height;
         private static int _allRectanglesCount;
 
         public string Name { get; set; }
@@ -25,30 +25,28 @@
             }
         }
 
-        public double Lenght
+        public double Height
         {
-            get { return _lenght; }
+            get { return _height; }
             set
             {
-                Validator.AssertOnPositiveValue(value, nameof(Lenght));
-                _lenght = value;
+                Validator.AssertOnPositiveValue(value, nameof(Height));
+                _height = value;
             }
         }
 
         public Point2D Center { get; set; }
 
-        public Rectangle(double width, double lenght, string color, Point2D coordinates)
+        public Rectangle(double width, double height, string color, Point2D coordinates)
         {
             Color = color;
             Width = width;
-            Lenght = lenght;
+            Height = height;
             double centerX = width / 2.0;
-            double centerY = lenght / 2.0;
+            double centerY = height / 2.0;
             Center = coordinates; 
             _allRectanglesCount++;
             _id = AllRectanglesCount;
-
- 
         }
 
         public Rectangle()
@@ -57,7 +55,7 @@
 
         public string[] GetRectangle()
         {
-            string[] rect = { Name, Width.ToString(), Lenght.ToString(), Color };
+            string[] rect = { Name, Width.ToString(), Height.ToString(), Color };
             return rect;
         }
 
