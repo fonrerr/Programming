@@ -2,12 +2,27 @@
 
 namespace Programming.Models.View.Panels
 {
+    /// <summary>
+    /// Предоставляет шаблон пользовательского интерфейса MoviesControl.
+    /// </summary>
     public partial class MoviesControl : UserControl
     {
+        /// <summary>
+        /// Текущий выбранный фильм.
+        /// </summary>
         private Movie _currentMovie = new Movie();
+        /// <summary>
+        /// Текущий фильм.
+        /// </summary>
         private Movie[] _movie;
+        /// <summary>
+        /// Переменная для максимума.
+        /// </summary>
         private int _max = 0;
 
+        /// <summary>
+        /// Создает экземпляр класса MoviesControl.
+        /// </summary>
         public MoviesControl()
         {
             _movie = new Movie[5];

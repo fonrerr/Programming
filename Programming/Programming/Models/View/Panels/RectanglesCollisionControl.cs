@@ -4,17 +4,37 @@ using Rectangle = Programming.Models.Classes.Geometry.Rectangle;
 
 namespace Programming.Models.View.Panels
 {
+    /// <summary>
+    /// Предоставляет шаблон пользовательского интерфейса RectanglesCollisionControl.
+    /// </summary>
     public partial class RectanglesCollisionControl : UserControl
     {
+        /// <summary>
+        /// Список прямоугольников.
+        /// </summary>
         private List<Rectangle> _rectanglesList = new List<Rectangle>();
+
+        /// <summary>
+        /// Текущий выбранный прямоугольник.
+        /// </summary>
         private Rectangle _currentRectangleFromList;
+
+        /// <summary>
+        /// Список панелей прямоугольника.
+        /// </summary>
         private List<Panel> _rectanglePanel = new List<Panel>();
 
+        /// <summary>
+        /// Создает экземпляр класса RectanglesCollisionControl.
+        /// </summary>
         public RectanglesCollisionControl()
         {
             InitializeComponent();
         }
 
+        /// <summary>
+        /// Добавление нового прямоугольника.
+        /// </summary>
         private void AddButton_Click(object sender, EventArgs e)
         {
             Random _random = new Random();
@@ -38,6 +58,11 @@ namespace Programming.Models.View.Panels
             FindCollision();
         }
 
+        /// <summary>
+        /// Возвращает строку с данными о прямоугольнике.
+        /// </summary>
+        /// <param name="rectangle">Прямоугольник.</param>
+        /// <returns>Строка с данными о прямоугольнике.</returns>
         private static string TakeInfoFromRectangle(Rectangle rectangle)
         {
             var info = $"{rectangle.Id}. " +
@@ -49,6 +74,10 @@ namespace Programming.Models.View.Panels
             return info;
         }
 
+        /// <summary>
+        /// Обновление данных в TextBox.
+        /// </summary>
+        /// <param name="rectangle">Прямоугольник.</param>
         private void UpdateRectangleInfo(ref Rectangle rectangle)
         {
             rectangle = _rectanglesList[RectanglesListBox.SelectedIndex];
@@ -60,6 +89,9 @@ namespace Programming.Models.View.Panels
             HeightTextBox.Text = rectangle.Height.ToString();
         }
 
+        /// <summary>
+        /// Очистка данных в TextBox.
+        /// </summary>
         private void ClearRectangleInfo()
         {
             IddTextBox.Text = string.Empty;
@@ -74,6 +106,9 @@ namespace Programming.Models.View.Panels
             HeightTextBox.BackColor = AppColors.NormalColor;
         }
 
+        /// <summary>
+        /// Выбор элемента в RectanglesListBox с последующим обновлением информации в TextBox.
+        /// </summary>
         private void RectanglesListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             try
@@ -86,6 +121,9 @@ namespace Programming.Models.View.Panels
             }
         }
 
+        /// <summary>
+        /// Изменения данных в XTextBox.
+        /// </summary>
         private void XTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -108,6 +146,9 @@ namespace Programming.Models.View.Panels
             }
         }
 
+        /// <summary>
+        /// Проверка на пересечение прямоугольников. В случаи пересечения, прямоугольники меняют свой цвет.
+        /// </summary>
         private void FindCollision()
         {
             foreach (Panel rectangle in RectanglesPanel.Controls)
@@ -136,6 +177,9 @@ namespace Programming.Models.View.Panels
             }
         }
 
+        /// <summary>
+        /// Изменения данных в YTextBox.
+        /// </summary>
         private void YTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -159,6 +203,9 @@ namespace Programming.Models.View.Panels
             }
         }
 
+        /// <summary>
+        /// Изменения данных в WhTextBox.
+        /// </summary>
         private void WhTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -179,6 +226,9 @@ namespace Programming.Models.View.Panels
             }
         }
 
+        /// <summary>
+        /// Изменение данных в HeightTextBox.
+        /// </summary>
         private void HeightTextBox_TextChanged(object sender, EventArgs e)
         {
             try
@@ -199,6 +249,9 @@ namespace Programming.Models.View.Panels
             }
         }
 
+        /// <summary>
+        /// Удаление выбранного прямоугольника.
+        /// </summary>
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             try

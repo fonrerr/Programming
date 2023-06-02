@@ -102,7 +102,6 @@
             Controls.Add(label1);
             Name = "EnumerationsControl";
             Size = new Size(771, 344);
-            Load += EnumerationsControl_Load;
             ResumeLayout(false);
             PerformLayout();
         }
