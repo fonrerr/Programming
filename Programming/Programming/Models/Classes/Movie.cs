@@ -1,18 +1,22 @@
 ﻿namespace Programming.Models.Classes
 {
+
     /// <summary>
     /// Хранит данные о фильме.
     /// </summary>
     public class Movie
     {
+
         /// <summary>
         /// Хранит значение продолжительности фильма.
         /// </summary>
         private double _duration;
+
         /// <summary>
         /// Хранит значение года выпуска фильма.
         /// </summary>
         private int _year;
+
         /// <summary>
         /// Хранит значение рейтинга фильма.
         /// </summary>
@@ -22,6 +26,7 @@
         /// Возвращает и задает название фильма.
         /// </summary>
         public string Title { get; set; }
+
         /// <summary>
         /// Возвращает и задает жанр фильма.
         /// </summary>

@@ -1,5 +1,6 @@
 ﻿namespace Programming.Models.Classes
 {
+
     /// <summary>
     /// Хранит данные о полете.
     /// </summary>

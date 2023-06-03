@@ -2,11 +2,13 @@
 
 namespace Programming.Models.View.Panels
 {
+
     /// <summary>
     /// Предоставляет шаблон пользовательского интерфейса WeekdayParsingControl.
     /// </summary>
     public partial class WeekdayParsingControl : UserControl
     {
+
         /// <summary>
         /// Создает экземпляр класса WeekdayParsingControl.
         /// </summary>

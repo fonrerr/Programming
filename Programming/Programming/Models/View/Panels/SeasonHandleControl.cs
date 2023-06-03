@@ -3,11 +3,13 @@ using Programming.Models.Enums;
 
 namespace Programming.Models.View.Panels
 {
+
     /// <summary>
     /// Предоставляет шаблон пользовательского интерфейса SeasonHandleControl.
     /// </summary>
     public partial class SeasonHandleControl : UserControl
     {
+
         /// <summary>
         /// Создает экземпляр класса SeasonHandleControl.
         /// </summary>
@@ -24,7 +26,7 @@ namespace Programming.Models.View.Panels
         /// </summary>
         private void GoButton_Click(object sender, EventArgs e)
         {
-            switch(SeasonComboBox.Text)
+            switch (SeasonComboBox.Text)
             {
                 case "Spring":
                     BackColor = AppColors.SpringColor;
@@ -38,7 +40,7 @@ namespace Programming.Models.View.Panels
                 case "Winter":
                     MessageBox.Show("Бррр! Холодно!");
                     break;
-                }
             }
+        }
     }
 }

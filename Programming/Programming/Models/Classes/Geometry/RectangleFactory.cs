@@ -2,11 +2,13 @@
 
 namespace Programming.Models.Classes.Geometry
 {
+
     /// <summary>
     /// Реализуют статическую работу с прямоугольниками.
     /// </summary>
     public static class RectangleFactory
     {
+
         /// <summary>
         /// Экземпляр класса Random.
         /// </summary>

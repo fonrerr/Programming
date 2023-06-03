@@ -1,10 +1,12 @@
 ﻿namespace Programming.Models.Classes
 {
+
     /// <summary>
     /// Реализует статическую проверку на ошибки.
     /// </summary>
     public static class Validator
     {
+
         /// <summary>
         /// Проверка на позитивные числа.
         /// </summary>

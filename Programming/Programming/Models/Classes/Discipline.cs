@@ -1,14 +1,17 @@
 ﻿namespace Programming.Models.Classes
 {
+
     /// <summary>
     /// Хранит данные о дисциплине.
     /// </summary>
     public class Discipline
     {
+
         /// <summary>
         /// Хранит значение количесттва часов.
         /// </summary>
         private int _numberOfhours;
+
         /// <summary>
         /// Хранит значение баллов.
         /// </summary>

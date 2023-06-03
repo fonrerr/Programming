@@ -4,6 +4,7 @@ using Rectangle = Programming.Models.Classes.Geometry.Rectangle;
 
 namespace Programming.Models.View.Panels
 {
+
     /// <summary>
     /// Предоставляет шаблон пользовательского интерфейса RectanglesControl.
     /// </summary>
@@ -13,14 +14,17 @@ namespace Programming.Models.View.Panels
         /// Массив прямоугольников.
         /// </summary>
         private Rectangle[] _rectangles = new Rectangle[5];
+
         /// <summary>
         /// Текущий выбранный прямоугольник.
         /// </summary>
         private Rectangle _currentRectangle = new Rectangle();
+
         /// <summary>
         /// Переменная для максимума.
         /// </summary>
         private int _max = 0;
+
         /// <summary>
         /// Массив цветов.
         /// </summary>

@@ -1,7 +1,11 @@
 ﻿namespace Programming.Models.Classes
 {
+    /// <summary>
+    /// Хранит данные о музыке.
+    /// </summary>
     public class Music
     {
+
         /// <summary>
         /// Хранит значение музыкальных групп.
         /// </summary>

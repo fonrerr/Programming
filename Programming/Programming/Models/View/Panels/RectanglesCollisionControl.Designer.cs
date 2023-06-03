@@ -32,7 +32,7 @@
             DeleteButton = new Button();
             AddButton = new Button();
             HeightTextBox = new TextBox();
-            WhTextBox = new TextBox();
+            WidthRectanglesTextBox = new TextBox();
             label23 = new Label();
             label22 = new Label();
             YTextBox = new TextBox();
@@ -75,13 +75,13 @@
             HeightTextBox.TabIndex = 29;
             HeightTextBox.TextChanged += HeightTextBox_TextChanged;
             // 
-            // WhTextBox
+            // WidthRectanglesTextBox
             // 
-            WhTextBox.Location = new Point(86, 464);
-            WhTextBox.Name = "WhTextBox";
-            WhTextBox.Size = new Size(138, 27);
-            WhTextBox.TabIndex = 28;
-            WhTextBox.TextChanged += WhTextBox_TextChanged;
+            WidthRectanglesTextBox.Location = new Point(86, 464);
+            WidthRectanglesTextBox.Name = "WidthRectanglesTextBox";
+            WidthRectanglesTextBox.Size = new Size(138, 27);
+            WidthRectanglesTextBox.TabIndex = 28;
+            WidthRectanglesTextBox.TextChanged += WhTextBox_TextChanged;
             // 
             // label23
             // 
@@ -197,7 +197,7 @@
             Controls.Add(DeleteButton);
             Controls.Add(AddButton);
             Controls.Add(HeightTextBox);
-            Controls.Add(WhTextBox);
+            Controls.Add(WidthRectanglesTextBox);
             Controls.Add(label23);
             Controls.Add(label22);
             Controls.Add(YTextBox);
@@ -227,7 +227,7 @@
         private Button DeleteButton;
         private Button AddButton;
         private TextBox HeightTextBox;
-        private TextBox WhTextBox;
+        private TextBox WidthRectanglesTextBox;
         private Label label23;
         private Label label22;
         private TextBox YTextBox;

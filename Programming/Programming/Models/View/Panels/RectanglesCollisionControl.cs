@@ -4,6 +4,7 @@ using Rectangle = Programming.Models.Classes.Geometry.Rectangle;
 
 namespace Programming.Models.View.Panels
 {
+
     /// <summary>
     /// Предоставляет шаблон пользовательского интерфейса RectanglesCollisionControl.
     /// </summary>
@@ -62,7 +63,7 @@ namespace Programming.Models.View.Panels
         /// <summary>
         /// Возвращает строку с данными о прямоугольнике.
         /// </summary>
-        /// <param name="rectangle">Прямоугольник.</param>
+        /// <param name="rectangle">Прямоугольник, у которого берется информация.</param>
         /// <returns>Строка с данными о прямоугольнике.</returns>
         private static string TakeInfoFromRectangle(Rectangle rectangle)
         {
@@ -86,7 +87,7 @@ namespace Programming.Models.View.Panels
             IddTextBox.Text = rectangle.Id.ToString();
             XTextBox.Text = rectangle.Center.X.ToString();
             YTextBox.Text = rectangle.Center.Y.ToString();
-            WhTextBox.Text = rectangle.Width.ToString();
+            WidthRectanglesTextBox.Text = rectangle.Width.ToString();
             HeightTextBox.Text = rectangle.Height.ToString();
         }
 
@@ -98,12 +99,12 @@ namespace Programming.Models.View.Panels
             IddTextBox.Text = string.Empty;
             XTextBox.Text = string.Empty;
             YTextBox.Text = string.Empty;
-            WhTextBox.Text = string.Empty;
+            WidthRectanglesTextBox.Text = string.Empty;
             HeightTextBox.Text = string.Empty;
 
             XTextBox.BackColor = AppColors.NormalColor;
             YTextBox.BackColor = AppColors.NormalColor;
-            WhTextBox.BackColor = AppColors.NormalColor;
+            WidthRectanglesTextBox.BackColor = AppColors.NormalColor;
             HeightTextBox.BackColor = AppColors.NormalColor;
         }
 
@@ -206,15 +207,15 @@ namespace Programming.Models.View.Panels
 
         //TODO: Убрвать сокращение из названия
         /// <summary>
-        /// Изменения данных в WhTextBox.
+        /// Изменения данных в WidthRectanglesTextBox.
         /// </summary>
-        private void WhTextBox_TextChanged(object sender, EventArgs e)
+        private void WidthRectanglesTextBox_TextChanged(object sender, EventArgs e)
         {
             try
             {
-                WhTextBox.BackColor = AppColors.NormalColor;
-                var widthDouble = Convert.ToDouble(WhTextBox.Text);
-                var widthInt = Convert.ToInt32(WhTextBox.Text);
+                WidthRectanglesTextBox.BackColor = AppColors.NormalColor;
+                var widthDouble = Convert.ToDouble(WidthRectanglesTextBox.Text);
+                var widthInt = Convert.ToInt32(WidthRectanglesTextBox.Text);
                 var info = TakeInfoFromRectangle(_currentRectangleFromList);
 
                 _currentRectangleFromList.Width = widthDouble;
@@ -224,7 +225,7 @@ namespace Programming.Models.View.Panels
             }
             catch
             {
-                WhTextBox.BackColor = AppColors.ErrorColor;
+                WidthRectanglesTextBox.BackColor = AppColors.ErrorColor;
             }
         }
 

@@ -2,6 +2,7 @@
 
 namespace Programming.Models.View.Panels
 {
+
     /// <summary>
     /// Предоставляет шаблон пользовательского интерфейса EnumerationsControl.
     /// </summary>

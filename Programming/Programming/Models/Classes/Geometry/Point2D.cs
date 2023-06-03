@@ -1,10 +1,12 @@
 ﻿namespace Programming.Models.Classes.Geometry
 {
+
     /// <summary>
     /// Хранит данные координаты в 2D пространстве.
     /// </summary>
     public class Point2D
     {
+
         /// <summary>
         /// Хранит значение координаты x.
         /// </summary>
