@@ -1,12 +1,10 @@
 ﻿namespace Programming.Models.Classes
 {
-
     /// <summary>
     /// Хранит данные о фильме.
     /// </summary>
     public class Movie
     {
-
         /// <summary>
         /// Хранит значение продолжительности фильма.
         /// </summary>

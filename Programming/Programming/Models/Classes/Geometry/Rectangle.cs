@@ -1,12 +1,10 @@
 ﻿namespace Programming.Models.Classes.Geometry
 {
-
     /// <summary>
     /// Хранит данные о прямоугольнике.
     /// </summary>
     public class Rectangle
     {
-
         /// <summary>
         /// Хранит значение идентификатора.
         /// </summary>

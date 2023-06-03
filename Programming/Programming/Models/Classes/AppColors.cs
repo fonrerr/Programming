@@ -1,6 +1,5 @@
 ﻿namespace Programming.Models.Classes
 {
-
     /// <summary>
     /// Реализует статистическое хранение цветов.
     /// </summary>

@@ -4,7 +4,6 @@ using Rectangle = Programming.Models.Classes.Geometry.Rectangle;
 
 namespace Programming.Models.View.Panels
 {
-
     /// <summary>
     /// Предоставляет шаблон пользовательского интерфейса RectanglesCollisionControl.
     /// </summary>

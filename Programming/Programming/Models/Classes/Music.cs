@@ -5,7 +5,6 @@
     /// </summary>
     public class Music
     {
-
         /// <summary>
         /// Хранит значение музыкальных групп.
         /// </summary>

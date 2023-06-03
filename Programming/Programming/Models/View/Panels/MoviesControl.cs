@@ -2,13 +2,11 @@
 
 namespace Programming.Models.View.Panels
 {
-
     /// <summary>
     /// Предоставляет шаблон пользовательского интерфейса MoviesControl.
     /// </summary>
     public partial class MoviesControl : UserControl
     {
-
         //TODO: пустая строка перед комментарием
         /// <summary>
         /// Текущий выбранный фильм.

@@ -2,13 +2,11 @@
 
 namespace Programming.Models.Classes
 {
-
     /// <summary>
     /// Хранит данные о человеке и его контактных данных.
     /// </summary>
     public class Contact
     {
-
         /// <summary>
         /// Хранит значение номера телефона.
         /// </summary>

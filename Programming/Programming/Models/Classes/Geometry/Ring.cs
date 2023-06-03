@@ -1,12 +1,10 @@
 ﻿namespace Programming.Models.Classes.Geometry
 {
-
     /// <summary>
     /// Хранит данные о кольце.
     /// </summary>
     public class Ring
     {
-
         /// <summary>
         /// Хранит значение внутреннего радиуса.
         /// </summary>

@@ -3,13 +3,11 @@ using Programming.Models.Enums;
 
 namespace Programming.Models.View.Panels
 {
-
     /// <summary>
     /// Предоставляет шаблон пользовательского интерфейса SeasonHandleControl.
     /// </summary>
     public partial class SeasonHandleControl : UserControl
     {
-
         /// <summary>
         /// Создает экземпляр класса SeasonHandleControl.
         /// </summary>

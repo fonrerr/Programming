@@ -1,12 +1,10 @@
 ﻿namespace Programming.Models.Classes.Geometry
 {
-
     /// <summary>
     /// Реализует статическую проверку на пересечение геометрических фигур.
     /// </summary>
     public static class CollisionManager
     {
-
         /// <summary>
         /// Проверка пересечения прямоугольников.
         /// </summary>

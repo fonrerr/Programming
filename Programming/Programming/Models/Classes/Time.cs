@@ -1,12 +1,10 @@
 ﻿namespace Programming.Models.Classes
 {
-
     /// <summary>
     /// Хранит данные о времени.
     /// </summary>
     public class Time
     {
-
         /// <summary>
         /// Хранит значение количества часов.
         /// </summary>

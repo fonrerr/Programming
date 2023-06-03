@@ -81,7 +81,7 @@
             WidthRectanglesTextBox.Name = "WidthRectanglesTextBox";
             WidthRectanglesTextBox.Size = new Size(138, 27);
             WidthRectanglesTextBox.TabIndex = 28;
-            WidthRectanglesTextBox.TextChanged += WhTextBox_TextChanged;
+            WidthRectanglesTextBox.TextChanged += WidthRectanglesTextBox_TextChanged;
             // 
             // label23
             // 
