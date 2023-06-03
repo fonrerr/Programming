@@ -58,6 +58,7 @@ namespace Programming.Models.View.Panels
             FindCollision();
         }
 
+        //TODO: уточнить комментарий входных параметров
         /// <summary>
         /// Возвращает строку с данными о прямоугольнике.
         /// </summary>
@@ -203,6 +204,7 @@ namespace Programming.Models.View.Panels
             }
         }
 
+        //TODO: Убрвать сокращение из названия
         /// <summary>
         /// Изменения данных в WhTextBox.
         /// </summary>

@@ -7,6 +7,7 @@ namespace Programming.Models.View.Panels
     /// </summary>
     public partial class MoviesControl : UserControl
     {
+        //TODO: пустая строка перед комментарием
         /// <summary>
         /// Текущий выбранный фильм.
         /// </summary>
