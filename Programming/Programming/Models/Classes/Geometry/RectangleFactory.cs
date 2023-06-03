@@ -2,10 +2,20 @@
 
 namespace Programming.Models.Classes.Geometry
 {
+    /// <summary>
+    /// Реализуют статическую работу с прямоугольниками.
+    /// </summary>
     public static class RectangleFactory
     {
+        /// <summary>
+        /// Экземпляр класса Random.
+        /// </summary>
         private static Random _random = new Random();
 
+        /// <summary>
+        /// Создает объекта прямоугольник с заполненными случайными значениями. 
+        /// </summary>
+        /// <returns>Случайный прямоугольник.</returns>
         public static Rectangle Randomize()
         {
             var width = _random.Next(30, 100);

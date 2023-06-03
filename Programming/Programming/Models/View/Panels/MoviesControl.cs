@@ -27,10 +27,13 @@ namespace Programming.Models.View.Panels
         {
             _movie = new Movie[5];
             InitializeComponent();
-            InitRectanglesAndMovies();
+            InitMovies();
         }
 
-        private void InitRectanglesAndMovies()
+        /// <summary>
+        /// Заполнение массива фильмов.
+        /// </summary>
+        private void InitMovies()
         {
             var Movie = new[]
             {
@@ -49,6 +52,9 @@ namespace Programming.Models.View.Panels
             MovieListBox.SetSelected(0, true);
         }
 
+        /// <summary>
+        /// Выбор элемента в MovieListBox с последующим обновлением информации в TextBox.
+        /// </summary>
         private void MovieListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             Movie answr = _movie[MovieListBox.SelectedIndex];
@@ -60,6 +66,9 @@ namespace Programming.Models.View.Panels
             _currentMovie = _movie[(int)MovieListBox.SelectedIndex];
         }
 
+        /// <summary>
+        /// Обработчик, который выбирает элемент с максимальным рейтингом.
+        /// </summary>
         private void FindMovieButton_Click(object sender, EventArgs e)
         {
             _max = 0;
@@ -76,13 +85,16 @@ namespace Programming.Models.View.Panels
             MovieListBox.SetSelected(index, true);
         }
 
+        /// <summary>
+        /// Изменение данных в DurationTextBox.
+        /// </summary>
         private void DurationTextBox_TextChanged(object sender, EventArgs e)
         {
             if (DurationTextBox.Text != "" && YearTextBox.Text != "" && RatingTextBox.Text != "" && GenreTextBox.Text != "" && TitleTextBox.Text != "")
             {
                 try
                 {
-                    DurationTextBox.BackColor = Color.White;
+                    DurationTextBox.BackColor = AppColors.NormalColor;
                     _currentMovie = new Models.Classes.Movie(
                         TitleTextBox.Text,
                         Convert.ToInt32(DurationTextBox.Text),
@@ -98,13 +110,16 @@ namespace Programming.Models.View.Panels
             }
         }
 
+        /// <summary>
+        /// Изменение данных в YearTextBox.
+        /// </summary>
         private void YearTextBox_TextChanged(object sender, EventArgs e)
         {
             if (DurationTextBox.Text != "" && YearTextBox.Text != "" && RatingTextBox.Text != "" && GenreTextBox.Text != "" && TitleTextBox.Text != "")
             {
                 try
                 {
-                    YearTextBox.BackColor = Color.White;
+                    YearTextBox.BackColor = AppColors.NormalColor;
                     _currentMovie = new Models.Classes.Movie(
                         TitleTextBox.Text,
                         Convert.ToInt32(DurationTextBox.Text),
@@ -120,13 +135,16 @@ namespace Programming.Models.View.Panels
             }
         }
 
+        /// <summary>
+        /// Изменение данных в GenreTextBox.
+        /// </summary>
         private void GenreTextBox_TextChanged(object sender, EventArgs e)
         {
             if (DurationTextBox.Text != "" && YearTextBox.Text != "" && RatingTextBox.Text != "" && GenreTextBox.Text != "" && TitleTextBox.Text != "")
             {
                 try
                 {
-                    GenreTextBox.BackColor = Color.White;
+                    GenreTextBox.BackColor = AppColors.NormalColor;
                     _currentMovie = new Models.Classes.Movie(
                         TitleTextBox.Text,
                         Convert.ToInt32(DurationTextBox.Text),
@@ -142,13 +160,16 @@ namespace Programming.Models.View.Panels
             }
         }
 
+        /// <summary>
+        /// Изменение данных в RatingTextBox.
+        /// </summary>
         private void RatingTextBox_TextChanged(object sender, EventArgs e)
         {
             if (DurationTextBox.Text != "" && YearTextBox.Text != "" && RatingTextBox.Text != "" && GenreTextBox.Text != "" && TitleTextBox.Text != "")
             {
                 try
                 {
-                    RatingTextBox.BackColor = Color.White;
+                    RatingTextBox.BackColor = AppColors.NormalColor;
                     _currentMovie = new Models.Classes.Movie(
                         TitleTextBox.Text,
                         Convert.ToInt32(DurationTextBox.Text),

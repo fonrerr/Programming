@@ -1,5 +1,6 @@
-﻿
-
+﻿/// <summary>
+/// Перечисление производителей телефонов.
+/// </summary>
 namespace Programming.Models.Enums
 {
     internal enum Manufactures

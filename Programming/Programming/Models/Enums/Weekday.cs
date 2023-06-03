@@ -1,5 +1,6 @@
-﻿
-
+﻿/// <summary>
+/// Перечисление дней недели.
+/// </summary>
 namespace Programming.Models.Enums
 {
     internal enum Weekday

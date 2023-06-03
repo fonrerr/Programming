@@ -4,21 +4,38 @@ using Rectangle = Programming.Models.Classes.Geometry.Rectangle;
 
 namespace Programming.Models.View.Panels
 {
+    /// <summary>
+    /// Предоставляет шаблон пользовательского интерфейса RectanglesControl.
+    /// </summary>
     public partial class RectanglesControl : UserControl
     {
-        private Rectangle[] _rectangles;
+        /// <summary>
+        /// Массив прямоугольников.
+        /// </summary>
+        private Rectangle[] _rectangles = new Rectangle[5];
+        /// <summary>
+        /// Текущий выбранный прямоугольник.
+        /// </summary>
         private Rectangle _currentRectangle = new Rectangle();
+        /// <summary>
+        /// Переменная для максимума.
+        /// </summary>
         private int _max = 0;
+        /// <summary>
+        /// Массив цветов.
+        /// </summary>
         private string[] _colors = { "Orange", "Black", "Red", "Green", "Blue" };
 
         public RectanglesControl()
         {
-            _rectangles = new Rectangle[5];
             InitializeComponent();
-            InitRectanglesAndMovies();
+            InitRectangles();
         }
 
-        private void InitRectanglesAndMovies()
+        /// <summary>
+        /// Заполнение массива прямоугольников случайными прямоугольниками и случайными параметрами.
+        /// </summary>
+        private void InitRectangles()
         {
             Random rd = new Random();
             for (int i = 0; i < _rectangles.Length; i++)
@@ -30,6 +47,10 @@ namespace Programming.Models.View.Panels
             }
             RectListBox.SetSelected(0, true);
         }
+
+        /// <summary>
+        /// Выбор элемента в RectListBox с последующим обновлением информации в TextBox.
+        /// </summary>
         private void RectListBox_SelectedIndexChange(object sender, EventArgs e)
         {
             Rectangle answr = _rectangles[RectListBox.SelectedIndex];
@@ -42,13 +63,16 @@ namespace Programming.Models.View.Panels
             _currentRectangle = _rectangles[(int)RectListBox.SelectedIndex];
         }
 
+        /// <summary>
+        /// Изменение данных в LenghtTextBox.
+        /// </summary>
         private void LenghtTextBox_TextChanged(object sender, EventArgs e)
         {
             if (LenghtTextBox.Text != "" && WidthTextBox.Text != "" && ColorTextBox.Text != "")
             {
                 try
                 {
-                    LenghtTextBox.BackColor = Color.White;
+                    LenghtTextBox.BackColor = AppColors.NormalColor;
                     _currentRectangle = new Models.Classes.Geometry.Rectangle(
                         Convert.ToInt32(LenghtTextBox.Text),
                         Convert.ToInt32(WidthTextBox.Text), ColorTextBox.Text,
@@ -62,6 +86,9 @@ namespace Programming.Models.View.Panels
             }
         }
 
+        /// <summary>
+        /// Обработчик, который выбирает элемент с максимальной шириной.
+        /// </summary>
         private void FindButton_Click(object sender, EventArgs e)
         {
             _max = 0;
@@ -79,6 +106,9 @@ namespace Programming.Models.View.Panels
             RectListBox.SetSelected(index, true);
         }
 
+        /// <summary>
+        /// Изменение данных в ColorTextBox.
+        /// </summary>
         private void ColorTextBox_TextChanged(object sender, EventArgs e)
         {
             if (LenghtTextBox.Text != "" && WidthTextBox.Text != "" && ColorTextBox.Text != "")
@@ -98,6 +128,10 @@ namespace Programming.Models.View.Panels
                 }
             }
         }
+
+        /// <summary>
+        /// Изменение данных в WidthTextBox.
+        /// </summary>
         private void WidthTextBox_TextChanged(object sender, EventArgs e)
         {
             if (LenghtTextBox.Text != "" && WidthTextBox.Text != "" && ColorTextBox.Text != "")

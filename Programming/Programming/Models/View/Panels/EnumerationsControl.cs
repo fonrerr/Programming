@@ -20,6 +20,7 @@ namespace Programming.Models.View.Panels
             InitializeComponent();
             // Заполнение EnumsListBox всеми перечислениями.
             EnumsListBox.Items.AddRange(_enums);
+            //Выбрать все элементы, которые не выбраны.
             EnumsListBox.SetSelected(0, true);
         }
 

@@ -1,4 +1,6 @@
-﻿
+﻿/// <summary>
+/// Перечисление цветов.
+/// </summary>
 namespace Programming.Models.Enums
 {
     internal enum Colors

@@ -1,4 +1,7 @@
-﻿namespace Programming.Models.Enums
+﻿/// <summary>
+/// Перечисление жанров фильмов.
+/// </summary>
+namespace Programming.Models.Enums
 {
     internal enum Genre
     {
