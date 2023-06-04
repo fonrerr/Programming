@@ -3,7 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.3.32825.248
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Programming", "Programming\Programming.csproj", "{8000D86C-D773-4669-A0CF-294FC1456286}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Programming", "Programming\Programming.csproj", "{8000D86C-D773-4669-A0CF-294FC1456286}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactList", "..\ContactList\ContactList\ContactList.csproj", "{F10A1ED3-C6C0-4197-B88F-4756226235AE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{8000D86C-D773-4669-A0CF-294FC1456286}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8000D86C-D773-4669-A0CF-294FC1456286}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8000D86C-D773-4669-A0CF-294FC1456286}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F10A1ED3-C6C0-4197-B88F-4756226235AE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F10A1ED3-C6C0-4197-B88F-4756226235AE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F10A1ED3-C6C0-4197-B88F-4756226235AE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F10A1ED3-C6C0-4197-B88F-4756226235AE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
