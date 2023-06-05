@@ -1,4 +1,7 @@
-﻿namespace ContactList.Model
+﻿using System;
+using System.Text.RegularExpressions;
+
+namespace ContactList.Model
 {
     /// <summary>
     /// Хранит данные о контактах.
@@ -43,7 +46,7 @@
             _allContactCount++;
             _id = _allContactCount;
         }
-
+        
         /// <summary>
         /// Создает экземпляр класса Contact.
         /// </summary>
@@ -51,10 +54,7 @@
         /// <param name="dateOfBirth">Дата рождения.</param>
         /// <param name="number">Номер телефона.</param>
         /// <param name="url">Ссылка на социальные сети (ВК).</param>
-        public Contact(string fullName,
-                       DateTime dateOfBirth,
-                       string number,
-                       string url)
+        public Contact(string fullName, DateTime dateOfBirth,  string number, string url)
         {
             FullName = fullName;
             DateOfBirth = dateOfBirth;
@@ -95,9 +95,12 @@
             {
                 return _fullName;
             }
-
             set
             {
+                if (!Regex.IsMatch(value, "^[^A-Za-z0-9!@#$%^&]*$"))
+                {
+                    throw new ArgumentException($"{value}. Введено не корректно");
+                }
                 Validator.AssertCountSymbolsInRange(value, MinLengthOfString, MaxLengthOfString, nameof(FullName));
                 _fullName = value;
             }

@@ -1,4 +1,6 @@
-﻿namespace ContactList.Model
+﻿using System.Drawing;
+
+namespace ContactList.Model
 {
     /// <summary>
     /// Хранит данные о цветах.
@@ -14,5 +16,5 @@
         /// Цвет ошибки.
         /// </summary>
         public static Color ErrorColor = Color.Pink;
-    } 
+    }
 }

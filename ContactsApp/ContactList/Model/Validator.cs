@@ -1,4 +1,6 @@
-﻿namespace ContactList.Model
+﻿using System;
+
+namespace ContactList.Model
 {
     /// <summary>
     /// Хранит методы по валидации данных.
@@ -15,7 +17,7 @@
         /// <exception cref="ArgumentException">Выбрасывается, когда количество символов строки не входит в указанный диапазон.</exception>
         public static void AssertCountSymbolsInRange(string value, int min, int max, string nameProperty)
         {
-            if (value.Length < min || value.Length > max)
+            if (value.Length <= min || value.Length > max)
             {
                 throw new ArgumentException($"{nameProperty} must be between {min} and {max}");
             }
