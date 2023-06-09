@@ -62,6 +62,9 @@ namespace ContactList
             ContactListBox.SelectedIndex = selectedIndex;
         }
 
+        /// <summary>
+        /// Добавление нового контакта.
+        /// </summary>
         private void AddContactButton_Click(object sender, EventArgs e)
         {
             _currentContact = new Contact();
@@ -73,6 +76,9 @@ namespace ContactList
             UpdateContactInfo(_contacts.Count - 1);
         }
 
+        /// <summary>
+        /// Ввод полного имени контакта.
+        /// </summary>
         private void FullNameTextBox_TextChanged(object sender, EventArgs e)
         {
             if (ContactListBox.SelectedIndex == -1) return;
@@ -92,6 +98,9 @@ namespace ContactList
             }
         }
 
+        /// <summary>
+        /// Ввод даты рождения.
+        /// </summary>
         private void DateOfBirthDateTimePicker_ValueChanged(object sender, EventArgs e)
         {
             if (ContactListBox.SelectedIndex == -1) return;
@@ -100,6 +109,9 @@ namespace ContactList
             Serializer.SaveFromFile(_contacts);
         }
 
+        /// <summary>
+        /// Все контакты с полной информацие о человеке.
+        /// </summary>
         private void ContactListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             if (ContactListBox.SelectedIndex == -1) return;
@@ -111,6 +123,9 @@ namespace ContactList
             UrlTextBox.Text = _currentContact.Url;
         }
 
+        /// <summary>
+        /// Запись номера телефона контакта.
+        /// </summary>
         private void PhoneMaskedTextBox_TextChanged(object sender, EventArgs e)
         {
             if (ContactListBox.SelectedIndex == -1) return;
@@ -119,6 +134,9 @@ namespace ContactList
             Serializer.SaveFromFile(_contacts);
         }
 
+        /// <summary>
+        /// Добавление ссылки на страницу сайта vk.com.
+        /// </summary>
         private void UrlTextBox_TextChanged(object sender, EventArgs e)
         {
             if (ContactListBox.SelectedIndex == -1) return;
@@ -127,6 +145,9 @@ namespace ContactList
             Serializer.SaveFromFile(_contacts);
         }
 
+        /// <summary>
+        /// Удаление контакта.
+        /// </summary>
         private void RemoveContactButton_Click(object sender, EventArgs e)
         {
             if (ContactListBox.SelectedIndex == -1) return;
@@ -143,21 +164,33 @@ namespace ContactList
             Serializer.SaveFromFile(_contacts);
         }
 
+        /// <summary>
+        /// Изменение цвета кнопки AddContactButton при наведении курсора.
+        /// </summary>
         private void AddContactButton_MouseEnter(object sender, EventArgs e)
         {
             AddContactButton.Image = Properties.Resources.contact_add_24x24;
         }
 
+        /// <summary>
+        /// Цвет кнопки AddContactButton без наведение курсора.
+        /// </summary>
         private void AddContactButton_MouseLeave(object sender, EventArgs e)
         {
             AddContactButton.Image = Properties.Resources.contact_add_24x24_uncolor;
         }
 
+        /// <summary>
+        /// Изменение цвета кнопки RemoveContactButton при наведении курсора.
+        /// </summary>
         private void RemoveContactButton_MouseEnter(object sender, EventArgs e)
         {
             RemoveContactButton.Image = Properties.Resources.contact_remove_24x24;
         }
 
+        /// <summary>
+        /// Цвет кнопки RemoveContactButton без наведение курсора.
+        /// </summary>
         private void RemoveContactButton_MouseLeave(object sender, EventArgs e)
         {
             RemoveContactButton.Image = Properties.Resources.contact_remove_24x24_uncolor;
