@@ -64,6 +64,7 @@ namespace ContactList.Model
             _id = _allContactCount;
         }
 
+        //TODO: неиспользуемые свойства
         /// <summary>
         /// Возвращает уникальный идентификатор контакта.
         /// </summary>

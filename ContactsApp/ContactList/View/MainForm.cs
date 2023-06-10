@@ -8,6 +8,8 @@ using Contact = ContactList.Model.Contact;
 
 namespace ContactList
 {
+    //TODO: Блокировать поля, если не добавлен контакт
+    //Валидация номера телефона и vk.com. Убрать валидацию имени
     /// <summary>
     /// Предоставляет реализацию по представлению главного окна.
     /// </summary>
