@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Text.RegularExpressions;
 
 namespace ContactList.Model
 {
@@ -24,27 +23,22 @@ namespace ContactList.Model
         private string _fullName;
 
         /// <summary>
+        /// Ссылка на соц.сеть
+        /// </summary>
+        private string _url;
+
+        /// <summary>
         /// Дата рождения контакта.
         /// </summary>
         private DateTime _dateOfBirth;
 
-        /// <summary>
-        /// Уникальный идентификатор контакта.
-        /// </summary>
-        private readonly int _id;
-
-        /// <summary>
-        /// Общее количество контактов.
-        /// </summary>
-        private static int _allContactCount;
+        private string _number;
 
         /// <summary>
         /// Создает экземпляр класса Contact.
         /// </summary>
         public Contact()
         {
-            _allContactCount++;
-            _id = _allContactCount;
         }
         
         /// <summary>
@@ -60,32 +54,8 @@ namespace ContactList.Model
             DateOfBirth = dateOfBirth;
             Number = number;
             Url = url;
-            _allContactCount++;
-            _id = _allContactCount;
         }
 
-        //TODO: неиспользуемые свойства
-        /// <summary>
-        /// Возвращает уникальный идентификатор контакта.
-        /// </summary>
-        public int Id
-        {
-            get
-            {
-                return _id;
-            }
-        }
-
-        /// <summary>
-        /// Возвращает общее количество контактов.
-        /// </summary>
-        public static int AllContactCount
-        {
-            get
-            {
-                return _allContactCount;
-            }
-        }
 
         /// <summary>
         /// Возвращает и задает ФИО контакта.
@@ -98,10 +68,6 @@ namespace ContactList.Model
             }
             set
             {
-                if (!Regex.IsMatch(value, "^[^A-Za-z0-9!@#$%^&]*$"))
-                {
-                    throw new ArgumentException($"{value}. Введено не корректно");
-                }
                 Validator.AssertCountSymbolsInRange(value, MinLengthOfString, MaxLengthOfString, nameof(FullName));
                 _fullName = value;
             }
@@ -123,14 +89,36 @@ namespace ContactList.Model
             }
         }
 
-        /// <summary>
-        /// Возвращает и задает номер телефона контакта.
-        /// </summary>
-        public string Number { get; set; }
+        ///<summary>
+        ///Возвращает и задает ссылку для ВК.
+        ///</summary>
+        public string Url
+        {
+            get { return _url; }
+            set
+            {
+                if(value != null)
+                {
+                    Validator.AssertLink(value);
+                }
+                _url = value;
+            }
+        }
 
         /// <summary>
-        /// Возвращает и задает ссылку на социальные сети (ВК).
+        /// Возвращает и задает номер телефона человека.
         /// </summary>
-        public string Url { get; set; }
+        public string Number
+        {
+            get { return _number; }
+            set
+            {
+                if (value != null)
+                {
+                    Validator.AssertStringContainsOnlyNumbers(value, nameof(Number));
+                }
+                _number = value;
+            }
+        }
     }
 }

@@ -34,13 +34,13 @@
             this.UrlTextBox = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.PhoneMaskedTextBox = new System.Windows.Forms.MaskedTextBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.DateOfBirthDateTimePicker = new System.Windows.Forms.DateTimePicker();
             this.FullNameTextBox = new System.Windows.Forms.TextBox();
             this.AddContactButton = new System.Windows.Forms.Button();
             this.RemoveContactButton = new System.Windows.Forms.Button();
+            this.PhoneTextBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -61,10 +61,10 @@
             // groupBox1
             // 
             this.groupBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox1.Controls.Add(this.PhoneTextBox);
             this.groupBox1.Controls.Add(this.UrlTextBox);
             this.groupBox1.Controls.Add(this.label4);
             this.groupBox1.Controls.Add(this.label3);
-            this.groupBox1.Controls.Add(this.PhoneMaskedTextBox);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
             this.groupBox1.Controls.Add(this.DateOfBirthDateTimePicker);
@@ -84,6 +84,7 @@
             this.UrlTextBox.Location = new System.Drawing.Point(109, 117);
             this.UrlTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.UrlTextBox.Name = "UrlTextBox";
+            this.UrlTextBox.ReadOnly = true;
             this.UrlTextBox.Size = new System.Drawing.Size(265, 22);
             this.UrlTextBox.TabIndex = 7;
             this.UrlTextBox.TextChanged += new System.EventHandler(this.UrlTextBox_TextChanged);
@@ -107,16 +108,6 @@
             this.label3.Size = new System.Drawing.Size(49, 16);
             this.label3.TabIndex = 2;
             this.label3.Text = "Phone:";
-            // 
-            // PhoneMaskedTextBox
-            // 
-            this.PhoneMaskedTextBox.Location = new System.Drawing.Point(109, 85);
-            this.PhoneMaskedTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
-            this.PhoneMaskedTextBox.Mask = "+7 (999) 000-0000";
-            this.PhoneMaskedTextBox.Name = "PhoneMaskedTextBox";
-            this.PhoneMaskedTextBox.Size = new System.Drawing.Size(132, 22);
-            this.PhoneMaskedTextBox.TabIndex = 6;
-            this.PhoneMaskedTextBox.TextChanged += new System.EventHandler(this.PhoneMaskedTextBox_TextChanged);
             // 
             // label2
             // 
@@ -152,6 +143,7 @@
             this.FullNameTextBox.Location = new System.Drawing.Point(109, 21);
             this.FullNameTextBox.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
             this.FullNameTextBox.Name = "FullNameTextBox";
+            this.FullNameTextBox.ReadOnly = true;
             this.FullNameTextBox.Size = new System.Drawing.Size(391, 22);
             this.FullNameTextBox.TabIndex = 4;
             this.FullNameTextBox.TextChanged += new System.EventHandler(this.FullNameTextBox_TextChanged);
@@ -192,6 +184,15 @@
             this.RemoveContactButton.MouseEnter += new System.EventHandler(this.RemoveContactButton_MouseEnter);
             this.RemoveContactButton.MouseLeave += new System.EventHandler(this.RemoveContactButton_MouseLeave);
             // 
+            // PhoneTextBox
+            // 
+            this.PhoneTextBox.Location = new System.Drawing.Point(109, 88);
+            this.PhoneTextBox.Name = "PhoneTextBox";
+            this.PhoneTextBox.ReadOnly = true;
+            this.PhoneTextBox.Size = new System.Drawing.Size(161, 22);
+            this.PhoneTextBox.TabIndex = 8;
+            this.PhoneTextBox.TextChanged += new System.EventHandler(this.PhoneTextBox_TextChanged);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -219,7 +220,6 @@
         private System.Windows.Forms.ListBox ContactListBox;
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.TextBox UrlTextBox;
-        private System.Windows.Forms.MaskedTextBox PhoneMaskedTextBox;
         private System.Windows.Forms.DateTimePicker DateOfBirthDateTimePicker;
         private System.Windows.Forms.TextBox FullNameTextBox;
         private System.Windows.Forms.Label label4;
@@ -228,6 +228,7 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button AddContactButton;
         private System.Windows.Forms.Button RemoveContactButton;
+        private System.Windows.Forms.TextBox PhoneTextBox;
     }
 }
 

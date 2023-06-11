@@ -89,6 +89,7 @@ namespace ContactList
             {
                 FullNameTextBox.BackColor = AppColors.CorrectColor;
                 _currentContact.FullName = FullNameTextBox.Text;
+                FullNameTextBox.ReadOnly = false;
                 SortOfContacts();
                 int index = _contacts.IndexOf(_currentContact);
                 Serializer.SaveFromFile(_contacts);
@@ -121,19 +122,8 @@ namespace ContactList
             _currentContact = _contacts[ContactListBox.SelectedIndex];
             FullNameTextBox.Text = _currentContact.FullName;
             DateOfBirthDateTimePicker.Value = _currentContact.DateOfBirth;
-            PhoneMaskedTextBox.Text = _currentContact.Number;
+            PhoneTextBox.Text = _currentContact.Number;
             UrlTextBox.Text = _currentContact.Url;
-        }
-
-        /// <summary>
-        /// Запись номера телефона контакта.
-        /// </summary>
-        private void PhoneMaskedTextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (ContactListBox.SelectedIndex == -1) return;
-
-            _currentContact.Number = PhoneMaskedTextBox.Text;
-            Serializer.SaveFromFile(_contacts);
         }
 
         /// <summary>
@@ -143,8 +133,19 @@ namespace ContactList
         {
             if (ContactListBox.SelectedIndex == -1) return;
 
-            _currentContact.Url = UrlTextBox.Text;
-            Serializer.SaveFromFile(_contacts);
+            try
+            {
+                UrlTextBox.BackColor = AppColors.CorrectColor;
+                _currentContact.Url = UrlTextBox.Text;
+                UrlTextBox.ReadOnly= false;
+                int index = _contacts.IndexOf(_currentContact);
+                Serializer.SaveFromFile(_contacts);
+                UpdateContactInfo(index);
+            }
+            catch 
+            {
+                UrlTextBox.BackColor = AppColors.ErrorColor;
+            }
         }
 
         /// <summary>
@@ -196,6 +197,28 @@ namespace ContactList
         private void RemoveContactButton_MouseLeave(object sender, EventArgs e)
         {
             RemoveContactButton.Image = Properties.Resources.contact_remove_24x24_uncolor;
+        }
+
+        /// <summary>
+        /// Запись номера телефона контакта.
+        /// </summary>
+        private void PhoneTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (ContactListBox.SelectedIndex == -1) return;
+
+            try
+            {
+                PhoneTextBox.BackColor = AppColors.CorrectColor;
+                _currentContact.Number = PhoneTextBox.Text;
+                PhoneTextBox.ReadOnly = false;
+                int index = _contacts.IndexOf(_currentContact);
+                Serializer.SaveFromFile(_contacts);
+                UpdateContactInfo(index);
+            }
+            catch
+            {
+                PhoneTextBox.BackColor = AppColors.ErrorColor;
+            }
         }
     }
 }

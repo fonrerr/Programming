@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Text.RegularExpressions;
 
 namespace ContactList.Model
 {
@@ -23,5 +24,29 @@ namespace ContactList.Model
             }
         }
 
+        /// <summary>
+        /// Проверяет, что строка состоит из ссылки.
+        /// </summary>
+        /// <param name="value">Проверяемая строка.</param>
+        public static void AssertLink(string value)
+        {
+            if (!Regex.IsMatch(value, "^((http|https)://)[-a-zA-Z0-9@:%._\\+~#?&//=]{2,256}\\.[a-z]{2,6}\\b([-a-zA-Z0-9@:%._\\+~#?&//=]*)$"))
+            {
+                throw new ArgumentException($"{value} Введено не корректно");
+            }
+        }
+
+        /// <summary>
+        /// Проверяет, что строка состоит из цифр.
+        /// </summary>
+        /// <param name="value">Проверяемая строка.</param>
+        /// <param name="name">Имя свойства, которая подлежит проверки.</param>
+        public static void AssertStringContainsOnlyNumbers(string value, string name)
+        {
+            if (!Regex.IsMatch(value, @"^[+]\d{11}$") && value != null)
+            {
+                throw new ArgumentException($"{name}: {value}. Введено не корректно");
+            }
+        }
     }
 }
