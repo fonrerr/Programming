@@ -5,6 +5,8 @@ VisualStudioVersion = 17.1.32210.238
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ContactsApp", "ContactList\ContactsApp.csproj", "{01229DCC-767C-4ABE-B261-E015DD913BBB}"
 EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup1", "Setup1\Setup1.vdproj", "{CEBFC2C6-9D04-44C1-9D80-3C7C57460704}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,8 @@ Global
 		{01229DCC-767C-4ABE-B261-E015DD913BBB}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{01229DCC-767C-4ABE-B261-E015DD913BBB}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{01229DCC-767C-4ABE-B261-E015DD913BBB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CEBFC2C6-9D04-44C1-9D80-3C7C57460704}.Debug|Any CPU.ActiveCfg = Debug
+		{CEBFC2C6-9D04-44C1-9D80-3C7C57460704}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
