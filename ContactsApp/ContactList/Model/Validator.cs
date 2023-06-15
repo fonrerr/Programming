@@ -38,11 +38,11 @@ namespace ContactList.Model
 
         //TODO: Переименовать
         /// <summary>
-        /// Проверяет, что строка состоит из цифр.
+        /// Проверяет, что строка - номер телефона.
         /// </summary>
         /// <param name="value">Проверяемая строка.</param>
         /// <param name="name">Имя свойства, которая подлежит проверки.</param>
-        public static void AssertStringContainsOnlyNumbers(string value, string name)
+        public static void AssertStringContainsOfNumbers(string value, string name)
         {
             if (!Regex.IsMatch(value, @"^[+]\d{11}$") && value != null)
             {

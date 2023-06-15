@@ -72,9 +72,11 @@ namespace ContactList
         {
             _currentContact = new Contact();
             _currentContact.FullName = "Новый контакт";
+            _currentContact.Number = "+70000000000";
+            _currentContact.Url = "https://vk.com/0000000";
             _currentContact.DateOfBirth = DateTime.Today;
             _contacts.Add(_currentContact);
-            Serializer.SaveFromFile(_contacts);
+            Serializer.SaveToFile(_contacts);
             SortOfContacts();
             UpdateContactInfo(_contacts.Count - 1);
         }
@@ -93,7 +95,7 @@ namespace ContactList
                 FullNameTextBox.ReadOnly = false;
                 SortOfContacts();
                 int index = _contacts.IndexOf(_currentContact);
-                Serializer.SaveFromFile(_contacts);
+                Serializer.SaveToFile(_contacts);
                 UpdateContactInfo(index);
             }
             catch
@@ -110,7 +112,7 @@ namespace ContactList
             if (ContactListBox.SelectedIndex == -1) return;
 
             _currentContact.DateOfBirth = DateOfBirthDateTimePicker.Value;
-            Serializer.SaveFromFile(_contacts);
+            Serializer.SaveToFile(_contacts);
         }
 
         /// <summary>
@@ -140,7 +142,7 @@ namespace ContactList
                 _currentContact.Url = UrlTextBox.Text;
                 UrlTextBox.ReadOnly= false;
                 int index = _contacts.IndexOf(_currentContact);
-                Serializer.SaveFromFile(_contacts);
+                Serializer.SaveToFile(_contacts);
                 UpdateContactInfo(index);
             }
             catch 
@@ -165,7 +167,7 @@ namespace ContactList
             }
 
             ContactListBox.SelectedIndex = -1;
-            Serializer.SaveFromFile(_contacts);
+            Serializer.SaveToFile(_contacts);
         }
 
         /// <summary>
@@ -212,7 +214,7 @@ namespace ContactList
                 PhoneTextBox.BackColor = AppColors.CorrectColor;
                 _currentContact.Number = PhoneTextBox.Text;
                 int index = _contacts.IndexOf(_currentContact);
-                Serializer.SaveFromFile(_contacts);
+                Serializer.SaveToFile(_contacts);
                 UpdateContactInfo(index);
             }
             catch

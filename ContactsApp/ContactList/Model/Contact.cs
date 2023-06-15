@@ -56,7 +56,6 @@ namespace ContactList.Model
             Url = url;
         }
 
-
         /// <summary>
         /// Возвращает и задает ФИО контакта.
         /// </summary>
@@ -101,7 +100,7 @@ namespace ContactList.Model
                 {
                     Validator.AssertLink(value);
                     //TODO: Использовать константу
-                    Validator.AssertCountSymbolsInRange(value, 0, 150, nameof(Url));
+                    Validator.AssertCountSymbolsInRange(value, MinLengthOfString, MaxLengthOfString, nameof(Url));
                 }
                 _url = value;
             }
@@ -118,8 +117,7 @@ namespace ContactList.Model
                 if (value != null)
                 {
                     //TODO: Убрать проверку на кол-во
-                    Validator.AssertStringContainsOnlyNumbers(value, nameof(Number));
-                    Validator.AssertCountSymbolsInRange(value, 0, 150, nameof(Number));
+                    Validator.AssertStringContainsOfNumbers(value, nameof(Number));
                 }
                 _number = value;
             }
