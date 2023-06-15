@@ -36,6 +36,7 @@ namespace ContactList.Model
             }
         }
 
+        //TODO: Переименовать
         /// <summary>
         /// Проверяет, что строка состоит из цифр.
         /// </summary>

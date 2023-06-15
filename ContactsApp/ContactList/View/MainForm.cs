@@ -8,8 +8,8 @@ using Contact = ContactList.Model.Contact;
 
 namespace ContactList
 {
-    //TODO: Блокировать поля, если не добавлен контакт
-    //Валидация номера телефона и vk.com. Убрать валидацию имени
+    //TODO: Добавить дефолтный номер телефона и вк
+    //TODO: Сохранять только при закрытии
     /// <summary>
     /// Предоставляет реализацию по представлению главного окна.
     /// </summary>
@@ -45,6 +45,7 @@ namespace ContactList
             var orderedListContacts = from contact in _contacts
                                       orderby contact.FullName
                                       select contact;
+
             _contacts = orderedListContacts.ToList();
         }
 
