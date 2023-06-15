@@ -42,7 +42,7 @@ namespace ContactList.Model
         /// </summary>
         /// <param name="value">Проверяемая строка.</param>
         /// <param name="name">Имя свойства, которая подлежит проверки.</param>
-        public static void AssertStringContainsOfNumbers(string value, string name)
+        public static void AssertOfNumbers(string value, string name)
         {
             if (!Regex.IsMatch(value, @"^[+]\d{11}$") && value != null)
             {

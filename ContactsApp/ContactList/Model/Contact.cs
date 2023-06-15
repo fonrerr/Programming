@@ -117,7 +117,7 @@ namespace ContactList.Model
                 if (value != null)
                 {
                     //TODO: Убрать проверку на кол-во
-                    Validator.AssertStringContainsOfNumbers(value, nameof(Number));
+                    Validator.AssertOfNumbers(value, nameof(Number));
                 }
                 _number = value;
             }

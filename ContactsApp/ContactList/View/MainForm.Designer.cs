@@ -208,6 +208,7 @@
             this.MinimumSize = new System.Drawing.Size(932, 561);
             this.Name = "MainForm";
             this.Text = "ContactsApp";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.FormClosed_);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);
