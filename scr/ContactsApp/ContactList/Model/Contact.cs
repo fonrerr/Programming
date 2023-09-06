@@ -99,7 +99,6 @@ namespace ContactList.Model
                 if(value != null)
                 {
                     Validator.AssertLink(value);
-                    //TODO: Использовать константу
                     Validator.AssertCountSymbolsInRange(value, MinLengthOfString, MaxLengthOfString, nameof(Url));
                 }
                 _url = value;
@@ -116,7 +115,6 @@ namespace ContactList.Model
             {
                 if (value != null)
                 {
-                    //TODO: Убрать проверку на кол-во
                     Validator.AssertOfNumbers(value, nameof(Number));
                 }
                 _number = value;

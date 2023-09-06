@@ -20,7 +20,6 @@ namespace ContactList.Model
         /// </summary>
         private static string _path = Application.UserAppDataPath;
         
-        //TODO: переименовать
         /// <summary>
         /// Осуществляет запись данных в файл.
         /// </summary>

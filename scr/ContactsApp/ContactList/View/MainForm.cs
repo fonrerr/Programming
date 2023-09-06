@@ -8,8 +8,6 @@ using Contact = ContactList.Model.Contact;
 
 namespace ContactList
 {
-    //TODO: Добавить дефолтный номер телефона и вк
-    //TODO: Сохранять только при закрытии
     /// <summary>
     /// Предоставляет реализацию по представлению главного окна.
     /// </summary>

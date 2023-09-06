@@ -36,7 +36,6 @@ namespace ContactList.Model
             }
         }
 
-        //TODO: Переименовать
         /// <summary>
         /// Проверяет, что строка - номер телефона.
         /// </summary>
