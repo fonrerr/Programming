@@ -1,6 +1,6 @@
 ﻿namespace ObjectOrientedPractics.View.Tabs
 {
-    partial class Customers
+    partial class CustomersTab
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -38,7 +38,7 @@
             CustomersListBox = new ListBox();
             label1 = new Label();
             panel2 = new Panel();
-            AddressRichTextBox = new RichTextBox();
+            AddressListView = new ListView();
             label6 = new Label();
             FullNameTextBox = new TextBox();
             label4 = new Label();
@@ -88,6 +88,7 @@
             RemoveButton.TabIndex = 0;
             RemoveButton.Text = "Remove";
             RemoveButton.UseVisualStyleBackColor = true;
+            RemoveButton.Click += RemoveButton_Click;
             // 
             // panel3
             // 
@@ -107,6 +108,7 @@
             AddButton.TabIndex = 0;
             AddButton.Text = "Add";
             AddButton.UseVisualStyleBackColor = true;
+            AddButton.Click += AddButton_Click;
             // 
             // panel4
             // 
@@ -123,6 +125,7 @@
             CustomersListBox.Name = "CustomersListBox";
             CustomersListBox.Size = new Size(344, 424);
             CustomersListBox.TabIndex = 1;
+            CustomersListBox.SelectedIndexChanged += CustomersListBox_SelectedIndexChanged;
             // 
             // label1
             // 
@@ -136,7 +139,7 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(AddressRichTextBox);
+            panel2.Controls.Add(AddressListView);
             panel2.Controls.Add(label6);
             panel2.Controls.Add(FullNameTextBox);
             panel2.Controls.Add(label4);
@@ -148,13 +151,14 @@
             panel2.Size = new Size(418, 257);
             panel2.TabIndex = 0;
             // 
-            // AddressRichTextBox
+            // AddressListView
             // 
-            AddressRichTextBox.Location = new Point(84, 128);
-            AddressRichTextBox.Name = "AddressRichTextBox";
-            AddressRichTextBox.Size = new Size(331, 120);
-            AddressRichTextBox.TabIndex = 7;
-            AddressRichTextBox.Text = "";
+            AddressListView.Location = new Point(84, 128);
+            AddressListView.Name = "AddressListView";
+            AddressListView.Size = new Size(331, 121);
+            AddressListView.TabIndex = 0;
+            AddressListView.UseCompatibleStateImageBehavior = false;
+            AddressListView.SelectedIndexChanged += AddressListView_SelectedIndexChanged;
             // 
             // label6
             // 
@@ -171,6 +175,7 @@
             FullNameTextBox.Name = "FullNameTextBox";
             FullNameTextBox.Size = new Size(331, 27);
             FullNameTextBox.TabIndex = 4;
+            FullNameTextBox.TextChanged += FullNameTextBox_TextChanged;
             // 
             // label4
             // 
@@ -215,14 +220,14 @@
             panel7.Size = new Size(418, 257);
             panel7.TabIndex = 1;
             // 
-            // Customers
+            // CustomersTab
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel7);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            Name = "Customers";
+            Name = "CustomersTab";
             Size = new Size(780, 526);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
@@ -251,7 +256,7 @@
         private TextBox FullNameTextBox;
         private Label label4;
         private TextBox IDTextBox;
-        private RichTextBox AddressRichTextBox;
         private Panel panel7;
+        private ListView AddressListView;
     }
 }

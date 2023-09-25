@@ -1,8 +1,7 @@
-﻿using System.Collections.Generic;
-using Newtonsoft.Json;
-using System.IO;
-using System.Windows.Forms;
+﻿using Newtonsoft.Json;
+using Customer = ObjectOrientedPractics.Model.Customer;
 using Item = ObjectOrientedPractics.Model.Item;
+
 
 namespace ObjectOrientedPractics.Services
 {
@@ -17,7 +16,7 @@ namespace ObjectOrientedPractics.Services
         private const string NameOfFile = @"\Serialize.json";
 
         /// <summary>
-        /// Путь до паки AppData.
+        /// Путь до папки AppData.
         /// </summary>
         private static string _path = Application.UserAppDataPath;
 
@@ -25,7 +24,7 @@ namespace ObjectOrientedPractics.Services
         /// Осуществляет запись данных в файл.
         /// </summary>
         /// <param name="items">Коллекция товаров.</param>
-        public static void SaveToFile(List<Item> items)
+        public static void SaveFromFile(List<Item> items)
         {
             using (StreamWriter writer = new StreamWriter(_path + NameOfFile))
             {
@@ -54,6 +53,41 @@ namespace ObjectOrientedPractics.Services
                 return items;
             }
             return items;
+        }
+
+        /// <summary>
+        /// Осуществляет запись данных в файл.
+        /// </summary>
+        /// <param name="customers">Коллекция покупателей.</param>
+        public static void SaveFromFile(List<Customer> customers)
+        {
+            using (StreamWriter writer = new StreamWriter(_path + NameOfFile))
+            {
+                writer.Write(JsonConvert.SerializeObject(customers));
+            }
+        }
+
+        /// <summary>
+        /// Осуществляет выгрузку данных из файла.
+        /// </summary>
+        /// <returns>Возвращает коллецию покупателей.</returns>
+        public static List<Customer> LoadingFromFile()
+        {
+            var customers = new List<Customer>();
+            try
+            {
+                using (StreamReader reader = new StreamReader(_path + NameOfFile))
+                {
+                    customers = JsonConvert.DeserializeObject<List<Customer>>(reader.ReadToEnd());
+                }
+
+                if (customers == null) customers = new List<Customer>();
+            }
+            catch
+            {
+                return customers;
+            }
+            return customers;
         }
     }
 }

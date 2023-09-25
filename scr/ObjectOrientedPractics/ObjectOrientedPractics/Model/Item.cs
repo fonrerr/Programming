@@ -80,10 +80,12 @@
         }
 
         /// <summary>
-        /// Создает пустой экземпляр класса Item.
+        /// Создает экземпляр класса Item.
         /// </summary>
         public Item()
         {
+            _allItemsCount++;
+            _id = AllItemsCount;
         }
 
         /// <summary>

@@ -68,9 +68,13 @@
         }
 
         /// <summary>
-        /// Создает пустой экземпляр класса Customer.
+        /// Создает экземпляр класса Customer.
         /// </summary>
-        public Customer() { }
+        public Customer() 
+        {
+            _allCustomersCount++;
+            _id = AllCustomersCount;
+        }
 
         /// <summary>
         /// Создает экземпляр класса Customer.

@@ -30,9 +30,9 @@
         {
             tabControl1 = new TabControl();
             Item = new TabPage();
-            Customers = new TabPage();
             ItemsTab = new View.Tabs.ItemsTab();
-            customers1 = new View.Tabs.Customers();
+            Customers = new TabPage();
+            customers1 = new View.Tabs.CustomersTab();
             tabControl1.SuspendLayout();
             Item.SuspendLayout();
             Customers.SuspendLayout();
@@ -59,6 +59,14 @@
             Item.Text = "Items";
             Item.UseVisualStyleBackColor = true;
             // 
+            // ItemsTab
+            // 
+            ItemsTab.Dock = DockStyle.Fill;
+            ItemsTab.Location = new Point(3, 3);
+            ItemsTab.Name = "ItemsTab";
+            ItemsTab.Size = new Size(856, 540);
+            ItemsTab.TabIndex = 0;
+            // 
             // Customers
             // 
             Customers.Controls.Add(customers1);
@@ -69,14 +77,6 @@
             Customers.TabIndex = 1;
             Customers.Text = "Customers";
             Customers.UseVisualStyleBackColor = true;
-            // 
-            // ItemsTab
-            // 
-            ItemsTab.Dock = DockStyle.Fill;
-            ItemsTab.Location = new Point(3, 3);
-            ItemsTab.Name = "ItemsTab";
-            ItemsTab.Size = new Size(856, 540);
-            ItemsTab.TabIndex = 0;
             // 
             // customers1
             // 
@@ -106,6 +106,6 @@
         private TabPage Item;
         private TabPage Customers;
         private View.Tabs.ItemsTab ItemsTab;
-        private View.Tabs.Customers customers1;
+        private View.Tabs.CustomersTab customers1;
     }
 }
