@@ -46,7 +46,8 @@
             }
             set
             {
-                ValueValidator.AssertStringOnLength(value, 0, 200, nameof(FullName));
+                ValueValidator.AssertSimbols(value);
+                ValueValidator.AssertStringOnLength(value, 1, 200, nameof(FullName));
                 _fullName = value;
             }
         }
@@ -62,7 +63,7 @@
             }
             set
             {
-                ValueValidator.AssertStringOnLength(value, 0, 500, nameof(Address));
+                ValueValidator.AssertStringOnLength(value, 1, 500, nameof(Address));
                 _address = value;
             }
         }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MainForm));
             tabControl1 = new TabControl();
             Item = new TabPage();
             ItemsTab = new View.Tabs.ItemsTab();
@@ -91,6 +92,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(767, 563);
             Controls.Add(tabControl1);
+            Icon = (Icon)resources.GetObject("$this.Icon");
             MaximumSize = new Size(785, 610);
             Name = "MainForm";
             Text = "MainForm";

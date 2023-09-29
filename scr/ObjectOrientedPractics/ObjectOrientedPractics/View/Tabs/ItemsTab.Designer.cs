@@ -37,10 +37,10 @@
             panel3 = new Panel();
             AddButton = new Button();
             panel2 = new Panel();
+            NameTextBox = new TextBox();
             label5 = new Label();
             label4 = new Label();
             InfoRichTextBox = new RichTextBox();
-            NameRichTextBox = new RichTextBox();
             CostTextBox = new TextBox();
             IdTextBox = new TextBox();
             label3 = new Label();
@@ -88,6 +88,7 @@
             RemoveButton.TabIndex = 1;
             RemoveButton.Text = "Remove";
             RemoveButton.UseVisualStyleBackColor = true;
+            RemoveButton.Click += RemoveButton_Click;
             // 
             // ItemsListBox
             // 
@@ -126,13 +127,14 @@
             AddButton.TabIndex = 0;
             AddButton.Text = "Add";
             AddButton.UseVisualStyleBackColor = true;
+            AddButton.Click += AddButton_Click;
             // 
             // panel2
             // 
+            panel2.Controls.Add(NameTextBox);
             panel2.Controls.Add(label5);
             panel2.Controls.Add(label4);
             panel2.Controls.Add(InfoRichTextBox);
-            panel2.Controls.Add(NameRichTextBox);
             panel2.Controls.Add(CostTextBox);
             panel2.Controls.Add(IdTextBox);
             panel2.Controls.Add(label3);
@@ -143,10 +145,18 @@
             panel2.Size = new Size(398, 542);
             panel2.TabIndex = 1;
             // 
+            // NameTextBox
+            // 
+            NameTextBox.Location = new Point(68, 129);
+            NameTextBox.Name = "NameTextBox";
+            NameTextBox.Size = new Size(313, 27);
+            NameTextBox.TabIndex = 9;
+            NameTextBox.TextChanged += NameTextBox_TextChanged;
+            // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(12, 291);
+            label5.Location = new Point(12, 183);
             label5.Name = "label5";
             label5.Size = new Size(88, 20);
             label5.TabIndex = 8;
@@ -163,19 +173,12 @@
             // 
             // InfoRichTextBox
             // 
-            InfoRichTextBox.Location = new Point(12, 314);
+            InfoRichTextBox.Location = new Point(12, 206);
             InfoRichTextBox.Name = "InfoRichTextBox";
             InfoRichTextBox.Size = new Size(369, 129);
             InfoRichTextBox.TabIndex = 6;
             InfoRichTextBox.Text = "";
-            // 
-            // NameRichTextBox
-            // 
-            NameRichTextBox.Location = new Point(12, 152);
-            NameRichTextBox.Name = "NameRichTextBox";
-            NameRichTextBox.Size = new Size(369, 123);
-            NameRichTextBox.TabIndex = 5;
-            NameRichTextBox.Text = "";
+            InfoRichTextBox.TextChanged += InfoRichTextBox_TextChanged;
             // 
             // CostTextBox
             // 
@@ -183,6 +186,7 @@
             CostTextBox.Name = "CostTextBox";
             CostTextBox.Size = new Size(255, 27);
             CostTextBox.TabIndex = 4;
+            CostTextBox.TextChanged += CostTextBox_TextChanged;
             // 
             // IdTextBox
             // 
@@ -248,7 +252,6 @@
         private ListBox ItemsListBox;
         private Button RemoveButton;
         private Button AddButton;
-        private RichTextBox NameRichTextBox;
         private TextBox CostTextBox;
         private TextBox IdTextBox;
         private Label label3;
@@ -258,5 +261,6 @@
         private RichTextBox InfoRichTextBox;
         private Panel panel4;
         private Panel panel5;
+        private TextBox NameTextBox;
     }
 }

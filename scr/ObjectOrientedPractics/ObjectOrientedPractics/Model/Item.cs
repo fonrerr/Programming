@@ -15,7 +15,7 @@
         /// </summary>
         private int _id;
 
-        /// <summary>
+        /// <summary>_
         /// Хранит значение названия товара.
         /// </summary>
         private string _name;
@@ -48,7 +48,8 @@
             get { return _name; }
             set
             {
-                ValueValidator.AssertStringOnLength(value, 0, 200, nameof(Name));
+                ValueValidator.AssertSimbols(value);
+                ValueValidator.AssertStringOnLength(value, 1, 200, nameof(Name));
                 _name = value;
             }
         }
@@ -61,7 +62,8 @@
             get { return _info; }
             set
             {
-                ValueValidator.AssertStringOnLength(value, 0, 1000, nameof(Info));
+                ValueValidator.AssertSimbols(value);
+                ValueValidator.AssertStringOnLength(value, 1, 1000, nameof(Info));
                 _info = value;
             }
         }
@@ -74,7 +76,7 @@
             get { return _cost; }
             set
             {
-                ValueValidator.AssertStringOnLength(value, 0, 100000, nameof(Cost));
+                ValueValidator.AssertStringOnLength(value, 1, 100000, nameof(Cost));
                 _cost = value;
             }
         }

@@ -1,5 +1,4 @@
-﻿using ObjectOrientedPractics.Services;
-using Customer = ObjectOrientedPractics.Model.Customer;
+﻿using Customer = ObjectOrientedPractics.Model.Customer;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
@@ -16,21 +15,20 @@ namespace ObjectOrientedPractics.View.Tabs
         private Customer _currentCustomer;
 
         /// <summary>
+        /// Максимальный ID среди всех покупателей
+        /// </summary>
+        int maxId;
+
+        /// <summary>
         /// Создает экземпляр класса CustomersTab.
         /// </summary>
         public CustomersTab()
         {
             InitializeComponent();
-            _customers = Serializer.LoadingFromFile();
-        }
-
-        public void SaveCustomersCloseFile()
-        {
-            Serializer.SaveFromFile( _customers );
         }
 
         /// <summary>
-        /// Осуществляет сортировку коллекцию контактов.
+        /// Осуществляет сортировку коллекции покупателей.
         /// </summary>
         private void SortOfCustomers()
         {
@@ -42,7 +40,7 @@ namespace ObjectOrientedPractics.View.Tabs
         }
 
         /// <summary>
-        /// Осуществляет обновление контактов.
+        /// Осуществляет обновление покупателей.
         /// </summary>
         /// <param name="selectedIndex">Выбранный индекс.</param>
         private void UpdateCustomerInfo(int selectedIndex)
@@ -58,7 +56,7 @@ namespace ObjectOrientedPractics.View.Tabs
         }
 
         /// <summary>
-        /// Все контакты с полной информацие о человеке.
+        /// Все покупатели с полной информацией.
         /// </summary>
         private void CustomersListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -66,7 +64,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
             _currentCustomer = _customers[CustomersListBox.SelectedIndex];
             FullNameTextBox.Text = _currentCustomer.FullName;
-            AddressListView.Text = _currentCustomer.Address;
+            AddressRichTextBox.Text = _currentCustomer.Address;
             IDTextBox.Text = _currentCustomer.Id.ToString();
 
         }
@@ -84,12 +82,16 @@ namespace ObjectOrientedPractics.View.Tabs
             UpdateCustomerInfo(_customers.Count - 1);
         }
 
+        /// <summary>
+        /// Удаление покупателя.
+        /// </summary>
         private void RemoveButton_Click(object sender, EventArgs e)
         {
             if (CustomersListBox.SelectedIndex == -1) return;
 
             _customers.RemoveAt(CustomersListBox.SelectedIndex);
             CustomersListBox.Items.Clear();
+            maxId = _customers.Max(x => x.Id) + 1;
 
             for (int i = 0; i < _customers.Count; i++)
             {
@@ -99,6 +101,9 @@ namespace ObjectOrientedPractics.View.Tabs
             CustomersListBox.SelectedIndex = -1;
         }
 
+        /// <summary>
+        /// Ввод полного имени покупателя.
+        /// </summary>
         private void FullNameTextBox_TextChanged(object sender, EventArgs e)
         {
             if (CustomersListBox.SelectedIndex == -1) return;
@@ -107,32 +112,32 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 FullNameTextBox.BackColor = Color.White;
                 _currentCustomer.FullName = FullNameTextBox.Text;
-                FullNameTextBox.ReadOnly = false;
                 SortOfCustomers();
                 int index = _customers.IndexOf(_currentCustomer);
                 UpdateCustomerInfo(index);
             }
             catch
             {
-                FullNameTextBox.BackColor = Color.OrangeRed;
+                FullNameTextBox.BackColor = Color.LightPink;
             }
         }
 
-        private void AddressListView_SelectedIndexChanged(object sender, EventArgs e)
+        /// <summary>
+        /// Ввод адреса покупателя.
+        /// </summary>
+        private void AddressRichTextBox_TextChanged(object sender, EventArgs e)
         {
             if (CustomersListBox.SelectedIndex == -1) return;
 
             try
             {
-                AddressListView.BackColor = Color.White;
-                _currentCustomer.Address = AddressListView.Text;
-                SortOfCustomers();
-                int index = _customers.IndexOf(_currentCustomer);
-                UpdateCustomerInfo(index);
+                AddressRichTextBox.BackColor = Color.White;
+                _currentCustomer.Address = AddressRichTextBox.Text;
+                AddressRichTextBox.ReadOnly = false;
             }
             catch
             {
-                AddressListView.BackColor = Color.OrangeRed;
+                AddressRichTextBox.BackColor = Color.LightPink;
             }
         }
     }

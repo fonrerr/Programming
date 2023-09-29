@@ -1,4 +1,6 @@
-﻿namespace ObjectOrientedPractics.Model
+﻿using System.Text.RegularExpressions;
+
+namespace ObjectOrientedPractics.Model
 {
     public static class ValueValidator
     {
@@ -29,6 +31,14 @@
             if (value < minLength || value > maxLength)
             {
                 throw new ArgumentException($"{propertyName} must be between {minLength} and {maxLength}");
+            }
+        }
+
+        public static void AssertSimbols(string value)
+        {
+            if(!Regex.IsMatch(value, @"^[A-Za-zА-яЁё]"))
+            {
+                throw new ArgumentException($"{value} Введено не корректно");
             }
         }
     }

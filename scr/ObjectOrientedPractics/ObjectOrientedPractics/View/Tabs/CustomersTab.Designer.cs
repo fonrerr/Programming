@@ -38,7 +38,7 @@
             CustomersListBox = new ListBox();
             label1 = new Label();
             panel2 = new Panel();
-            AddressListView = new ListView();
+            AddressRichTextBox = new RichTextBox();
             label6 = new Label();
             FullNameTextBox = new TextBox();
             label4 = new Label();
@@ -139,7 +139,7 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(AddressListView);
+            panel2.Controls.Add(AddressRichTextBox);
             panel2.Controls.Add(label6);
             panel2.Controls.Add(FullNameTextBox);
             panel2.Controls.Add(label4);
@@ -151,14 +151,14 @@
             panel2.Size = new Size(418, 257);
             panel2.TabIndex = 0;
             // 
-            // AddressListView
+            // AddressRichTextBox
             // 
-            AddressListView.Location = new Point(84, 128);
-            AddressListView.Name = "AddressListView";
-            AddressListView.Size = new Size(331, 121);
-            AddressListView.TabIndex = 0;
-            AddressListView.UseCompatibleStateImageBehavior = false;
-            AddressListView.SelectedIndexChanged += AddressListView_SelectedIndexChanged;
+            AddressRichTextBox.Location = new Point(84, 128);
+            AddressRichTextBox.Name = "AddressRichTextBox";
+            AddressRichTextBox.Size = new Size(331, 120);
+            AddressRichTextBox.TabIndex = 7;
+            AddressRichTextBox.Text = "";
+            AddressRichTextBox.TextChanged += AddressRichTextBox_TextChanged;
             // 
             // label6
             // 
@@ -257,6 +257,6 @@
         private Label label4;
         private TextBox IDTextBox;
         private Panel panel7;
-        private ListView AddressListView;
+        private RichTextBox AddressRichTextBox;
     }
 }
