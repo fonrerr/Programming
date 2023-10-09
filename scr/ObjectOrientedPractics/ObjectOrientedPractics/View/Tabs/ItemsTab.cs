@@ -1,4 +1,6 @@
-﻿using ObjectOrientedPractics.Model;
+﻿
+using ObjectOrientedPractics.Model;
+using System.Data;
 using Item = ObjectOrientedPractics.Model.Item;
 
 namespace ObjectOrientedPractics.View.Tabs
@@ -21,6 +23,7 @@ namespace ObjectOrientedPractics.View.Tabs
         public ItemsTab()
         {
             InitializeComponent();
+            CategoryComboBox.Items.AddRange(Enum.GetNames(typeof(Category)));
         }
 
         /// <summary>
@@ -36,7 +39,7 @@ namespace ObjectOrientedPractics.View.Tabs
         }
 
         /// <summary>
-        /// Осуществляет обновление контактов.
+        /// Осуществляет обновление информации о товарах.
         /// </summary>
         /// <param name="selectedIndex">Выбранный индекс.</param>
         private void UpdateItemInfo(int selectedIndex)
@@ -63,6 +66,7 @@ namespace ObjectOrientedPractics.View.Tabs
             InfoRichTextBox.Text = _currentItem.Info;
             CostTextBox.Text = _currentItem.Cost.ToString();
             IdTextBox.Text = _currentItem.Id.ToString();
+            CategoryComboBox.Text = _currentItem.Category.ToString();
         }
 
         /// <summary>
@@ -75,7 +79,6 @@ namespace ObjectOrientedPractics.View.Tabs
             _currentItem.Info = "Описание товара";
             _currentItem.Cost = Convert.ToDouble("1000");
             _items.Add(_currentItem);
-            SortOfItems();
             UpdateItemInfo(_items.Count - 1);
         }
 
@@ -95,6 +98,7 @@ namespace ObjectOrientedPractics.View.Tabs
             }
 
             ItemsListBox.SelectedIndex = -1;
+            UpdateItemInfo(_items.Count - 1);
         }
 
         /// <summary>
@@ -152,6 +156,14 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 InfoRichTextBox.BackColor = Color.LightPink;
             }
+        }
+
+        private void SelectedValueChanged(object sender, EventArgs e)
+        {
+            if (ItemsListBox.SelectedIndex == -1) return;
+            _currentItem.Category = (Category)CategoryComboBox.SelectedIndex;
+            int index = _items.IndexOf(_currentItem);
+            UpdateItemInfo(index);
         }
     }
 }

@@ -37,6 +37,8 @@
             panel3 = new Panel();
             AddButton = new Button();
             panel2 = new Panel();
+            CategoryComboBox = new ComboBox();
+            label6 = new Label();
             NameTextBox = new TextBox();
             label5 = new Label();
             label4 = new Label();
@@ -131,6 +133,8 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(CategoryComboBox);
+            panel2.Controls.Add(label6);
             panel2.Controls.Add(NameTextBox);
             panel2.Controls.Add(label5);
             panel2.Controls.Add(label4);
@@ -145,18 +149,38 @@
             panel2.Size = new Size(398, 542);
             panel2.TabIndex = 1;
             // 
+            // CategoryComboBox
+            // 
+            CategoryComboBox.FormattingEnabled = true;
+            CategoryComboBox.Location = new Point(95, 138);
+            CategoryComboBox.Name = "CategoryComboBox";
+            CategoryComboBox.Size = new Size(151, 28);
+            CategoryComboBox.TabIndex = 11;
+            CategoryComboBox.SelectedValueChanged += SelectedValueChanged;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(10, 138);
+            label6.Name = "label6";
+            label6.Size = new Size(72, 20);
+            label6.TabIndex = 10;
+            label6.Text = "Category:";
+            // 
             // NameTextBox
             // 
-            NameTextBox.Location = new Point(68, 129);
+            NameTextBox.Anchor = AnchorStyles.Top | AnchorStyles.Left | AnchorStyles.Right;
+            NameTextBox.Location = new Point(12, 202);
+            NameTextBox.Multiline = true;
             NameTextBox.Name = "NameTextBox";
-            NameTextBox.Size = new Size(313, 27);
+            NameTextBox.Size = new Size(369, 108);
             NameTextBox.TabIndex = 9;
             NameTextBox.TextChanged += NameTextBox_TextChanged;
             // 
             // label5
             // 
             label5.AutoSize = true;
-            label5.Location = new Point(12, 183);
+            label5.Location = new Point(12, 325);
             label5.Name = "label5";
             label5.Size = new Size(88, 20);
             label5.TabIndex = 8;
@@ -165,7 +189,7 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Location = new Point(12, 129);
+            label4.Location = new Point(12, 179);
             label4.Name = "label4";
             label4.Size = new Size(52, 20);
             label4.TabIndex = 7;
@@ -173,7 +197,7 @@
             // 
             // InfoRichTextBox
             // 
-            InfoRichTextBox.Location = new Point(12, 206);
+            InfoRichTextBox.Location = new Point(12, 348);
             InfoRichTextBox.Name = "InfoRichTextBox";
             InfoRichTextBox.Size = new Size(369, 129);
             InfoRichTextBox.TabIndex = 6;
@@ -182,24 +206,24 @@
             // 
             // CostTextBox
             // 
-            CostTextBox.Location = new Point(68, 77);
+            CostTextBox.Location = new Point(95, 94);
             CostTextBox.Name = "CostTextBox";
-            CostTextBox.Size = new Size(255, 27);
+            CostTextBox.Size = new Size(151, 27);
             CostTextBox.TabIndex = 4;
             CostTextBox.TextChanged += CostTextBox_TextChanged;
             // 
             // IdTextBox
             // 
-            IdTextBox.Location = new Point(68, 36);
+            IdTextBox.Location = new Point(95, 50);
             IdTextBox.Name = "IdTextBox";
             IdTextBox.ReadOnly = true;
-            IdTextBox.Size = new Size(255, 27);
+            IdTextBox.Size = new Size(151, 27);
             IdTextBox.TabIndex = 3;
             // 
             // label3
             // 
             label3.AutoSize = true;
-            label3.Location = new Point(12, 80);
+            label3.Location = new Point(12, 97);
             label3.Name = "label3";
             label3.Size = new Size(41, 20);
             label3.TabIndex = 2;
@@ -208,7 +232,7 @@
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(12, 39);
+            label2.Location = new Point(12, 50);
             label2.Name = "label2";
             label2.Size = new Size(27, 20);
             label2.TabIndex = 1;
@@ -262,5 +286,7 @@
         private Panel panel4;
         private Panel panel5;
         private TextBox NameTextBox;
+        private ComboBox CategoryComboBox;
+        private Label label6;
     }
 }

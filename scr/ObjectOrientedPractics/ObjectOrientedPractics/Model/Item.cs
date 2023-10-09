@@ -30,6 +30,8 @@
         /// </summary>
         private double _cost;
 
+        public Category Category { get; set; }
+
         /// <summary>
         /// Возвращает идентификатор товара.
         /// </summary>
@@ -96,11 +98,13 @@
         /// <param name="name">Название товара.</param>
         /// <param name="info">Описание товара.</param>
         /// <param name="cost">Стоимость товара.</param>
-        public Item(string name, string info, double cost)
+        /// <param name="category">Категория товара.</param>
+        public Item(string name, string info, double cost, Category category)
         {
             Name = name;
             Info = info;
             Cost = cost;
+            Category = category;
             _allItemsCount++;
             _id = AllItemsCount;
         }
