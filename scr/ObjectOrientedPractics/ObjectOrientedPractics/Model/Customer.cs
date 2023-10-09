@@ -23,7 +23,7 @@
         /// <summary>
         /// Хранит значение адреса покупателя.
         /// </summary>
-        private string _address;
+        private Address _address;
 
         /// <summary>
         /// Возвращает идентификатор товара.
@@ -55,7 +55,7 @@
         /// <summary>
         /// Возвращает и задает адрес покупателя.
         /// </summary>
-        public string Address
+        public Address Address
         {
             get
             {
@@ -63,7 +63,6 @@
             }
             set
             {
-                ValueValidator.AssertStringOnLength(value, 1, 500, nameof(Address));
                 _address = value;
             }
         }
@@ -82,7 +81,7 @@
         /// </summary>
         /// <param name="fullName">Полное имя покупателя.</param>
         /// <param name="address">Адрес покупателя.</param>
-        public Customer(string fullName, string address)
+        public Customer(string fullName, Address address)
         {
             FullName = fullName;
             Address = address;
