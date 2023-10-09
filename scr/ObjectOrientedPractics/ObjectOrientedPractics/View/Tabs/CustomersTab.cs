@@ -15,11 +15,6 @@ namespace ObjectOrientedPractics.View.Tabs
         private Customer _currentCustomer;
 
         /// <summary>
-        /// Максимальный ID среди всех покупателей
-        /// </summary>
-        int maxId;
-
-        /// <summary>
         /// Создает экземпляр класса CustomersTab.
         /// </summary>
         public CustomersTab()
@@ -91,7 +86,6 @@ namespace ObjectOrientedPractics.View.Tabs
 
             _customers.RemoveAt(CustomersListBox.SelectedIndex);
             CustomersListBox.Items.Clear();
-            maxId = _customers.Max(x => x.Id) + 1;
 
             for (int i = 0; i < _customers.Count; i++)
             {
