@@ -70,21 +70,21 @@
         /// <summary>
         /// Создает экземпляр класса Customer.
         /// </summary>
-        public Customer() 
+/*        public Customer() 
         {
             _allCustomersCount++;
             _id = AllCustomersCount;
-        }
+        }*/
 
         /// <summary>
         /// Создает экземпляр класса Customer.
         /// </summary>
         /// <param name="fullName">Полное имя покупателя.</param>
         /// <param name="address">Адрес покупателя.</param>
-        public Customer(string fullName, Address address)
+        public Customer(string fullName)
         {
             FullName = fullName;
-            Address = address;
+            Address = new Address(606060, "Country", "City", "Street", "00", "00");
             _allCustomersCount++;
             _id = AllCustomersCount;
         }

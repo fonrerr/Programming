@@ -13,6 +13,11 @@ namespace ObjectOrientedPractics.Model
         /// <exception cref="ArgumentException">Выбрасывается, когда количество символов строки не входит в указанный диапазон.</exception>
         public static void AssertStringOnLength(string value, int minLength, int maxLength, string propertyName)
         {
+            if (value == null)
+            {
+                return;
+            }
+
             if (value.Length < minLength || value.Length > maxLength)
             {
                 throw new ArgumentException($"{propertyName} must be between {minLength} and {maxLength}");
@@ -28,6 +33,11 @@ namespace ObjectOrientedPractics.Model
         /// <exception cref="ArgumentException">Выбрасывается, когда количество символов строки не входит в указанный диапазон.</exception>
         public static void AssertStringOnLength(double value, int minLength, int maxLength, string propertyName)
         {
+            if (value == 0)
+            {
+                return;
+            }
+
             if (value < minLength || value > maxLength)
             {
                 throw new ArgumentException($"{propertyName} must be between {minLength} and {maxLength}");
@@ -43,6 +53,11 @@ namespace ObjectOrientedPractics.Model
         /// <exception cref="ArgumentException">Выбрасывается, когда количество символов строки не входит в указанный диапазон.</exception>
         public static void AssertStringOnLength(int value, int minLength, int maxLength, string propertyName)
         {
+            if (value == 0)
+            {
+                return;
+            }
+
             if (value < minLength || value > maxLength)
             {
                 throw new ArgumentException($"{propertyName} must be between {minLength} and {maxLength}");
@@ -51,6 +66,11 @@ namespace ObjectOrientedPractics.Model
 
         public static void AssertSimbols(string value)
         {
+            if (value == null)
+            {
+                return;
+            }
+
             if(!Regex.IsMatch(value, @"^[A-Za-zА-яЁё]"))
             {
                 throw new ArgumentException($"{value} Введено не корректно");

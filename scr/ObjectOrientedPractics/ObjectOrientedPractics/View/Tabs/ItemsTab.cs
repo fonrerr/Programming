@@ -1,5 +1,4 @@
-﻿
-using ObjectOrientedPractics.Model;
+﻿using ObjectOrientedPractics.Model;
 using System.Data;
 using Item = ObjectOrientedPractics.Model.Item;
 
@@ -8,7 +7,7 @@ namespace ObjectOrientedPractics.View.Tabs
     public partial class ItemsTab : UserControl
     {
         /// <summary>
-        /// Список товаров.
+        /// Список объектов класса <see cref="Item"/>.
         /// </summary>
         private List<Item> _items = new List<Item>();
 
@@ -16,6 +15,18 @@ namespace ObjectOrientedPractics.View.Tabs
         /// Выбранный товар.
         /// </summary>
         private Item _currentItem;
+
+        public List<Item> Items
+        {
+            get
+            {
+                return _items;
+            }
+            set
+            {
+                _items = value;
+            }
+        }
 
         /// <summary>
         /// Создает экземпляр класса ItemsTab.

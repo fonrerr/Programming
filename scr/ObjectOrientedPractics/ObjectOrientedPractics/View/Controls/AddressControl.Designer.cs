@@ -1,6 +1,6 @@
 ﻿namespace ObjectOrientedPractics.View.Controls
 {
-    partial class AddressUserControl
+    partial class AddressControl
     {
         /// <summary> 
         /// Обязательная переменная конструктора.
@@ -47,7 +47,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            label1.Location = new Point(13, 12);
+            label1.Location = new Point(13, 9);
             label1.Name = "label1";
             label1.Size = new Size(128, 20);
             label1.TabIndex = 0;
@@ -95,6 +95,7 @@
             IndexTextBox.Name = "IndexTextBox";
             IndexTextBox.Size = new Size(169, 27);
             IndexTextBox.TabIndex = 5;
+            IndexTextBox.TextChanged += IndexTextBox_TextChanged;
             // 
             // CountryTextBox
             // 
@@ -102,13 +103,15 @@
             CountryTextBox.Name = "CountryTextBox";
             CountryTextBox.Size = new Size(223, 27);
             CountryTextBox.TabIndex = 6;
+            CountryTextBox.TextChanged += CountryTextBox_TextChanged;
             // 
             // StreetTextBox
             // 
             StreetTextBox.Location = new Point(108, 130);
             StreetTextBox.Name = "StreetTextBox";
-            StreetTextBox.Size = new Size(618, 27);
+            StreetTextBox.Size = new Size(572, 27);
             StreetTextBox.TabIndex = 7;
+            StreetTextBox.TextChanged += StreetTextBox_TextChanged;
             // 
             // BuildingTextBox
             // 
@@ -116,18 +119,20 @@
             BuildingTextBox.Name = "BuildingTextBox";
             BuildingTextBox.Size = new Size(169, 27);
             BuildingTextBox.TabIndex = 8;
+            BuildingTextBox.TextChanged += BuildingTextBox_TextChanged;
             // 
             // ApartmentTextBox
             // 
-            ApartmentTextBox.Location = new Point(454, 173);
+            ApartmentTextBox.Location = new Point(439, 173);
             ApartmentTextBox.Name = "ApartmentTextBox";
             ApartmentTextBox.Size = new Size(125, 27);
             ApartmentTextBox.TabIndex = 9;
+            ApartmentTextBox.TextChanged += ApartmentTextBox_TextChanged;
             // 
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(365, 176);
+            label6.Location = new Point(350, 176);
             label6.Name = "label6";
             label6.Size = new Size(83, 20);
             label6.TabIndex = 10;
@@ -136,7 +141,7 @@
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(385, 91);
+            label7.Location = new Point(365, 91);
             label7.Name = "label7";
             label7.Size = new Size(37, 20);
             label7.TabIndex = 11;
@@ -144,12 +149,13 @@
             // 
             // CityTextBox
             // 
-            CityTextBox.Location = new Point(454, 88);
+            CityTextBox.Location = new Point(408, 88);
             CityTextBox.Name = "CityTextBox";
             CityTextBox.Size = new Size(272, 27);
             CityTextBox.TabIndex = 12;
+            CityTextBox.TextChanged += CityTextBox_TextChanged;
             // 
-            // AddressUserControl
+            // AddressControl
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
@@ -166,7 +172,7 @@
             Controls.Add(label3);
             Controls.Add(label2);
             Controls.Add(label1);
-            Name = "AddressUserControl";
+            Name = "AddressControl";
             Size = new Size(743, 208);
             ResumeLayout(false);
             PerformLayout();

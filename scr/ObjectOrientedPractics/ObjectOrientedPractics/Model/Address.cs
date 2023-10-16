@@ -56,7 +56,7 @@
 
             set
             {
-                ValueValidator.AssertStringOnLength(value, 1, 50, nameof(Country));
+                ValueValidator.AssertStringOnLength(value, 0, 50, nameof(Country));
                 _country = value;
             }
         }
@@ -73,7 +73,7 @@
 
             set
             {
-                ValueValidator.AssertStringOnLength(value, 1, 50, nameof(City));
+                ValueValidator.AssertStringOnLength(value, 0, 50, nameof(City));
                 _city = value;
             }
         }
@@ -90,7 +90,7 @@
 
             set
             {
-                ValueValidator.AssertStringOnLength(value, 1, 100, nameof(Street));
+                ValueValidator.AssertStringOnLength(value, 0, 100, nameof(Street));
                 _street = value;
             }
         }
@@ -107,13 +107,13 @@
 
             set
             {
-                ValueValidator.AssertStringOnLength(value, 1, 10, nameof(Building));
+                ValueValidator.AssertStringOnLength(value, 0, 10, nameof(Building));
                 _building = value;
             }
         }
 
         /// <summary>
-        /// Возвращае и задает номер квартиры/помещения.
+        /// Возвращает и задает номер квартиры/помещения.
         /// </summary>
         public string Apartment
         {
@@ -124,7 +124,7 @@
 
             set
             {
-                ValueValidator.AssertStringOnLength(value, 1, 10, nameof(Apartment));
+                ValueValidator.AssertStringOnLength(value, 0, 10, nameof(Apartment));
                 _apartment = value;
             }
         }

@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            Model.Address address2 = new Model.Address();
             panel1 = new Panel();
             panel6 = new Panel();
             panel5 = new Panel();
@@ -38,18 +39,18 @@
             CustomersListBox = new ListBox();
             label1 = new Label();
             panel2 = new Panel();
-            AddressRichTextBox = new RichTextBox();
-            label6 = new Label();
             FullNameTextBox = new TextBox();
             label4 = new Label();
             IDTextBox = new TextBox();
             label3 = new Label();
             label2 = new Label();
             panel7 = new Panel();
+            AddressControl = new Controls.AddressControl();
             panel1.SuspendLayout();
             panel5.SuspendLayout();
             panel3.SuspendLayout();
             panel2.SuspendLayout();
+            panel7.SuspendLayout();
             SuspendLayout();
             // 
             // panel1
@@ -139,8 +140,6 @@
             // 
             // panel2
             // 
-            panel2.Controls.Add(AddressRichTextBox);
-            panel2.Controls.Add(label6);
             panel2.Controls.Add(FullNameTextBox);
             panel2.Controls.Add(label4);
             panel2.Controls.Add(IDTextBox);
@@ -148,32 +147,14 @@
             panel2.Controls.Add(label2);
             panel2.Location = new Point(359, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(418, 257);
+            panel2.Size = new Size(687, 130);
             panel2.TabIndex = 0;
-            // 
-            // AddressRichTextBox
-            // 
-            AddressRichTextBox.Location = new Point(84, 128);
-            AddressRichTextBox.Name = "AddressRichTextBox";
-            AddressRichTextBox.Size = new Size(331, 120);
-            AddressRichTextBox.TabIndex = 7;
-            AddressRichTextBox.Text = "";
-            AddressRichTextBox.TextChanged += AddressRichTextBox_TextChanged;
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Location = new Point(3, 128);
-            label6.Name = "label6";
-            label6.Size = new Size(59, 20);
-            label6.TabIndex = 6;
-            label6.Text = "Addres:";
             // 
             // FullNameTextBox
             // 
             FullNameTextBox.Location = new Point(84, 81);
             FullNameTextBox.Name = "FullNameTextBox";
-            FullNameTextBox.Size = new Size(331, 27);
+            FullNameTextBox.Size = new Size(476, 27);
             FullNameTextBox.TabIndex = 4;
             FullNameTextBox.TextChanged += FullNameTextBox_TextChanged;
             // 
@@ -215,10 +196,26 @@
             // 
             // panel7
             // 
-            panel7.Location = new Point(359, 266);
+            panel7.Controls.Add(AddressControl);
+            panel7.Location = new Point(359, 139);
             panel7.Name = "panel7";
-            panel7.Size = new Size(418, 257);
+            panel7.Size = new Size(687, 384);
             panel7.TabIndex = 1;
+            // 
+            // AddressControl
+            // 
+            address2.Apartment = null;
+            address2.Building = null;
+            address2.City = null;
+            address2.Country = null;
+            address2.Index = 0;
+            address2.Street = null;
+            AddressControl.Address = address2;
+            //AddressControl.Flag = "null";
+            AddressControl.Location = new Point(3, 3);
+            AddressControl.Name = "AddressControl";
+            AddressControl.Size = new Size(681, 226);
+            AddressControl.TabIndex = 0;
             // 
             // CustomersTab
             // 
@@ -227,14 +224,17 @@
             Controls.Add(panel7);
             Controls.Add(panel2);
             Controls.Add(panel1);
+            MaximumSize = new Size(1049, 526);
+            MinimumSize = new Size(1049, 526);
             Name = "CustomersTab";
-            Size = new Size(780, 526);
+            Size = new Size(1049, 526);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel5.ResumeLayout(false);
             panel3.ResumeLayout(false);
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
+            panel7.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -252,11 +252,10 @@
         private Panel panel4;
         private Label label3;
         private Label label2;
-        private Label label6;
         private TextBox FullNameTextBox;
         private Label label4;
         private TextBox IDTextBox;
         private Panel panel7;
-        private RichTextBox AddressRichTextBox;
+        private Controls.AddressControl AddressControl;
     }
 }
