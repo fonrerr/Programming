@@ -1,11 +1,14 @@
-﻿using Customer = ObjectOrientedPractics.Model.Customer;
+﻿using ObjectOrientedPractics.Model;
+using ObjectOrientedPractics.View.Controls;
+using Customer = ObjectOrientedPractics.Model.Customer;
+using Address = ObjectOrientedPractics.Model.Address;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
     public partial class CustomersTab : UserControl
     {
         /// <summary>
-        /// Список покупателей.
+        /// Список покупателей <see cref="Customer"/>.
         /// </summary>
         private List<Customer> _customers = new List<Customer>();
 
@@ -13,6 +16,18 @@ namespace ObjectOrientedPractics.View.Tabs
         /// Выбранный покупатель.
         /// </summary>
         private Customer _currentCustomer;
+
+        public List<Customer> Customers
+        {
+            get
+            {
+                return _customers;
+            }
+            set
+            {
+                _customers = value;
+            }
+        }
 
         /// <summary>
         /// Создает экземпляр класса CustomersTab.
@@ -34,6 +49,12 @@ namespace ObjectOrientedPractics.View.Tabs
             _customers = orderedListCustomers.ToList();
         }
 
+        private void Clear()
+        {
+            IDTextBox.Clear();
+            FullNameTextBox.Clear();
+            AddressControl.Clear();
+        }
         /// <summary>
         /// Осуществляет обновление покупателей.
         /// </summary>
@@ -55,11 +76,15 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void CustomersListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            if (CustomersListBox.SelectedIndex == -1) return;
+            if (CustomersListBox.SelectedIndex == -1)
+            {
+                Clear();
+                return;
+            }
 
             _currentCustomer = _customers[CustomersListBox.SelectedIndex];
             FullNameTextBox.Text = _currentCustomer.FullName;
-            AddressRichTextBox.Text = _currentCustomer.Address;
+            AddressControl.Address = _currentCustomer.Address;
             IDTextBox.Text = _currentCustomer.Id.ToString();
 
         }
@@ -69,9 +94,7 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void AddButton_Click(object sender, EventArgs e)
         {
-            _currentCustomer = new Customer();
-            _currentCustomer.FullName = "Новый покупатель";
-            _currentCustomer.Address = "Новый адрес";
+            _currentCustomer = new Customer("Новый покупатель");
             _customers.Add(_currentCustomer);
             SortOfCustomers();
             UpdateCustomerInfo(_customers.Count - 1);
@@ -93,6 +116,7 @@ namespace ObjectOrientedPractics.View.Tabs
             }
 
             CustomersListBox.SelectedIndex = -1;
+            Clear();
         }
 
         /// <summary>
@@ -113,25 +137,6 @@ namespace ObjectOrientedPractics.View.Tabs
             catch
             {
                 FullNameTextBox.BackColor = Color.LightPink;
-            }
-        }
-
-        /// <summary>
-        /// Ввод адреса покупателя.
-        /// </summary>
-        private void AddressRichTextBox_TextChanged(object sender, EventArgs e)
-        {
-            if (CustomersListBox.SelectedIndex == -1) return;
-
-            try
-            {
-                AddressRichTextBox.BackColor = Color.White;
-                _currentCustomer.Address = AddressRichTextBox.Text;
-                AddressRichTextBox.ReadOnly = false;
-            }
-            catch
-            {
-                AddressRichTextBox.BackColor = Color.LightPink;
             }
         }
     }

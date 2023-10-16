@@ -1,5 +1,7 @@
+using ObjectOrientedPractics.Model;
 using ObjectOrientedPractics.View.Tabs;
-using Customer = ObjectOrientedPractics.Model.Customer;
+using ItemsTab = ObjectOrientedPractics.View.Tabs.ItemsTab;
+using CustomersTab = ObjectOrientedPractics.View.Tabs.CustomersTab;
 
 namespace ObjectOrientedPractics
 {
@@ -8,6 +10,9 @@ namespace ObjectOrientedPractics
         public MainForm()
         {
             InitializeComponent();
+            Store _store = new Store();
+            ItemsTab.Items = _store.Items;
+            CustomersTab.Customers = _store.Customers;
         }
     }
 }
