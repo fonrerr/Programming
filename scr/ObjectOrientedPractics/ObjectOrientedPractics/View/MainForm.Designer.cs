@@ -34,19 +34,23 @@
             ItemsTab = new View.Tabs.ItemsTab();
             Customers = new TabPage();
             CustomersTab = new View.Tabs.CustomersTab();
+            Orders = new TabPage();
+            ordersTab1 = new View.Tabs.OrdersTab();
             tabControl1.SuspendLayout();
             Item.SuspendLayout();
             Customers.SuspendLayout();
+            Orders.SuspendLayout();
             SuspendLayout();
             // 
             // tabControl1
             // 
             tabControl1.Controls.Add(Item);
             tabControl1.Controls.Add(Customers);
+            tabControl1.Controls.Add(Orders);
             tabControl1.Location = new Point(2, 1);
             tabControl1.Name = "tabControl1";
             tabControl1.SelectedIndex = 0;
-            tabControl1.Size = new Size(1029, 579);
+            tabControl1.Size = new Size(1090, 579);
             tabControl1.TabIndex = 0;
             // 
             // Item
@@ -74,7 +78,7 @@
             Customers.Location = new Point(4, 29);
             Customers.Name = "Customers";
             Customers.Padding = new Padding(3);
-            Customers.Size = new Size(1021, 546);
+            Customers.Size = new Size(1082, 546);
             Customers.TabIndex = 1;
             Customers.Text = "Customers";
             Customers.UseVisualStyleBackColor = true;
@@ -88,19 +92,39 @@
             CustomersTab.Size = new Size(1049, 526);
             CustomersTab.TabIndex = 0;
             // 
+            // Orders
+            // 
+            Orders.Controls.Add(ordersTab1);
+            Orders.Location = new Point(4, 29);
+            Orders.Name = "Orders";
+            Orders.Padding = new Padding(3);
+            Orders.Size = new Size(1082, 546);
+            Orders.TabIndex = 2;
+            Orders.Text = "Orders";
+            Orders.UseVisualStyleBackColor = true;
+            // 
+            // ordersTab1
+            // 
+            ordersTab1.Customers = null;
+            ordersTab1.Location = new Point(-4, 0);
+            ordersTab1.Name = "ordersTab1";
+            ordersTab1.Size = new Size(1090, 566);
+            ordersTab1.TabIndex = 0;
+            // 
             // MainForm
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1031, 563);
+            ClientSize = new Size(1092, 563);
             Controls.Add(tabControl1);
             Icon = (Icon)resources.GetObject("$this.Icon");
-            MaximumSize = new Size(1049, 610);
+            MaximumSize = new Size(1110, 710);
             Name = "MainForm";
             Text = "MainForm";
             tabControl1.ResumeLayout(false);
             Item.ResumeLayout(false);
             Customers.ResumeLayout(false);
+            Orders.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -111,5 +135,7 @@
         private TabPage Customers;
         private View.Tabs.ItemsTab ItemsTab;
         private View.Tabs.CustomersTab CustomersTab;
+        private TabPage Orders;
+        private View.Tabs.OrdersTab ordersTab1;
     }
 }
