@@ -25,6 +25,8 @@
         /// </summary>
         private Address _address;
 
+        private Cart _cart;
+
         /// <summary>
         /// Возвращает идентификатор товара.
         /// </summary>
@@ -34,6 +36,11 @@
         /// Возвращает количество покупателей.
         /// </summary>
         public static int AllCustomersCount { get { return _allCustomersCount; } }
+
+        /// <summary>
+        /// Возвращает и задает список заказов. 
+        /// </summary>
+        public List<Order> Orders { get; set; }
 
         /// <summary>
         /// Возвращает и задает полное имя покупателя.
@@ -67,24 +74,28 @@
             }
         }
 
-        /// <summary>
-        /// Создает экземпляр класса Customer.
-        /// </summary>
-/*        public Customer() 
+        public Cart Cart
         {
-            _allCustomersCount++;
-            _id = AllCustomersCount;
-        }*/
+            get
+            {
+                return _cart;
+            }
+            set 
+            {
+                _cart = value; 
+            }
+        }
 
         /// <summary>
         /// Создает экземпляр класса Customer.
         /// </summary>
         /// <param name="fullName">Полное имя покупателя.</param>
-        /// <param name="address">Адрес покупателя.</param>
+        /// <param name="cart">покупателя.</param>
         public Customer(string fullName)
         {
             FullName = fullName;
             Address = new Address(606060, "Country", "City", "Street", "00", "00");
+            Cart = new Cart(new List<Item>());
             _allCustomersCount++;
             _id = AllCustomersCount;
         }
