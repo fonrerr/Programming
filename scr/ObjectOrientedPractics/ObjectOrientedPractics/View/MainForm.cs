@@ -7,12 +7,27 @@ namespace ObjectOrientedPractics
 {
     public partial class MainForm : Form
     {
+        private Store _store = new Store();
         public MainForm()
         {
             InitializeComponent();
-            Store _store = new Store();
             ItemsTab.Items = _store.Items;
             CustomersTab.Customers = _store.Customers;
+            CartsTab.Customers = _store.Customers;
+            CartsTab.Items = _store.Items;
+            OrdersTab.Customers = _store.Customers;
+        }
+
+        private void TabControl_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (TabControl.SelectedIndex == 3)
+            {
+                CartsTab.RefreshData();
+            }
+            if (TabControl.SelectedIndex == 2)
+            {
+                OrdersTab.UpdateOrders();
+            }
         }
     }
 }

@@ -37,6 +37,7 @@ namespace ObjectOrientedPractics.View.Tabs
             CategoryComboBox.Items.AddRange(Enum.GetNames(typeof(Category)));
         }
 
+        /*
         /// <summary>
         /// Осуществляет сортировку коллекции товаров.
         /// </summary>
@@ -48,6 +49,7 @@ namespace ObjectOrientedPractics.View.Tabs
 
             _items = orderedListItems.ToList();
         }
+        */
 
         /// <summary>
         /// Осуществляет обновление информации о товарах.
@@ -123,7 +125,6 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 NameTextBox.BackColor = Color.White;
                 _currentItem.Name = NameTextBox.Text;
-                SortOfItems();
                 int index = _items.IndexOf(_currentItem);
                 UpdateItemInfo(index);
             }

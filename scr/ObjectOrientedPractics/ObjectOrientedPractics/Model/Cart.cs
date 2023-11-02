@@ -40,9 +40,9 @@
             }
         }
 
-        public Cart(List<Item> items)
+        public Cart()
         {
-            Items = items;
+            Items = new List<Item>();
         }
     }
 }

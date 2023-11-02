@@ -5,7 +5,7 @@ namespace ObjectOrientedPractics.View.Tabs
     public partial class OrdersTab : UserControl
     {
         /// <summary>
-        /// Список объектов типа <see cref="Model.Customer"/>. 
+        /// Список объектов типа <see cref="Customer"/>. 
         /// </summary>
         private List<Customer> _customers;
 
@@ -61,8 +61,8 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             Order currentOrder = _orders[OrderDataGridView.CurrentCell.RowIndex];
             addressControl.Address = currentOrder.Address;
-            IdTextBox.Text = Convert.ToString(OrderDataGridView.CurrentRow.Cells[0].Value);
-            CreatedTextBox.Text = Convert.ToString(OrderDataGridView.CurrentRow.Cells[1].Value);
+            IdTextBox.Text = Convert.ToString(OrderDataGridView.CurrentRow.Cells[3].Value);
+            CreatedTextBox.Text = Convert.ToString(OrderDataGridView.CurrentRow.Cells[2].Value);
             StatusComboBox.SelectedItem = OrderDataGridView.CurrentRow.Cells[5].Value;
             for (int i = 0; i < currentOrder.Items.Count; i++)
             {
