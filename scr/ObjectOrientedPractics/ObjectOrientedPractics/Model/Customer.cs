@@ -86,6 +86,9 @@
             }
         }
 
+        public Customer()
+        {
+        }
         /// <summary>
         /// Создает экземпляр класса Customer.
         /// </summary>
@@ -95,7 +98,8 @@
         {
             FullName = fullName;
             Address = new Address(606060, "Country", "City", "Street", "00", "00");
-            Cart = new Cart(new List<Item>());
+            Cart = new Cart();
+            Orders = new List<Order>();
             _allCustomersCount++;
             _id = AllCustomersCount;
         }

@@ -40,6 +40,7 @@ namespace ObjectOrientedPractics.View.Tabs
         /// <summary>
         /// Осуществляет сортировку коллекции покупателей.
         /// </summary>
+        /*
         private void SortOfCustomers()
         {
             var orderedListCustomers = from customer in _customers
@@ -47,7 +48,7 @@ namespace ObjectOrientedPractics.View.Tabs
                                        select customer;
 
             _customers = orderedListCustomers.ToList();
-        }
+        }*/
 
         private void Clear()
         {
@@ -96,7 +97,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             _currentCustomer = new Customer("Новый покупатель");
             _customers.Add(_currentCustomer);
-            SortOfCustomers();
+            //SortOfCustomers();
             UpdateCustomerInfo(_customers.Count - 1);
         }
 
@@ -130,7 +131,7 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 FullNameTextBox.BackColor = Color.White;
                 _currentCustomer.FullName = FullNameTextBox.Text;
-                SortOfCustomers();
+                //SortOfCustomers();
                 int index = _customers.IndexOf(_currentCustomer);
                 UpdateCustomerInfo(index);
             }
