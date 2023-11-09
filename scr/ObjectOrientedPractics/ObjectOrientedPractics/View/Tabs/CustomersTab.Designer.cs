@@ -28,7 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Model.Address address2 = new Model.Address();
+            Model.Address address1 = new Model.Address();
             panel1 = new Panel();
             panel6 = new Panel();
             panel5 = new Panel();
@@ -39,6 +39,7 @@
             CustomersListBox = new ListBox();
             label1 = new Label();
             panel2 = new Panel();
+            PriorityCheckBox = new CheckBox();
             FullNameTextBox = new TextBox();
             label4 = new Label();
             IDTextBox = new TextBox();
@@ -140,6 +141,7 @@
             // 
             // panel2
             // 
+            panel2.Controls.Add(PriorityCheckBox);
             panel2.Controls.Add(FullNameTextBox);
             panel2.Controls.Add(label4);
             panel2.Controls.Add(IDTextBox);
@@ -147,8 +149,19 @@
             panel2.Controls.Add(label2);
             panel2.Location = new Point(359, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(687, 130);
+            panel2.Size = new Size(687, 143);
             panel2.TabIndex = 0;
+            // 
+            // PriorityCheckBox
+            // 
+            PriorityCheckBox.AutoSize = true;
+            PriorityCheckBox.Location = new Point(84, 114);
+            PriorityCheckBox.Name = "PriorityCheckBox";
+            PriorityCheckBox.Size = new Size(92, 24);
+            PriorityCheckBox.TabIndex = 5;
+            PriorityCheckBox.Text = "Is Priority";
+            PriorityCheckBox.UseVisualStyleBackColor = true;
+            PriorityCheckBox.CheckedChanged += PriorityCheckBox_CheckedChanged;
             // 
             // FullNameTextBox
             // 
@@ -197,21 +210,20 @@
             // panel7
             // 
             panel7.Controls.Add(AddressControl);
-            panel7.Location = new Point(359, 139);
+            panel7.Location = new Point(359, 152);
             panel7.Name = "panel7";
-            panel7.Size = new Size(687, 384);
+            panel7.Size = new Size(687, 371);
             panel7.TabIndex = 1;
             // 
             // AddressControl
             // 
-            address2.Apartment = null;
-            address2.Building = null;
-            address2.City = null;
-            address2.Country = null;
-            address2.Index = 0;
-            address2.Street = null;
-            AddressControl.Address = address2;
-            //AddressControl.Flag = "null";
+            address1.Apartment = null;
+            address1.Building = null;
+            address1.City = null;
+            address1.Country = null;
+            address1.Index = 0;
+            address1.Street = null;
+            AddressControl.Address = address1;
             AddressControl.Location = new Point(3, 3);
             AddressControl.Name = "AddressControl";
             AddressControl.Size = new Size(681, 226);
@@ -257,5 +269,6 @@
         private TextBox IDTextBox;
         private Panel panel7;
         private Controls.AddressControl AddressControl;
+        private CheckBox PriorityCheckBox;
     }
 }

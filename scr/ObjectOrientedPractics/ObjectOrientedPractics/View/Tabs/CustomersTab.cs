@@ -70,6 +70,7 @@ namespace ObjectOrientedPractics.View.Tabs
             }
 
             CustomersListBox.SelectedIndex = selectedIndex;
+            PriorityCheckBox.Checked = _currentCustomer.IsPriority;
         }
 
         /// <summary>
@@ -138,6 +139,21 @@ namespace ObjectOrientedPractics.View.Tabs
             catch
             {
                 FullNameTextBox.BackColor = Color.LightPink;
+            }
+        }
+
+        private void PriorityCheckBox_CheckedChanged(object sender, EventArgs e)
+        {
+            if (CustomersListBox.SelectedIndex != -1)
+            {
+                if (PriorityCheckBox.Checked)
+                {
+                    _currentCustomer.IsPriority = true;
+                }
+                else
+                {
+                    _currentCustomer.IsPriority = false;
+                }
             }
         }
     }

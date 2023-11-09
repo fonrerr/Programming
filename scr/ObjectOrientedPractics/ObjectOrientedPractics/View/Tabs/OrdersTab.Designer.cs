@@ -50,19 +50,25 @@
             AmountLabel = new Label();
             label1 = new Label();
             OrderListBox = new ListBox();
+            PriorityOptionsPanel = new Panel();
+            groupBox3 = new GroupBox();
+            label2 = new Label();
+            DeliveryTimeComboBox = new ComboBox();
             ((System.ComponentModel.ISupportInitialize)OrderDataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)orderBindingSource).BeginInit();
             Orders.SuspendLayout();
             groupBox1.SuspendLayout();
             groupBox2.SuspendLayout();
+            PriorityOptionsPanel.SuspendLayout();
+            groupBox3.SuspendLayout();
             SuspendLayout();
             // 
             // addressControl
             // 
             addressControl.Address = null;
-            addressControl.Location = new Point(417, 143);
+            addressControl.Location = new Point(424, 147);
             addressControl.Name = "addressControl";
-            addressControl.Size = new Size(671, 207);
+            addressControl.Size = new Size(683, 210);
             addressControl.TabIndex = 1;
             // 
             // label3
@@ -125,7 +131,7 @@
             OrderDataGridView.Name = "OrderDataGridView";
             OrderDataGridView.RowHeadersWidth = 51;
             OrderDataGridView.RowTemplate.Height = 29;
-            OrderDataGridView.Size = new Size(404, 463);
+            OrderDataGridView.Size = new Size(404, 504);
             OrderDataGridView.TabIndex = 10;
             OrderDataGridView.RowHeaderMouseClick += OrderDataGridView_RowHeaderMouseClick;
             // 
@@ -206,7 +212,7 @@
             groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox1.Location = new Point(426, 3);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(681, 141);
+            groupBox1.Size = new Size(300, 141);
             groupBox1.TabIndex = 12;
             groupBox1.TabStop = false;
             groupBox1.Text = "Selected Order:";
@@ -253,10 +259,49 @@
             OrderListBox.Size = new Size(669, 104);
             OrderListBox.TabIndex = 0;
             // 
+            // PriorityOptionsPanel
+            // 
+            PriorityOptionsPanel.Controls.Add(groupBox3);
+            PriorityOptionsPanel.Location = new Point(732, 3);
+            PriorityOptionsPanel.Name = "PriorityOptionsPanel";
+            PriorityOptionsPanel.Size = new Size(375, 141);
+            PriorityOptionsPanel.TabIndex = 14;
+            // 
+            // groupBox3
+            // 
+            groupBox3.Controls.Add(DeliveryTimeComboBox);
+            groupBox3.Controls.Add(label2);
+            groupBox3.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            groupBox3.Location = new Point(3, 3);
+            groupBox3.Name = "groupBox3";
+            groupBox3.Size = new Size(366, 135);
+            groupBox3.TabIndex = 0;
+            groupBox3.TabStop = false;
+            groupBox3.Text = "Priority Options";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(17, 64);
+            label2.Name = "label2";
+            label2.Size = new Size(110, 20);
+            label2.TabIndex = 0;
+            label2.Text = "Delivery Time:";
+            // 
+            // DeliveryTimeComboBox
+            // 
+            DeliveryTimeComboBox.FormattingEnabled = true;
+            DeliveryTimeComboBox.Location = new Point(143, 60);
+            DeliveryTimeComboBox.Name = "DeliveryTimeComboBox";
+            DeliveryTimeComboBox.Size = new Size(192, 28);
+            DeliveryTimeComboBox.TabIndex = 1;
+            DeliveryTimeComboBox.SelectedIndexChanged += DeliveryTimeComboBox_SelectedIndexChanged;
+            // 
             // OrdersTab
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(PriorityOptionsPanel);
             Controls.Add(groupBox2);
             Controls.Add(groupBox1);
             Controls.Add(Orders);
@@ -270,6 +315,9 @@
             groupBox1.PerformLayout();
             groupBox2.ResumeLayout(false);
             groupBox2.PerformLayout();
+            PriorityOptionsPanel.ResumeLayout(false);
+            groupBox3.ResumeLayout(false);
+            groupBox3.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -296,5 +344,9 @@
         private ListBox OrderListBox;
         private Label AmountLabel;
         private Label label1;
+        private Panel PriorityOptionsPanel;
+        private GroupBox groupBox3;
+        private Label label2;
+        private ComboBox DeliveryTimeComboBox;
     }
 }

@@ -86,6 +86,11 @@
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает являет ли покупатель приоритетным. 
+        /// </summary>
+        public bool IsPriority { get; set; }
+
         public Customer()
         {
         }
@@ -93,13 +98,13 @@
         /// Создает экземпляр класса Customer.
         /// </summary>
         /// <param name="fullName">Полное имя покупателя.</param>
-        /// <param name="cart">покупателя.</param>
         public Customer(string fullName)
         {
             FullName = fullName;
             Address = new Address(606060, "Country", "City", "Street", "00", "00");
             Cart = new Cart();
             Orders = new List<Order>();
+            IsPriority = false;
             _allCustomersCount++;
             _id = AllCustomersCount;
         }
