@@ -1,4 +1,6 @@
 ﻿using ObjectOrientedPractics.Model;
+using ObjectOrientedPractics.Model.Orders;
+using ObjectOrientedPractics.Model.Enums;
 using ObjectOrientedPractics.View.Controls;
 
 namespace ObjectOrientedPractics.View.Tabs
@@ -94,7 +96,7 @@ namespace ObjectOrientedPractics.View.Tabs
             priorityOrder.Address = null;
             priorityOrder = null;
             OrderItemsListBox.Items.Clear();
-            Model.PriorityOrder newPriorityOrder = new Model.PriorityOrder();
+            PriorityOrder newPriorityOrder = new PriorityOrder();
             priorityOrder = newPriorityOrder;
             AmountLabel.Text = priorityOrder.Amount.ToString();
             IdTextBox.Text = priorityOrder.Id.ToString();

@@ -1,4 +1,4 @@
-﻿namespace ObjectOrientedPractics.Model
+﻿namespace ObjectOrientedPractics.Model.Enums
 {
     public enum OrderStatus
     {

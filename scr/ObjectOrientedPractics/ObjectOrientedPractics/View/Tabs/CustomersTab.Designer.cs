@@ -46,6 +46,10 @@
             label3 = new Label();
             label2 = new Label();
             panel7 = new Panel();
+            RemoveDiscountButton = new Button();
+            AddDiscountButton = new Button();
+            DiscountsListBox = new ListBox();
+            label5 = new Label();
             AddressControl = new Controls.AddressControl();
             panel1.SuspendLayout();
             panel5.SuspendLayout();
@@ -209,11 +213,54 @@
             // 
             // panel7
             // 
+            panel7.Controls.Add(RemoveDiscountButton);
+            panel7.Controls.Add(AddDiscountButton);
+            panel7.Controls.Add(DiscountsListBox);
+            panel7.Controls.Add(label5);
             panel7.Controls.Add(AddressControl);
             panel7.Location = new Point(359, 152);
             panel7.Name = "panel7";
             panel7.Size = new Size(687, 371);
             panel7.TabIndex = 1;
+            // 
+            // RemoveDiscountButton
+            // 
+            RemoveDiscountButton.Location = new Point(428, 315);
+            RemoveDiscountButton.Name = "RemoveDiscountButton";
+            RemoveDiscountButton.Size = new Size(94, 29);
+            RemoveDiscountButton.TabIndex = 5;
+            RemoveDiscountButton.Text = "Remove";
+            RemoveDiscountButton.UseVisualStyleBackColor = true;
+            RemoveDiscountButton.Click += RemoveDiscountButton_Click;
+            // 
+            // AddDiscountButton
+            // 
+            AddDiscountButton.Location = new Point(428, 271);
+            AddDiscountButton.Name = "AddDiscountButton";
+            AddDiscountButton.Size = new Size(94, 29);
+            AddDiscountButton.TabIndex = 4;
+            AddDiscountButton.Text = "Add";
+            AddDiscountButton.UseVisualStyleBackColor = true;
+            AddDiscountButton.Click += AddDiscountButton_Click;
+            // 
+            // DiscountsListBox
+            // 
+            DiscountsListBox.FormattingEnabled = true;
+            DiscountsListBox.ItemHeight = 20;
+            DiscountsListBox.Location = new Point(12, 255);
+            DiscountsListBox.Name = "DiscountsListBox";
+            DiscountsListBox.Size = new Size(370, 104);
+            DiscountsListBox.TabIndex = 3;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            label5.Location = new Point(12, 232);
+            label5.Name = "label5";
+            label5.Size = new Size(78, 20);
+            label5.TabIndex = 2;
+            label5.Text = "Discounts";
             // 
             // AddressControl
             // 
@@ -247,6 +294,7 @@
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             panel7.ResumeLayout(false);
+            panel7.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -270,5 +318,9 @@
         private Panel panel7;
         private Controls.AddressControl AddressControl;
         private CheckBox PriorityCheckBox;
+        private Label label5;
+        private Button RemoveDiscountButton;
+        private Button AddDiscountButton;
+        private ListBox DiscountsListBox;
     }
 }

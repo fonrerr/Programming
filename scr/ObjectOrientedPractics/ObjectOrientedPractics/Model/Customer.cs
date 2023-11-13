@@ -1,4 +1,7 @@
-﻿namespace ObjectOrientedPractics.Model
+﻿using ObjectOrientedPractics.Model.Orders;
+using ObjectOrientedPractics.Model.Discount;
+
+namespace ObjectOrientedPractics.Model
 {
     /// <summary>
     /// Хранит данные о покупателях.
@@ -41,6 +44,11 @@
         /// Возвращает и задает список заказов. 
         /// </summary>
         public List<Order> Orders { get; set; }
+
+        /// <summary>
+        /// Возвращает и задает список скидок. 
+        /// </summary>
+        public List<IDiscount> Discounts { get; set; }
 
         /// <summary>
         /// Возвращает и задает полное имя покупателя.
@@ -105,6 +113,7 @@
             Cart = new Cart();
             Orders = new List<Order>();
             IsPriority = false;
+            Discounts = new List<IDiscount>() { new PointsDiscount() };
             _allCustomersCount++;
             _id = AllCustomersCount;
         }

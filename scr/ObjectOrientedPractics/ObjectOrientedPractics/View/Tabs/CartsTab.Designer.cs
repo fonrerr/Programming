@@ -29,6 +29,11 @@
         private void InitializeComponent()
         {
             groupBox1 = new GroupBox();
+            TotalAmountLabel = new Label();
+            label4 = new Label();
+            DiscountAmountLabel = new Label();
+            Button = new Label();
+            DiscountsCheckedListBox = new CheckedListBox();
             AmountLabel = new Label();
             label3 = new Label();
             ClearCartButton = new Button();
@@ -45,6 +50,11 @@
             // 
             // groupBox1
             // 
+            groupBox1.Controls.Add(TotalAmountLabel);
+            groupBox1.Controls.Add(label4);
+            groupBox1.Controls.Add(DiscountAmountLabel);
+            groupBox1.Controls.Add(Button);
+            groupBox1.Controls.Add(DiscountsCheckedListBox);
             groupBox1.Controls.Add(AmountLabel);
             groupBox1.Controls.Add(label3);
             groupBox1.Controls.Add(ClearCartButton);
@@ -59,10 +69,60 @@
             groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox1.Location = new Point(3, 3);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(817, 560);
+            groupBox1.Size = new Size(820, 561);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Items";
+            // 
+            // TotalAmountLabel
+            // 
+            TotalAmountLabel.AutoSize = true;
+            TotalAmountLabel.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            TotalAmountLabel.Location = new Point(733, 514);
+            TotalAmountLabel.Name = "TotalAmountLabel";
+            TotalAmountLabel.Size = new Size(46, 31);
+            TotalAmountLabel.TabIndex = 15;
+            TotalAmountLabel.Text = "0.0";
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(728, 489);
+            label4.Name = "label4";
+            label4.Size = new Size(59, 25);
+            label4.TabIndex = 14;
+            label4.Text = "Total:";
+            // 
+            // DiscountAmountLabel
+            // 
+            DiscountAmountLabel.AutoSize = true;
+            DiscountAmountLabel.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            DiscountAmountLabel.Location = new Point(733, 397);
+            DiscountAmountLabel.Name = "DiscountAmountLabel";
+            DiscountAmountLabel.Size = new Size(46, 31);
+            DiscountAmountLabel.TabIndex = 13;
+            DiscountAmountLabel.Text = "0.0";
+            // 
+            // Button
+            // 
+            Button.AutoSize = true;
+            Button.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
+            Button.Location = new Point(680, 377);
+            Button.Name = "Button";
+            Button.Size = new Size(137, 20);
+            Button.TabIndex = 12;
+            Button.Text = "Discount Amount:";
+            // 
+            // DiscountsCheckedListBox
+            // 
+            DiscountsCheckedListBox.BorderStyle = BorderStyle.None;
+            DiscountsCheckedListBox.FormattingEnabled = true;
+            DiscountsCheckedListBox.Location = new Point(356, 377);
+            DiscountsCheckedListBox.Name = "DiscountsCheckedListBox";
+            DiscountsCheckedListBox.Size = new Size(306, 132);
+            DiscountsCheckedListBox.TabIndex = 11;
+            DiscountsCheckedListBox.SelectedIndexChanged += DiscountsCheckedListBox_SelectedIndexChanged;
             // 
             // AmountLabel
             // 
@@ -172,6 +232,7 @@
             CartItemsListBox.Name = "CartItemsListBox";
             CartItemsListBox.Size = new Size(332, 484);
             CartItemsListBox.TabIndex = 0;
+            CartItemsListBox.SelectedIndexChanged += CartItemsListBox_SelectedIndexChanged;
             // 
             // CartsTab
             // 
@@ -199,5 +260,10 @@
         private Button ClearCartButton;
         private Button RemoveItemButton;
         private Label AmountLabel;
+        private CheckedListBox DiscountsCheckedListBox;
+        private Label Button;
+        private Label DiscountAmountLabel;
+        private Label label4;
+        private Label TotalAmountLabel;
     }
 }

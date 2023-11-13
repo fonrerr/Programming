@@ -1,4 +1,5 @@
 ﻿using ObjectOrientedPractics.Model;
+using ObjectOrientedPractics.Model.Orders;
 
 namespace ObjectOrientedPractics.View.Tabs
 {
@@ -85,7 +86,7 @@ namespace ObjectOrientedPractics.View.Tabs
         /// <summary>
         /// Обновляет данные в листбоксе с товарами и в комбобоксе с покупателями. 
         /// </summary>
-        
+
         public void RefreshData()
         {
             ((CurrencyManager)CustomerComboBox.BindingContext[_customers]).Refresh();
@@ -103,12 +104,22 @@ namespace ObjectOrientedPractics.View.Tabs
             CartListBox.Items.Clear();
             if (CustomerComboBox.SelectedIndex != -1)
             {
+                Model.Customer currentCustomer = Customers[CustomerComboBox.SelectedIndex];
+                DiscountsCheckedListBox.Items.Clear();
+                int i = 0;
+                foreach (var discount in currentCustomer.Discounts)
+                {
+                    DiscountsCheckedListBox.Items.Add(discount.Info);
+                    DiscountsCheckedListBox.SetItemChecked(i, true);
+                    i++;
+                }
                 UpdateCartListBox();
             }
             else
             {
                 CartListBox.Items.Clear();
             }
+
         }
 
         private void CreateOrderButton_Click(object sender, EventArgs e)
@@ -166,6 +177,35 @@ namespace ObjectOrientedPractics.View.Tabs
                 CartListBox.Items.Add(_items[CartItemsListBox.SelectedIndex].Name);
                 AmountLabel.Text = CurrentCustomer.Cart.Amount.ToString();
             }
+        }
+
+        /// <summary>
+        /// Обновляет список скидок покупателя. 
+        /// </summary>
+        public void UpdateDiscount()
+        {
+            double discountAmount = 0;
+            for (int i = 0; i < CurrentCustomer.Discounts.Count; i++)
+            {
+                if (DiscountsCheckedListBox.GetItemChecked(i))
+                {
+                    discountAmount += CurrentCustomer.Discounts[i].Calculate(CurrentCustomer.Cart.Items);
+                }
+            }
+            DiscountAmountLabel.Text = discountAmount.ToString();
+            TotalAmountLabel.Text = Convert.ToString(CurrentCustomer.Cart.Amount - discountAmount);
+        }
+
+
+
+        private void CartItemsListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void DiscountsCheckedListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            UpdateDiscount();
         }
     }
 }

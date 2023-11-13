@@ -188,7 +188,7 @@
             // 
             // orderBindingSource
             // 
-            orderBindingSource.DataSource = typeof(Model.Order);
+            orderBindingSource.DataSource = typeof(Model.Orders.Order);
             // 
             // Orders
             // 

@@ -1,4 +1,4 @@
-﻿namespace ObjectOrientedPractics.Model
+﻿namespace ObjectOrientedPractics.Model.Orders
 {
     public class Order
     {
@@ -27,7 +27,7 @@
         /// </summary>
         private List<Item> _items;
 
-        public OrderStatus OrderStatus { get; set; }
+        public Enums.OrderStatus OrderStatus { get; set; }
 
         // <summary>
         /// Возвращает идентификатор товара.
@@ -96,13 +96,26 @@
         }
 
         /// <summary>
+        /// Возвращает и задает размер скидки. 
+        /// </summary>
+        public double DiscountAmount { get; set; }
+
+        /// <summary>
+        /// Возвращает общую стоимость заказа с учетом скидки. 
+        /// </summary>
+        public double Total
+        {
+            get { return Amount - DiscountAmount; }
+        }
+
+        /// <summary>
         /// Создает объект класса <see cref="Order"/>.
         /// </summary>
         public Order()
         {
             Address = new Address();
             Items = new List<Item>();
-            OrderStatus = OrderStatus.New;
+            OrderStatus = Enums.OrderStatus.New;
             Date = DateTime.Now.ToLongDateString();
             _allOrderCount++;
             _id = AllOrderCount;
@@ -119,7 +132,7 @@
             CustomerName = customerName;
             Address = address;
             Items = items;
-            OrderStatus = OrderStatus.New;
+            OrderStatus = Enums.OrderStatus.New;
             Date = DateTime.Now.ToLongDateString();
             _allOrderCount++;
             _id = AllOrderCount;
