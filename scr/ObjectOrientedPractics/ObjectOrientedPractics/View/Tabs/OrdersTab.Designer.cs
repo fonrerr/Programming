@@ -37,12 +37,6 @@
             CreatedTextBox = new TextBox();
             StatusComboBox = new ComboBox();
             OrderDataGridView = new DataGridView();
-            CustomerName = new DataGridViewTextBoxColumn();
-            addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            Date = new DataGridViewTextBoxColumn();
-            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            amountDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
-            orderStatusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
             orderBindingSource = new BindingSource(components);
             Orders = new GroupBox();
             groupBox1 = new GroupBox();
@@ -52,8 +46,15 @@
             OrderListBox = new ListBox();
             PriorityOptionsPanel = new Panel();
             groupBox3 = new GroupBox();
-            label2 = new Label();
             DeliveryTimeComboBox = new ComboBox();
+            label2 = new Label();
+            CustomerName = new DataGridViewTextBoxColumn();
+            idDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            Date = new DataGridViewTextBoxColumn();
+            addressDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            amountDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            orderStatusDataGridViewTextBoxColumn = new DataGridViewTextBoxColumn();
+            Total = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)OrderDataGridView).BeginInit();
             ((System.ComponentModel.ISupportInitialize)orderBindingSource).BeginInit();
             Orders.SuspendLayout();
@@ -125,7 +126,7 @@
             // 
             OrderDataGridView.AutoGenerateColumns = false;
             OrderDataGridView.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            OrderDataGridView.Columns.AddRange(new DataGridViewColumn[] { CustomerName, addressDataGridViewTextBoxColumn, Date, idDataGridViewTextBoxColumn, amountDataGridViewTextBoxColumn, orderStatusDataGridViewTextBoxColumn });
+            OrderDataGridView.Columns.AddRange(new DataGridViewColumn[] { CustomerName, idDataGridViewTextBoxColumn, Date, addressDataGridViewTextBoxColumn, amountDataGridViewTextBoxColumn, orderStatusDataGridViewTextBoxColumn, Total });
             OrderDataGridView.DataSource = orderBindingSource;
             OrderDataGridView.Location = new Point(6, 26);
             OrderDataGridView.Name = "OrderDataGridView";
@@ -134,57 +135,6 @@
             OrderDataGridView.Size = new Size(404, 504);
             OrderDataGridView.TabIndex = 10;
             OrderDataGridView.RowHeaderMouseClick += OrderDataGridView_RowHeaderMouseClick;
-            // 
-            // CustomerName
-            // 
-            CustomerName.DataPropertyName = "CustomerName";
-            CustomerName.HeaderText = "CustomerName";
-            CustomerName.MinimumWidth = 6;
-            CustomerName.Name = "CustomerName";
-            CustomerName.Width = 125;
-            // 
-            // addressDataGridViewTextBoxColumn
-            // 
-            addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
-            addressDataGridViewTextBoxColumn.HeaderText = "Address";
-            addressDataGridViewTextBoxColumn.MinimumWidth = 6;
-            addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
-            addressDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // Date
-            // 
-            Date.DataPropertyName = "Date";
-            Date.HeaderText = "Date";
-            Date.MinimumWidth = 6;
-            Date.Name = "Date";
-            Date.ReadOnly = true;
-            Date.Width = 125;
-            // 
-            // idDataGridViewTextBoxColumn
-            // 
-            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
-            idDataGridViewTextBoxColumn.HeaderText = "Id";
-            idDataGridViewTextBoxColumn.MinimumWidth = 6;
-            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
-            idDataGridViewTextBoxColumn.ReadOnly = true;
-            idDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // amountDataGridViewTextBoxColumn
-            // 
-            amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
-            amountDataGridViewTextBoxColumn.HeaderText = "Amount";
-            amountDataGridViewTextBoxColumn.MinimumWidth = 6;
-            amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
-            amountDataGridViewTextBoxColumn.ReadOnly = true;
-            amountDataGridViewTextBoxColumn.Width = 125;
-            // 
-            // orderStatusDataGridViewTextBoxColumn
-            // 
-            orderStatusDataGridViewTextBoxColumn.DataPropertyName = "OrderStatus";
-            orderStatusDataGridViewTextBoxColumn.HeaderText = "OrderStatus";
-            orderStatusDataGridViewTextBoxColumn.MinimumWidth = 6;
-            orderStatusDataGridViewTextBoxColumn.Name = "orderStatusDataGridViewTextBoxColumn";
-            orderStatusDataGridViewTextBoxColumn.Width = 125;
             // 
             // orderBindingSource
             // 
@@ -279,6 +229,15 @@
             groupBox3.TabStop = false;
             groupBox3.Text = "Priority Options";
             // 
+            // DeliveryTimeComboBox
+            // 
+            DeliveryTimeComboBox.FormattingEnabled = true;
+            DeliveryTimeComboBox.Location = new Point(143, 60);
+            DeliveryTimeComboBox.Name = "DeliveryTimeComboBox";
+            DeliveryTimeComboBox.Size = new Size(192, 28);
+            DeliveryTimeComboBox.TabIndex = 1;
+            DeliveryTimeComboBox.SelectedIndexChanged += DeliveryTimeComboBox_SelectedIndexChanged;
+            // 
             // label2
             // 
             label2.AutoSize = true;
@@ -288,14 +247,65 @@
             label2.TabIndex = 0;
             label2.Text = "Delivery Time:";
             // 
-            // DeliveryTimeComboBox
+            // CustomerName
             // 
-            DeliveryTimeComboBox.FormattingEnabled = true;
-            DeliveryTimeComboBox.Location = new Point(143, 60);
-            DeliveryTimeComboBox.Name = "DeliveryTimeComboBox";
-            DeliveryTimeComboBox.Size = new Size(192, 28);
-            DeliveryTimeComboBox.TabIndex = 1;
-            DeliveryTimeComboBox.SelectedIndexChanged += DeliveryTimeComboBox_SelectedIndexChanged;
+            CustomerName.DataPropertyName = "CustomerName";
+            CustomerName.HeaderText = "CustomerName";
+            CustomerName.MinimumWidth = 6;
+            CustomerName.Name = "CustomerName";
+            CustomerName.Width = 125;
+            // 
+            // idDataGridViewTextBoxColumn
+            // 
+            idDataGridViewTextBoxColumn.DataPropertyName = "Id";
+            idDataGridViewTextBoxColumn.HeaderText = "Id";
+            idDataGridViewTextBoxColumn.MinimumWidth = 6;
+            idDataGridViewTextBoxColumn.Name = "idDataGridViewTextBoxColumn";
+            idDataGridViewTextBoxColumn.ReadOnly = true;
+            idDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // Date
+            // 
+            Date.DataPropertyName = "Date";
+            Date.HeaderText = "Date";
+            Date.MinimumWidth = 6;
+            Date.Name = "Date";
+            Date.ReadOnly = true;
+            Date.Width = 125;
+            // 
+            // addressDataGridViewTextBoxColumn
+            // 
+            addressDataGridViewTextBoxColumn.DataPropertyName = "Address";
+            addressDataGridViewTextBoxColumn.HeaderText = "Address";
+            addressDataGridViewTextBoxColumn.MinimumWidth = 6;
+            addressDataGridViewTextBoxColumn.Name = "addressDataGridViewTextBoxColumn";
+            addressDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // amountDataGridViewTextBoxColumn
+            // 
+            amountDataGridViewTextBoxColumn.DataPropertyName = "Amount";
+            amountDataGridViewTextBoxColumn.HeaderText = "Amount";
+            amountDataGridViewTextBoxColumn.MinimumWidth = 6;
+            amountDataGridViewTextBoxColumn.Name = "amountDataGridViewTextBoxColumn";
+            amountDataGridViewTextBoxColumn.ReadOnly = true;
+            amountDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // orderStatusDataGridViewTextBoxColumn
+            // 
+            orderStatusDataGridViewTextBoxColumn.DataPropertyName = "OrderStatus";
+            orderStatusDataGridViewTextBoxColumn.HeaderText = "OrderStatus";
+            orderStatusDataGridViewTextBoxColumn.MinimumWidth = 6;
+            orderStatusDataGridViewTextBoxColumn.Name = "orderStatusDataGridViewTextBoxColumn";
+            orderStatusDataGridViewTextBoxColumn.Width = 125;
+            // 
+            // Total
+            // 
+            Total.DataPropertyName = "Total";
+            Total.HeaderText = "Total";
+            Total.MinimumWidth = 6;
+            Total.Name = "Total";
+            Total.ReadOnly = true;
+            Total.Width = 125;
             // 
             // OrdersTab
             // 
@@ -332,12 +342,6 @@
         private DataGridView OrderDataGridView;
         private DataGridViewTextBoxColumn dateOfOrderCreationDataGridViewTextBoxColumn;
         private BindingSource orderBindingSource;
-        private DataGridViewTextBoxColumn CustomerName;
-        private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn Date;
-        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
-        private DataGridViewTextBoxColumn orderStatusDataGridViewTextBoxColumn;
         private GroupBox Orders;
         private GroupBox groupBox1;
         private GroupBox groupBox2;
@@ -348,5 +352,12 @@
         private GroupBox groupBox3;
         private Label label2;
         private ComboBox DeliveryTimeComboBox;
+        private DataGridViewTextBoxColumn CustomerName;
+        private DataGridViewTextBoxColumn idDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn Date;
+        private DataGridViewTextBoxColumn addressDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn amountDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn orderStatusDataGridViewTextBoxColumn;
+        private DataGridViewTextBoxColumn Total;
     }
 }

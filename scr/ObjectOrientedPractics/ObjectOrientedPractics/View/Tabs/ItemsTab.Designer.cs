@@ -63,22 +63,22 @@
             panel1.Controls.Add(panel3);
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(344, 523);
+            panel1.Size = new Size(344, 569);
             panel1.TabIndex = 0;
             // 
             // panel5
             // 
-            panel5.Location = new Point(228, 469);
+            panel5.Location = new Point(228, 512);
             panel5.Name = "panel5";
-            panel5.Size = new Size(113, 51);
+            panel5.Size = new Size(113, 54);
             panel5.TabIndex = 4;
             // 
             // panel4
             // 
             panel4.Controls.Add(RemoveButton);
-            panel4.Location = new Point(120, 469);
+            panel4.Location = new Point(120, 512);
             panel4.Name = "panel4";
-            panel4.Size = new Size(108, 51);
+            panel4.Size = new Size(108, 54);
             panel4.TabIndex = 3;
             // 
             // RemoveButton
@@ -98,7 +98,7 @@
             ItemsListBox.ItemHeight = 20;
             ItemsListBox.Location = new Point(13, 36);
             ItemsListBox.Name = "ItemsListBox";
-            ItemsListBox.Size = new Size(328, 424);
+            ItemsListBox.Size = new Size(328, 464);
             ItemsListBox.TabIndex = 2;
             ItemsListBox.SelectedIndexChanged += ItemsListBox_SelectedIndexChanged;
             // 
@@ -115,9 +115,9 @@
             // panel3
             // 
             panel3.Controls.Add(AddButton);
-            panel3.Location = new Point(13, 469);
+            panel3.Location = new Point(13, 512);
             panel3.Name = "panel3";
-            panel3.Size = new Size(106, 51);
+            panel3.Size = new Size(106, 54);
             panel3.TabIndex = 0;
             // 
             // AddButton
@@ -146,7 +146,7 @@
             panel2.Controls.Add(label1);
             panel2.Location = new Point(350, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(559, 542);
+            panel2.Size = new Size(678, 569);
             panel2.TabIndex = 1;
             // 
             // CategoryComboBox
@@ -173,7 +173,7 @@
             NameTextBox.Location = new Point(12, 202);
             NameTextBox.Multiline = true;
             NameTextBox.Name = "NameTextBox";
-            NameTextBox.Size = new Size(530, 108);
+            NameTextBox.Size = new Size(649, 108);
             NameTextBox.TabIndex = 9;
             NameTextBox.TextChanged += NameTextBox_TextChanged;
             // 
@@ -199,7 +199,7 @@
             // 
             InfoRichTextBox.Location = new Point(12, 348);
             InfoRichTextBox.Name = "InfoRichTextBox";
-            InfoRichTextBox.Size = new Size(530, 129);
+            InfoRichTextBox.Size = new Size(649, 192);
             InfoRichTextBox.TabIndex = 6;
             InfoRichTextBox.Text = "";
             InfoRichTextBox.TextChanged += InfoRichTextBox_TextChanged;
@@ -256,7 +256,7 @@
             Controls.Add(panel2);
             Controls.Add(panel1);
             Name = "ItemsTab";
-            Size = new Size(912, 526);
+            Size = new Size(1031, 575);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel4.ResumeLayout(false);

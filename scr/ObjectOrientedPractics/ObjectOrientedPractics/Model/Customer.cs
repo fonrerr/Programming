@@ -110,7 +110,7 @@ namespace ObjectOrientedPractics.Model
         {
             FullName = fullName;
             Address = new Address(606060, "Country", "City", "Street", "00", "00");
-            Cart = new Cart();
+            Cart = new Cart(new List<Item>());
             Orders = new List<Order>();
             IsPriority = false;
             Discounts = new List<IDiscount>() { new PointsDiscount() };

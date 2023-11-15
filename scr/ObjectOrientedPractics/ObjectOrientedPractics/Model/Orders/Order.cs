@@ -1,6 +1,6 @@
 ﻿namespace ObjectOrientedPractics.Model.Orders
 {
-    public class Order
+    public class Order : IEquatable<Order>
     {
         /// <summary>
         /// Хранит значение количества заказов.
@@ -106,6 +106,16 @@
         public double Total
         {
             get { return Amount - DiscountAmount; }
+        }
+
+        /// <inheritdoc cref="IEquatable{T}.Equals(T?)"/>
+        public bool Equals(Order other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+            return other.Id == Id && other.Date == Date;
         }
 
         /// <summary>

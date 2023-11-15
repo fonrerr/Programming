@@ -1,6 +1,6 @@
 ﻿namespace ObjectOrientedPractics.Model
 {
-    public class Cart
+    public class Cart: ICloneable
     {
         /// <summary>
         /// Список объектов класса <see cref="Item">.
@@ -40,9 +40,15 @@
             }
         }
 
-        public Cart()
+        /// <inheritdoc cref="ICloneable"/>
+        public object Clone()
         {
-            Items = new List<Item>();
+            return new Cart(Items);
+        }
+
+        public Cart(List<Item> items)
+        {
+            Items = items;
         }
     }
 }

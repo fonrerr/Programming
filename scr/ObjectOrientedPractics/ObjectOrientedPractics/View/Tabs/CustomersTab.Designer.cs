@@ -67,20 +67,20 @@
             panel1.Controls.Add(label1);
             panel1.Location = new Point(3, 3);
             panel1.Name = "panel1";
-            panel1.Size = new Size(350, 520);
+            panel1.Size = new Size(350, 568);
             panel1.TabIndex = 0;
             // 
             // panel6
             // 
-            panel6.Location = new Point(234, 464);
+            panel6.Location = new Point(234, 512);
             panel6.Name = "panel6";
-            panel6.Size = new Size(113, 53);
+            panel6.Size = new Size(113, 50);
             panel6.TabIndex = 0;
             // 
             // panel5
             // 
             panel5.Controls.Add(RemoveButton);
-            panel5.Location = new Point(117, 464);
+            panel5.Location = new Point(117, 512);
             panel5.Name = "panel5";
             panel5.Size = new Size(117, 53);
             panel5.TabIndex = 2;
@@ -100,7 +100,7 @@
             // 
             panel3.Controls.Add(AddButton);
             panel3.Controls.Add(panel4);
-            panel3.Location = new Point(3, 464);
+            panel3.Location = new Point(3, 512);
             panel3.Name = "panel3";
             panel3.Size = new Size(111, 53);
             panel3.TabIndex = 0;
@@ -129,7 +129,7 @@
             CustomersListBox.ItemHeight = 20;
             CustomersListBox.Location = new Point(3, 34);
             CustomersListBox.Name = "CustomersListBox";
-            CustomersListBox.Size = new Size(344, 424);
+            CustomersListBox.Size = new Size(344, 464);
             CustomersListBox.TabIndex = 1;
             CustomersListBox.SelectedIndexChanged += CustomersListBox_SelectedIndexChanged;
             // 
@@ -153,7 +153,7 @@
             panel2.Controls.Add(label2);
             panel2.Location = new Point(359, 3);
             panel2.Name = "panel2";
-            panel2.Size = new Size(687, 143);
+            panel2.Size = new Size(707, 143);
             panel2.TabIndex = 0;
             // 
             // PriorityCheckBox
@@ -220,12 +220,12 @@
             panel7.Controls.Add(AddressControl);
             panel7.Location = new Point(359, 152);
             panel7.Name = "panel7";
-            panel7.Size = new Size(687, 371);
+            panel7.Size = new Size(707, 419);
             panel7.TabIndex = 1;
             // 
             // RemoveDiscountButton
             // 
-            RemoveDiscountButton.Location = new Point(428, 315);
+            RemoveDiscountButton.Location = new Point(505, 320);
             RemoveDiscountButton.Name = "RemoveDiscountButton";
             RemoveDiscountButton.Size = new Size(94, 29);
             RemoveDiscountButton.TabIndex = 5;
@@ -235,7 +235,7 @@
             // 
             // AddDiscountButton
             // 
-            AddDiscountButton.Location = new Point(428, 271);
+            AddDiscountButton.Location = new Point(505, 269);
             AddDiscountButton.Name = "AddDiscountButton";
             AddDiscountButton.Size = new Size(94, 29);
             AddDiscountButton.TabIndex = 4;
@@ -249,7 +249,7 @@
             DiscountsListBox.ItemHeight = 20;
             DiscountsListBox.Location = new Point(12, 255);
             DiscountsListBox.Name = "DiscountsListBox";
-            DiscountsListBox.Size = new Size(370, 104);
+            DiscountsListBox.Size = new Size(454, 144);
             DiscountsListBox.TabIndex = 3;
             // 
             // label5
@@ -273,7 +273,7 @@
             AddressControl.Address = address1;
             AddressControl.Location = new Point(3, 3);
             AddressControl.Name = "AddressControl";
-            AddressControl.Size = new Size(681, 226);
+            AddressControl.Size = new Size(704, 226);
             AddressControl.TabIndex = 0;
             // 
             // CustomersTab
@@ -283,10 +283,10 @@
             Controls.Add(panel7);
             Controls.Add(panel2);
             Controls.Add(panel1);
-            MaximumSize = new Size(1049, 526);
+            MaximumSize = new Size(1069, 626);
             MinimumSize = new Size(1049, 526);
             Name = "CustomersTab";
-            Size = new Size(1049, 526);
+            Size = new Size(1069, 574);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             panel5.ResumeLayout(false);

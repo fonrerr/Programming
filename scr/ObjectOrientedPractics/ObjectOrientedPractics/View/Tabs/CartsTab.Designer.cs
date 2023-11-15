@@ -69,7 +69,7 @@
             groupBox1.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
             groupBox1.Location = new Point(3, 3);
             groupBox1.Name = "groupBox1";
-            groupBox1.Size = new Size(820, 561);
+            groupBox1.Size = new Size(1049, 567);
             groupBox1.TabIndex = 0;
             groupBox1.TabStop = false;
             groupBox1.Text = "Items";
@@ -78,7 +78,7 @@
             // 
             TotalAmountLabel.AutoSize = true;
             TotalAmountLabel.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            TotalAmountLabel.Location = new Point(733, 514);
+            TotalAmountLabel.Location = new Point(921, 516);
             TotalAmountLabel.Name = "TotalAmountLabel";
             TotalAmountLabel.Size = new Size(46, 31);
             TotalAmountLabel.TabIndex = 15;
@@ -87,10 +87,10 @@
             // label4
             // 
             label4.AutoSize = true;
-            label4.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label4.Location = new Point(728, 489);
+            label4.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
+            label4.Location = new Point(913, 485);
             label4.Name = "label4";
-            label4.Size = new Size(59, 25);
+            label4.Size = new Size(73, 31);
             label4.TabIndex = 14;
             label4.Text = "Total:";
             // 
@@ -98,7 +98,7 @@
             // 
             DiscountAmountLabel.AutoSize = true;
             DiscountAmountLabel.Font = new Font("Segoe UI", 13.8F, FontStyle.Bold, GraphicsUnit.Point);
-            DiscountAmountLabel.Location = new Point(733, 397);
+            DiscountAmountLabel.Location = new Point(887, 397);
             DiscountAmountLabel.Name = "DiscountAmountLabel";
             DiscountAmountLabel.Size = new Size(46, 31);
             DiscountAmountLabel.TabIndex = 13;
@@ -108,7 +108,7 @@
             // 
             Button.AutoSize = true;
             Button.Font = new Font("Segoe UI", 9F, FontStyle.Bold, GraphicsUnit.Point);
-            Button.Location = new Point(680, 377);
+            Button.Location = new Point(870, 377);
             Button.Name = "Button";
             Button.Size = new Size(137, 20);
             Button.TabIndex = 12;
@@ -118,9 +118,9 @@
             // 
             DiscountsCheckedListBox.BorderStyle = BorderStyle.None;
             DiscountsCheckedListBox.FormattingEnabled = true;
-            DiscountsCheckedListBox.Location = new Point(356, 377);
+            DiscountsCheckedListBox.Location = new Point(439, 377);
             DiscountsCheckedListBox.Name = "DiscountsCheckedListBox";
-            DiscountsCheckedListBox.Size = new Size(306, 132);
+            DiscountsCheckedListBox.Size = new Size(375, 132);
             DiscountsCheckedListBox.TabIndex = 11;
             DiscountsCheckedListBox.SelectedIndexChanged += DiscountsCheckedListBox_SelectedIndexChanged;
             // 
@@ -128,7 +128,7 @@
             // 
             AmountLabel.AutoSize = true;
             AmountLabel.Font = new Font("Segoe UI", 12F, FontStyle.Bold, GraphicsUnit.Point);
-            AmountLabel.Location = new Point(733, 294);
+            AmountLabel.Location = new Point(921, 294);
             AmountLabel.Name = "AmountLabel";
             AmountLabel.Size = new Size(53, 28);
             AmountLabel.TabIndex = 10;
@@ -138,7 +138,7 @@
             // 
             label3.AutoSize = true;
             label3.Font = new Font("Segoe UI", 10.8F, FontStyle.Bold, GraphicsUnit.Point);
-            label3.Location = new Point(713, 269);
+            label3.Location = new Point(921, 269);
             label3.Name = "label3";
             label3.Size = new Size(86, 25);
             label3.TabIndex = 9;
@@ -147,7 +147,7 @@
             // ClearCartButton
             // 
             ClearCartButton.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            ClearCartButton.Location = new Point(705, 325);
+            ClearCartButton.Location = new Point(913, 325);
             ClearCartButton.Name = "ClearCartButton";
             ClearCartButton.Size = new Size(94, 37);
             ClearCartButton.TabIndex = 8;
@@ -158,7 +158,7 @@
             // RemoveItemButton
             // 
             RemoveItemButton.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            RemoveItemButton.Location = new Point(580, 325);
+            RemoveItemButton.Location = new Point(774, 325);
             RemoveItemButton.Name = "RemoveItemButton";
             RemoveItemButton.Size = new Size(119, 37);
             RemoveItemButton.TabIndex = 7;
@@ -169,7 +169,7 @@
             // CreateOrderButton
             // 
             CreateOrderButton.Font = new Font("Segoe UI", 9F, FontStyle.Regular, GraphicsUnit.Point);
-            CreateOrderButton.Location = new Point(356, 325);
+            CreateOrderButton.Location = new Point(439, 325);
             CreateOrderButton.Name = "CreateOrderButton";
             CreateOrderButton.Size = new Size(117, 37);
             CreateOrderButton.TabIndex = 6;
@@ -192,15 +192,15 @@
             // 
             CartListBox.FormattingEnabled = true;
             CartListBox.ItemHeight = 20;
-            CartListBox.Location = new Point(356, 122);
+            CartListBox.Location = new Point(439, 122);
             CartListBox.Name = "CartListBox";
-            CartListBox.Size = new Size(444, 144);
+            CartListBox.Size = new Size(568, 144);
             CartListBox.TabIndex = 4;
             // 
             // label2
             // 
             label2.AutoSize = true;
-            label2.Location = new Point(356, 99);
+            label2.Location = new Point(439, 99);
             label2.Name = "label2";
             label2.Size = new Size(38, 20);
             label2.TabIndex = 3;
@@ -209,7 +209,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(356, 29);
+            label1.Location = new Point(439, 29);
             label1.Name = "label1";
             label1.Size = new Size(77, 20);
             label1.TabIndex = 2;
@@ -218,9 +218,9 @@
             // CustomerComboBox
             // 
             CustomerComboBox.FormattingEnabled = true;
-            CustomerComboBox.Location = new Point(439, 26);
+            CustomerComboBox.Location = new Point(553, 26);
             CustomerComboBox.Name = "CustomerComboBox";
-            CustomerComboBox.Size = new Size(361, 28);
+            CustomerComboBox.Size = new Size(454, 28);
             CustomerComboBox.TabIndex = 1;
             CustomerComboBox.SelectedIndexChanged += CustomerComboBox_SelectedIndexChanged;
             // 
@@ -230,7 +230,7 @@
             CartItemsListBox.ItemHeight = 20;
             CartItemsListBox.Location = new Point(6, 26);
             CartItemsListBox.Name = "CartItemsListBox";
-            CartItemsListBox.Size = new Size(332, 484);
+            CartItemsListBox.Size = new Size(405, 484);
             CartItemsListBox.TabIndex = 0;
             CartItemsListBox.SelectedIndexChanged += CartItemsListBox_SelectedIndexChanged;
             // 
@@ -240,7 +240,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(groupBox1);
             Name = "CartsTab";
-            Size = new Size(823, 564);
+            Size = new Size(1069, 573);
             groupBox1.ResumeLayout(false);
             groupBox1.PerformLayout();
             ResumeLayout(false);

@@ -39,7 +39,7 @@ namespace ObjectOrientedPractics.View.Tabs
         /// <summary>
         /// Осуществляет сортировку коллекции покупателей.
         /// </summary>
-        
+
         private void SortOfCustomers()
         {
             _customers.Sort((a, b) => a.FullName.CompareTo(b.FullName));
@@ -93,7 +93,7 @@ namespace ObjectOrientedPractics.View.Tabs
             AddressControl.Address = _currentCustomer.Address;
             IDTextBox.Text = _currentCustomer.Id.ToString();
             UpdateInfo();
-            
+
         }
 
         private void UpdateInfo()

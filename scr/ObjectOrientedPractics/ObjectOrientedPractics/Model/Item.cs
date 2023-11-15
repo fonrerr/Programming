@@ -1,9 +1,11 @@
-﻿namespace ObjectOrientedPractics.Model
+﻿using System.Diagnostics;
+
+namespace ObjectOrientedPractics.Model
 {
     /// <summary>
     /// Хранит данные о товаре.
     /// </summary>
-    public class Item
+    public class Item: ICloneable, IEquatable<Item>, IComparable<Item>
     {
         /// <summary>
         /// Хранит значение количества покупателей.
@@ -81,6 +83,32 @@
                 ValueValidator.AssertStringOnLength(value, 1, 100000, nameof(Cost));
                 _cost = value;
             }
+        }
+
+        /// <inheritdoc cref="ICloneable"/>
+        public object Clone()
+        {
+            return new Item(Name, Info, Cost, Category);
+        }
+
+        /// <inheritdoc cref="IEquatable{T}.Equals(T?)"/>
+        public bool Equals(Item other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+            return this.Id == other.Id;
+        }
+
+        /// <inheritdoc cref="IComparable{T}.CompareTo(T?)"/>
+        public int CompareTo(Item other)
+        {
+            if (other == null)
+            {
+                return 1;
+            }
+            return this.Cost.CompareTo(other.Cost);
         }
 
         /// <summary>

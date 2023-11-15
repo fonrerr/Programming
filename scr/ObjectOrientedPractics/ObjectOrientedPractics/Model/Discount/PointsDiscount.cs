@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace ObjectOrientedPractics.Model.Discount
 {
-    public class PointsDiscount: IDiscount
+    public class PointsDiscount: IDiscount, IComparable<PointsDiscount>
     {
         private int _points;
 
@@ -67,6 +67,16 @@ namespace ObjectOrientedPractics.Model.Discount
             {
                 Points += 1;
             }
+        }
+
+        /// <inheritdoc cref="IComparable{T}.CompareTo(T?)"/>
+        public int CompareTo(PointsDiscount other)
+        {
+            if (other == null)
+            {
+                return 1;
+            }
+            return this.Points.CompareTo(other.Points);
         }
     }
 }

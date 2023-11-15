@@ -1,6 +1,6 @@
 ﻿namespace ObjectOrientedPractics.Model
 {
-    public class Address
+    public class Address: ICloneable, IEquatable<Address>
     {
         /// <summary>
         /// Почтовый индекс, целое шестизначное число.
@@ -127,6 +127,25 @@
                 ValueValidator.AssertStringOnLength(value, 0, 10, nameof(Apartment));
                 _apartment = value;
             }
+        }
+
+        /// <inheritdoc cref="ICloneable"/>
+        public object Clone()
+        {
+            return new Address(Index, Country, City, Street, Building, Apartment);
+        }
+
+
+        /// <inheritdoc cref="IEquatable{T}.Equals(T?)"/>
+        public bool Equals(Address other)
+        {
+            if (other == null)
+            {
+                return false;
+            }
+            return other.Index == Index && other.Country == Country && other.City == City
+                && other.Street == Street && other.Building == Building
+                && other.Apartment == Apartment;
         }
 
         /// <summary>

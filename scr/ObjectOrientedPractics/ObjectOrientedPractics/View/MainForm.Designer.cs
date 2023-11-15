@@ -68,7 +68,7 @@
             Item.Location = new Point(4, 29);
             Item.Name = "Item";
             Item.Padding = new Padding(3);
-            Item.Size = new Size(1082, 561);
+            Item.Size = new Size(1082, 617);
             Item.TabIndex = 0;
             Item.Text = "Items";
             Item.UseVisualStyleBackColor = true;
@@ -78,7 +78,7 @@
             ItemsTab.Dock = DockStyle.Fill;
             ItemsTab.Location = new Point(3, 3);
             ItemsTab.Name = "ItemsTab";
-            ItemsTab.Size = new Size(1076, 555);
+            ItemsTab.Size = new Size(1076, 611);
             ItemsTab.TabIndex = 0;
             // 
             // Customers
@@ -87,7 +87,7 @@
             Customers.Location = new Point(4, 29);
             Customers.Name = "Customers";
             Customers.Padding = new Padding(3);
-            Customers.Size = new Size(1082, 561);
+            Customers.Size = new Size(1082, 617);
             Customers.TabIndex = 1;
             Customers.Text = "Customers";
             Customers.UseVisualStyleBackColor = true;
@@ -95,10 +95,10 @@
             // CustomersTab
             // 
             CustomersTab.Location = new Point(0, 0);
-            CustomersTab.MaximumSize = new Size(1049, 526);
+            CustomersTab.MaximumSize = new Size(1069, 626);
             CustomersTab.MinimumSize = new Size(1049, 526);
             CustomersTab.Name = "CustomersTab";
-            CustomersTab.Size = new Size(1049, 526);
+            CustomersTab.Size = new Size(1069, 589);
             CustomersTab.TabIndex = 0;
             // 
             // Orders
@@ -137,7 +137,7 @@
             CartsTab.Items = null;
             CartsTab.Location = new Point(0, 0);
             CartsTab.Name = "CartsTab";
-            CartsTab.Size = new Size(841, 563);
+            CartsTab.Size = new Size(1069, 599);
             CartsTab.TabIndex = 0;
             // 
             // PriorityOrder
