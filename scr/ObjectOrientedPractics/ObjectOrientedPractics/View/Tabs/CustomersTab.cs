@@ -39,15 +39,11 @@ namespace ObjectOrientedPractics.View.Tabs
         /// <summary>
         /// Осуществляет сортировку коллекции покупателей.
         /// </summary>
-        /*
+        
         private void SortOfCustomers()
         {
-            var orderedListCustomers = from customer in _customers
-                                       orderby customer.FullName
-                                       select customer;
-
-            _customers = orderedListCustomers.ToList();
-        }*/
+            _customers.Sort((a, b) => a.FullName.CompareTo(b.FullName));
+        }
 
         private void Clear()
         {
@@ -63,7 +59,6 @@ namespace ObjectOrientedPractics.View.Tabs
         /// <param name="selectedIndex">Выбранный индекс.</param>
         private void UpdateCustomerInfo(int selectedIndex)
         {
-            _currentCustomer = _customers[selectedIndex];
             CustomersListBox.Items.Clear();
 
             for (int i = 0; i < _customers.Count; i++)
@@ -79,6 +74,7 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 DiscountsListBox.Items.Add(discount.Info);
             }
+
         }
 
         /// <summary>
@@ -96,7 +92,21 @@ namespace ObjectOrientedPractics.View.Tabs
             FullNameTextBox.Text = _currentCustomer.FullName;
             AddressControl.Address = _currentCustomer.Address;
             IDTextBox.Text = _currentCustomer.Id.ToString();
+            UpdateInfo();
+            
+        }
 
+        private void UpdateInfo()
+        {
+            FullNameTextBox.Text = _currentCustomer.FullName;
+            IDTextBox.Text = _currentCustomer.Id.ToString();
+            AddressControl.Address = _currentCustomer.Address;
+            PriorityCheckBox.Checked = _currentCustomer.IsPriority;
+            DiscountsListBox.Items.Clear();
+            foreach (var discount in _currentCustomer.Discounts)
+            {
+                DiscountsListBox.Items.Add(discount.Info);
+            }
         }
 
         /// <summary>
@@ -106,7 +116,7 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             _currentCustomer = new Customer("Новый покупатель");
             _customers.Add(_currentCustomer);
-            //SortOfCustomers();
+            SortOfCustomers();
             UpdateCustomerInfo(_customers.Count - 1);
         }
 
@@ -140,7 +150,7 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 FullNameTextBox.BackColor = Color.White;
                 _currentCustomer.FullName = FullNameTextBox.Text;
-                //SortOfCustomers();
+                SortOfCustomers();
                 int index = _customers.IndexOf(_currentCustomer);
                 UpdateCustomerInfo(index);
             }
