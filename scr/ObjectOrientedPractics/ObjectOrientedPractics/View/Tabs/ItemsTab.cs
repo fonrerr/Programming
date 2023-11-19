@@ -1,4 +1,5 @@
 ﻿using ObjectOrientedPractics.Model;
+using ObjectOrientedPractics.Services;
 using System.Data;
 using Item = ObjectOrientedPractics.Model.Item;
 
@@ -35,6 +36,10 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             InitializeComponent();
             CategoryComboBox.Items.AddRange(Enum.GetNames(typeof(Category)));
+            string[] sortTypes = new string[3]
+            {"Cost (Ascending)", "Cost (Descending)", "Name"};
+            SortComboBox.Items.AddRange(sortTypes);
+            SortComboBox.SelectedIndex = 2;
         }
 
         /*
@@ -65,6 +70,31 @@ namespace ObjectOrientedPractics.View.Tabs
             }
 
             ItemsListBox.SelectedIndex = selectedIndex;
+        }
+
+        /// <summary>
+        /// Обновляет текстовые поля. 
+        /// </summary>
+        private void UpdateInfo(List<Item> items)
+        {
+            _currentItem = items[ItemsListBox.SelectedIndex];
+            IdTextBox.Text = _currentItem.Id.ToString();
+            CostTextBox.Text = _currentItem.Cost.ToString();
+            NameTextBox.Text = _currentItem.Name;
+            InfoRichTextBox.Text = _currentItem.Info;
+            CategoryComboBox.SelectedItem = _currentItem.Category;
+        }
+
+        /// <summary>
+        /// Очищает текстовые поля. 
+        /// </summary>
+        private void ClearInfo()
+        {
+            IdTextBox.Clear();
+            CostTextBox.Clear();
+            NameTextBox.Clear();
+            InfoRichTextBox.Clear();
+            CategoryComboBox.SelectedIndex = -1;
         }
 
         /// <summary>
@@ -176,6 +206,97 @@ namespace ObjectOrientedPractics.View.Tabs
             _currentItem.Category = (Category)CategoryComboBox.SelectedIndex;
             int index = _items.IndexOf(_currentItem);
             UpdateItemInfo(index);
+        }
+
+        /// <summary>
+        /// Сортирует листбокс с товарами в зависимости от выбранного значения в 
+        /// комбобоксе. 
+        /// </summary>
+        public void SortItemsInListBox()
+        {
+            if (Items == null) return;
+            Item selectedItem = _currentItem;
+            foreach (Item item in Items)
+            {
+                if (item.Name == (string)ItemsListBox.SelectedItem)
+                {
+                    selectedItem = item;
+                }
+            }
+            List<Item> sortedItems = new List<Item>();
+            if (SortComboBox.SelectedIndex == 0)
+            {
+                sortedItems = DataTools.Sort(Items, DataTools.SortCostAscending);
+            }
+            if (SortComboBox.SelectedIndex == 1)
+            {
+                sortedItems = DataTools.Sort(Items, DataTools.SortCostDescending);
+            }
+            if (SortComboBox.SelectedIndex == 2)
+            {
+                sortedItems = DataTools.Sort(Items, DataTools.SortName);
+            }
+            ItemsListBox.Items.Clear();
+            foreach (Item item in sortedItems)
+            {
+                ItemsListBox.Items.Add(item.Name);
+            }
+            ItemsListBox.SelectedIndex = sortedItems.IndexOf(selectedItem);
+        }
+
+        private void SortComboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (SortComboBox.SelectedIndex != -1 && Items != null)
+            {
+                SortItemsInListBox();
+            }
+        }
+
+        private void FindTextBox_TextChanged(object sender, EventArgs e)
+        {
+            if (FindTextBox.Text != null && Items != null)
+            {
+                Item selectedItem = _currentItem;
+                foreach (Item item in Items)
+                {
+                    if (item.Name == (string)ItemsListBox.SelectedItem)
+                    {
+                        selectedItem = item;
+                    }
+                }
+                List<Item> filteredItems =
+                    DataTools.Filter(Items, AssertString, FindTextBox.Text);
+                ItemsListBox.Items.Clear();
+                foreach (Item item in filteredItems)
+                {
+                    ItemsListBox.Items.Add(item.Name);
+                }
+                if (filteredItems.Contains(selectedItem))
+                {
+                    ItemsListBox.SelectedIndex = filteredItems.IndexOf(selectedItem);
+                    UpdateInfo(filteredItems);
+                }
+                else
+                {
+                    ClearInfo();
+                }
+
+            }
+        }
+
+        /// <summary>
+        /// Проверяет содердит ли имя товара подстроку. 
+        /// </summary>
+        /// <param name="item">Товар. </param>
+        /// <param name="str">Подстрока. </param>
+        /// <returns>Булевое значение. </returns>
+        public bool AssertString(Item item, object str)
+        {
+            if (item.Name.Contains((string)str))
+            {
+                return true;
+            }
+            return false;
         }
     }
 }
