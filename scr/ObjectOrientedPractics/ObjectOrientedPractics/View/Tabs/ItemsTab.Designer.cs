@@ -29,6 +29,10 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            FindTextBox = new TextBox();
+            label8 = new Label();
+            SortComboBox = new ComboBox();
+            label7 = new Label();
             panel5 = new Panel();
             panel4 = new Panel();
             RemoveButton = new Button();
@@ -56,6 +60,10 @@
             // 
             // panel1
             // 
+            panel1.Controls.Add(FindTextBox);
+            panel1.Controls.Add(label8);
+            panel1.Controls.Add(SortComboBox);
+            panel1.Controls.Add(label7);
             panel1.Controls.Add(panel5);
             panel1.Controls.Add(panel4);
             panel1.Controls.Add(ItemsListBox);
@@ -65,6 +73,41 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(344, 569);
             panel1.TabIndex = 0;
+            // 
+            // FindTextBox
+            // 
+            FindTextBox.Location = new Point(71, 38);
+            FindTextBox.Name = "FindTextBox";
+            FindTextBox.Size = new Size(270, 27);
+            FindTextBox.TabIndex = 8;
+            FindTextBox.TextChanged += FindTextBox_TextChanged;
+            // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Location = new Point(16, 481);
+            label8.Name = "label8";
+            label8.Size = new Size(39, 20);
+            label8.TabIndex = 7;
+            label8.Text = "Sort:";
+            // 
+            // SortComboBox
+            // 
+            SortComboBox.FormattingEnabled = true;
+            SortComboBox.Location = new Point(71, 478);
+            SortComboBox.Name = "SortComboBox";
+            SortComboBox.Size = new Size(270, 28);
+            SortComboBox.TabIndex = 6;
+            SortComboBox.SelectedIndexChanged += SortComboBox_SelectedIndexChanged;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Location = new Point(16, 41);
+            label7.Name = "label7";
+            label7.Size = new Size(40, 20);
+            label7.TabIndex = 5;
+            label7.Text = "Find:";
             // 
             // panel5
             // 
@@ -96,9 +139,9 @@
             // 
             ItemsListBox.FormattingEnabled = true;
             ItemsListBox.ItemHeight = 20;
-            ItemsListBox.Location = new Point(13, 36);
+            ItemsListBox.Location = new Point(13, 76);
             ItemsListBox.Name = "ItemsListBox";
-            ItemsListBox.Size = new Size(328, 464);
+            ItemsListBox.Size = new Size(328, 384);
             ItemsListBox.TabIndex = 2;
             ItemsListBox.SelectedIndexChanged += ItemsListBox_SelectedIndexChanged;
             // 
@@ -288,5 +331,9 @@
         private TextBox NameTextBox;
         private ComboBox CategoryComboBox;
         private Label label6;
+        private ComboBox SortComboBox;
+        private Label label7;
+        private TextBox FindTextBox;
+        private Label label8;
     }
 }
