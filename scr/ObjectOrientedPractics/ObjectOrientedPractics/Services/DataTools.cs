@@ -26,7 +26,7 @@ namespace ObjectOrientedPractics.Services
         /// Проверяет, превышает ли цена товара указанную цену. 
         /// </summary>
         /// <param name="item">Товар. </param>
-        /// <param name="price">Цена. </param>
+        /// <param name="cost">Цена. </param>
         /// <returns>Булевое значение. </returns>
         public bool AssertPrice(Item item, object cost)
         {
