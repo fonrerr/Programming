@@ -2,6 +2,7 @@
 {
     public class Address: ICloneable, IEquatable<Address>
     {
+        public EventHandler<EventArgs> AddressChanged;
         /// <summary>
         /// Почтовый индекс, целое шестизначное число.
         /// </summary>
@@ -41,6 +42,7 @@
             {
                 ValueValidator.AssertStringOnLength(value, 100000, 999999, nameof(Index));
                 _index = value;
+                AddressChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -58,6 +60,7 @@
             {
                 ValueValidator.AssertStringOnLength(value, 0, 50, nameof(Country));
                 _country = value;
+                AddressChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -75,6 +78,7 @@
             {
                 ValueValidator.AssertStringOnLength(value, 0, 50, nameof(City));
                 _city = value;
+                AddressChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -92,6 +96,7 @@
             {
                 ValueValidator.AssertStringOnLength(value, 0, 100, nameof(Street));
                 _street = value;
+                AddressChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -109,7 +114,9 @@
             {
                 ValueValidator.AssertStringOnLength(value, 0, 10, nameof(Building));
                 _building = value;
+                AddressChanged?.Invoke(this, EventArgs.Empty);
             }
+
         }
 
         /// <summary>
@@ -126,6 +133,7 @@
             {
                 ValueValidator.AssertStringOnLength(value, 0, 10, nameof(Apartment));
                 _apartment = value;
+                AddressChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 

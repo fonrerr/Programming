@@ -42,19 +42,25 @@ namespace ObjectOrientedPractics.View.Tabs
             SortComboBox.SelectedIndex = 2;
         }
 
-        /*
-        /// <summary>
-        /// Осуществляет сортировку коллекции товаров.
-        /// </summary>
-        private void SortOfItems()
-        {
-            var orderedListItems = from item in _items
-                                   orderby item.Name
-                                   select item;
+        public event EventHandler<EventArgs> ItemsChanged;
 
-            _items = orderedListItems.ToList();
+        private void Item_CostChanged(object sender, EventArgs e)
+        {
+            string message = "Цена изменилась.";
+            MessageBox.Show(message);
         }
-        */
+
+        private void Item_NameChanged(object sender, EventArgs e)
+        {
+            string message = "Имя изменилось.";
+            MessageBox.Show(message);
+        }
+
+        private void Item_DescriptionChanged(object sender, EventArgs e)
+        {
+            string message = "Информация о товаре изменилась.";
+            MessageBox.Show(message);
+        }
 
         /// <summary>
         /// Осуществляет обновление информации о товарах.
@@ -117,12 +123,16 @@ namespace ObjectOrientedPractics.View.Tabs
         /// </summary>
         private void AddButton_Click(object sender, EventArgs e)
         {
-            _currentItem = new Item();
+            Item _currentItem = new Item();
             _currentItem.Name = "Новый товар";
             _currentItem.Info = "Описание товара";
             _currentItem.Cost = Convert.ToDouble("1000");
             _items.Add(_currentItem);
             UpdateItemInfo(_items.Count - 1);
+            _currentItem.CostChanged += Item_CostChanged;
+            _currentItem.NameChanged += Item_NameChanged;
+            _currentItem.InfoChanged += Item_DescriptionChanged;
+            ItemsChanged?.Invoke(this, EventArgs.Empty);
         }
 
         /// <summary>
@@ -139,8 +149,8 @@ namespace ObjectOrientedPractics.View.Tabs
             {
                 ItemsListBox.Items.Add(_items[i].Name);
             }
-
             ItemsListBox.SelectedIndex = -1;
+            ItemsChanged?.Invoke(sender, EventArgs.Empty);
             UpdateItemInfo(_items.Count - 1);
         }
 
@@ -189,14 +199,17 @@ namespace ObjectOrientedPractics.View.Tabs
         {
             if (ItemsListBox.SelectedIndex == -1) return;
 
-            try
+            if (InfoRichTextBox.Focused)
             {
-                InfoRichTextBox.BackColor = Color.White;
-                _currentItem.Info = InfoRichTextBox.Text;
-            }
-            catch
-            {
-                InfoRichTextBox.BackColor = Color.LightPink;
+                try
+                {
+                    InfoRichTextBox.BackColor = Color.White;
+                    _currentItem.Info = InfoRichTextBox.Text;
+                }
+                catch
+                {
+                    InfoRichTextBox.BackColor = Color.LightPink;
+                }
             }
         }
 

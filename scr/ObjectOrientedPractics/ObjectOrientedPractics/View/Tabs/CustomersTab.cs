@@ -28,6 +28,14 @@ namespace ObjectOrientedPractics.View.Tabs
             }
         }
 
+        public event EventHandler<EventArgs> CustomersChanged;
+
+        private void Address_AddressChanged(object sender, EventArgs e)
+        {
+            string message = "Адрес был изменен.";
+            MessageBox.Show(message);
+        }
+
         /// <summary>
         /// Создает экземпляр класса CustomersTab.
         /// </summary>
@@ -118,6 +126,8 @@ namespace ObjectOrientedPractics.View.Tabs
             _customers.Add(_currentCustomer);
             SortOfCustomers();
             UpdateCustomerInfo(_customers.Count - 1);
+            _currentCustomer.Address.AddressChanged += Address_AddressChanged;
+            CustomersChanged?.Invoke(sender, EventArgs.Empty);
         }
 
         /// <summary>
@@ -136,6 +146,7 @@ namespace ObjectOrientedPractics.View.Tabs
             }
 
             CustomersListBox.SelectedIndex = -1;
+            CustomersChanged?.Invoke(sender, EventArgs.Empty);
             Clear();
         }
 

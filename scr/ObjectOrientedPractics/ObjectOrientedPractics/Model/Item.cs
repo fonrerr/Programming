@@ -7,6 +7,9 @@ namespace ObjectOrientedPractics.Model
     /// </summary>
     public class Item: ICloneable, IEquatable<Item>, IComparable<Item>
     {
+        public event EventHandler<EventArgs> CostChanged;
+        public event EventHandler<EventArgs> NameChanged;
+        public event EventHandler<EventArgs> InfoChanged;
         /// <summary>
         /// Хранит значение количества покупателей.
         /// </summary>
@@ -55,6 +58,7 @@ namespace ObjectOrientedPractics.Model
                 ValueValidator.AssertSimbols(value);
                 ValueValidator.AssertStringOnLength(value, 1, 200, nameof(Name));
                 _name = value;
+                NameChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -69,6 +73,7 @@ namespace ObjectOrientedPractics.Model
                 ValueValidator.AssertSimbols(value);
                 ValueValidator.AssertStringOnLength(value, 1, 1000, nameof(Info));
                 _info = value;
+                InfoChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
@@ -80,8 +85,9 @@ namespace ObjectOrientedPractics.Model
             get { return _cost; }
             set
             {
-                ValueValidator.AssertStringOnLength(value, 1, 100000, nameof(Cost));
+                ValueValidator.AssertStringOnLength(value, 0, 100000, nameof(Cost));
                 _cost = value;
+                CostChanged?.Invoke(this, EventArgs.Empty);
             }
         }
 
