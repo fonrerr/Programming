@@ -23,7 +23,7 @@ namespace Contacts.Model.Services
         /// Осуществляет запись данных в файл.
         /// </summary>
         /// <param name="contacts">Коллекция контактов.</param>
-        public static void SaveToFile(List<Contact> contacts)
+        public static void SaveToFile(Contact contacts)
         {
             using (StreamWriter writer = new StreamWriter(_path + NameOfFile))
             {

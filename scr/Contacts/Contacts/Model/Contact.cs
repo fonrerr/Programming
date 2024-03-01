@@ -57,6 +57,10 @@ namespace Contacts.Model
             }
         }
 
+        public Contact()
+        {
+        }
+
         public Contact(string name, string email, string phoneNumber)
         {
             _name = name;

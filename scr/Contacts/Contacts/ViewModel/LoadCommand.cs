@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace Contacts.ViewModel
 {
-    internal class LoadCommand
+    public class LoadCommand
     {
+
     }
 }

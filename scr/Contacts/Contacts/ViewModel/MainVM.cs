@@ -1,10 +1,33 @@
-﻿using System.ComponentModel;
+﻿using Contacts.Model;
+using System.ComponentModel;
 using System.Runtime.CompilerServices;
+using System.Windows.Input;
 
 namespace Contacts.ViewModel
 {
     public class MainVM : INotifyPropertyChanged
     {
+        private Contact _contact;
+        private ICommand _saveCommand;
+        private ICommand _loadCommand;
+
+        public MainVM()
+        {
+            _contact = new Contact();
+            _saveCommand = new SaveCommand(this);
+            _loadCommand = new LoadCommand(this);
+        }
+
+        public ICommand SaveCommand
+        {
+            get { return _saveCommand; }
+        }
+
+        public ICommand LoadCommand
+        { 
+            get { return _loadCommand; } 
+        }
+
         public string Name
         {
             get { return Name; }
