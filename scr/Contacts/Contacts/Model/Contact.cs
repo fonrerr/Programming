@@ -1,71 +1,43 @@
-﻿using System;
-using System.Text.RegularExpressions;
-
-namespace Contacts.Model
+﻿namespace Contacts.Model
 {
+    /// <summary>
+    /// Хранит данные о контактах.
+    /// </summary>
     public class Contact
     {
-        private string _name;
-        private string _email;
-        private string _phoneNumber;
+        /// <summary>
+        /// ФИО контакта.
+        /// </summary>
+        public string Name { get; set; }
 
-        public string Name
-        {
-            get
-            {
-                return _name;
-            }
-            set
-            {
-                if (!Regex.IsMatch(value, "/^[А-Я][а-яё]*$/"))
-                {
-                    throw new ArgumentException($"{value} Введено не корректно");
-                }
-                _name = value;
-            }
-        }
+        /// <summary>
+        /// Номер телефона контакта.
+        /// </summary>
+        public string PhoneNumber { get; set; }
 
-        public string Email
-        {
-            get
-            {
-                return _email;
-            }
-            set
-            {
-                if (!Regex.IsMatch(value, @"^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$"))
-                {
-                    throw new ArgumentException($"{value} Введено не корректно");
-                }
-                _email = value;
-            }
-        }
+        /// <summary>
+        /// Почта контакта.
+        /// </summary>
+        public string Email { get; set; }
 
-        public string PhoneNumber
-        {
-            get
-            {
-                return _phoneNumber;
-            }
-            set
-            {
-                if (!Regex.IsMatch(value, @"^[+]\d{11}$") && value != null)
-                {
-                        throw new ArgumentException($"{value} Введено не корректно");
-                }
-                _phoneNumber = value;
-            }
-        }
-
+        /// <summary>
+        /// Создает экземпляр класса Contact.
+        /// </summary>
         public Contact()
         {
         }
 
-        public Contact(string name, string email, string phoneNumber)
+        /// <summary>
+        /// Создает экземпляр класса Contact.
+        /// </summary>
+        /// <param name="name">ФИО контакта.</param>
+        /// <param name="phoneNumber">Номер телефона.</param>
+        /// <param name="email">Почта контакта.</param>
+        public Contact(string name, string phoneNumber, string email)
         {
-            _name = name;
-            _email = email;
-            _phoneNumber = phoneNumber;
+            Name = name;
+            PhoneNumber = phoneNumber;
+            Email = email;
         }
     }
 }

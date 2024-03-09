@@ -1,9 +1,6 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using Newtonsoft.Json;
 
 namespace Contacts.Model.Services
 {
@@ -12,12 +9,13 @@ namespace Contacts.Model.Services
         /// <summary>
         /// Название файла.
         /// </summary>
-        private const string NameOfFile = @"\Serialize.json";
+        private const string NameOfFile = @"\Contacts.json";
 
         /// <summary>
-        /// Путь до паки AppData.
+        /// Путь до файла.
         /// </summary>
-        private static string _path = Application.UserAppDataPath;
+        private static string _path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments),
+            "Сontacts.json");
 
         /// <summary>
         /// Осуществляет запись данных в файл.
@@ -25,7 +23,7 @@ namespace Contacts.Model.Services
         /// <param name="contacts">Коллекция контактов.</param>
         public static void SaveToFile(Contact contacts)
         {
-            using (StreamWriter writer = new StreamWriter(_path + NameOfFile))
+            using (StreamWriter writer = new StreamWriter(_path))
             {
                 writer.Write(JsonConvert.SerializeObject(contacts));
             }
@@ -35,17 +33,17 @@ namespace Contacts.Model.Services
         /// Осуществляет выгрузку данных из файла.
         /// </summary>
         /// <returns>Возвращает коллецию контактов.</returns>
-        public static List<Contact> LoadFromFile()
+        public static Contact LoadFromFile()
         {
-            var contacts = new List<Contact>();
+            var contacts = new Contact();
             try
             {
-                using (StreamReader reader = new StreamReader(_path + NameOfFile))
+                using (StreamReader reader = new StreamReader(_path))
                 {
-                    contacts = JsonConvert.DeserializeObject<List<Contact>>(reader.ReadToEnd());
+                    contacts = JsonConvert.DeserializeObject<Contact>(reader.ReadToEnd());
                 }
 
-                if (contacts == null) contacts = new List<Contact>();
+                if (contacts == null) contacts = new Contact();
             }
             catch
             {

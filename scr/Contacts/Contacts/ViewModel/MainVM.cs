@@ -7,13 +7,13 @@ namespace Contacts.ViewModel
 {
     public class MainVM : INotifyPropertyChanged
     {
-        private Contact _contact;
+        private Contact _contacts;
         private ICommand _saveCommand;
         private ICommand _loadCommand;
 
         public MainVM()
         {
-            _contact = new Contact();
+            _contacts = new Contact();
             _saveCommand = new SaveCommand(this);
             _loadCommand = new LoadCommand(this);
         }
@@ -30,39 +30,39 @@ namespace Contacts.ViewModel
 
         public string Name
         {
-            get { return Name; }
+            get { return _contacts.Name; }
             set
             {
-                if (Name != value)
+                if (_contacts.Name != value)
                 {
-                    Name = value;
-                    OnPropertyChanged("Name");
+                    _contacts.Name = value;
+                    OnPropertyChanged(nameof(Name));
                 }
             }
         }
 
         public string PhoneNumber
         {
-            get { return PhoneNumber; }
+            get { return _contacts.PhoneNumber; }
             set
             {
-                if (PhoneNumber != value)
+                if (_contacts.PhoneNumber != value)
                 {
-                    PhoneNumber = value;
-                    OnPropertyChanged("PhoneNumber");
+                    _contacts.PhoneNumber = value;
+                    OnPropertyChanged(nameof(PhoneNumber));
                 }
             }
         }
 
         public string Email
         {
-            get { return Email; }
+            get { return _contacts.Email; }
             set
             {
-                if (Email != value)
+                if (_contacts.Email != value)
                 {
-                    Email = value;
-                    OnPropertyChanged("Email");
+                    _contacts.Email = value;
+                    OnPropertyChanged(nameof(Email));
                 }
             }
         }
@@ -70,8 +70,7 @@ namespace Contacts.ViewModel
         public event PropertyChangedEventHandler PropertyChanged;
         public void OnPropertyChanged([CallerMemberName] string prop = "")
         {
-            if (PropertyChanged != null)
-                PropertyChanged(this, new PropertyChangedEventArgs(prop));
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
         }
     }
 }
