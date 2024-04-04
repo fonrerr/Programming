@@ -1,24 +1,84 @@
-﻿namespace Contacts.Model
+﻿using System.ComponentModel;
+using System.Runtime.CompilerServices;
+
+namespace Contacts.Model
 {
     /// <summary>
     /// Хранит данные о контактах.
     /// </summary>
-    public class Contact
+    public class Contact: INotifyPropertyChanged
     {
         /// <summary>
         /// ФИО контакта.
         /// </summary>
-        public string Name { get; set; }
-
-        /// <summary>
-        /// Номер телефона контакта.
-        /// </summary>
-        public string PhoneNumber { get; set; }
+        private string _name;
 
         /// <summary>
         /// Почта контакта.
         /// </summary>
-        public string Email { get; set; }
+        private string _email;
+
+        /// <summary>
+        /// Номер телефона контакта.
+        /// </summary>
+        private string _phoneNumber;
+
+        /// <summary>
+        /// Возвращает и задает ФИО контакта.
+        /// </summary>
+        public string Name
+        {
+            get
+            {
+                return _name;
+            }
+            set
+            {
+                if (_name != value)
+                {
+                    _name = value;
+                    OnPropertyChanged(nameof(Name));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Возвращает и задает номер телефона контакта.
+        /// </summary>
+        public string PhoneNumber 
+        {
+            get
+            {
+                return _phoneNumber;
+            }
+            set
+            {
+                if (_phoneNumber != value)
+                {
+                    _phoneNumber = value;
+                    OnPropertyChanged(nameof(PhoneNumber));
+                }
+            }
+        }
+
+        /// <summary>
+        /// Возвращает и задает почту контакта.
+        /// </summary>
+        public string Email 
+        {
+            get
+            {
+                return _email;
+            }
+            set
+            {
+                if (_email != value)
+                {
+                    _email = value;
+                    OnPropertyChanged(nameof(Email));
+                }
+            }
+        }
 
         /// <summary>
         /// Создает экземпляр класса Contact.
@@ -38,6 +98,13 @@
             Name = name;
             PhoneNumber = phoneNumber;
             Email = email;
+        }
+
+        public event PropertyChangedEventHandler? PropertyChanged;
+
+        protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+        {
+            PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
         }
     }
 }
