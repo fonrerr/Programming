@@ -102,6 +102,10 @@ namespace Contacts.Model
 
         public event PropertyChangedEventHandler? PropertyChanged;
 
+        /// <summary>
+        /// Вызывается при изменении значения свойства.
+        /// </summary>
+        /// <param name="propertyName">Имя измененного свойства.</param>
         protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));

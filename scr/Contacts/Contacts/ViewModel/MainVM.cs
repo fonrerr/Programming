@@ -64,9 +64,15 @@ namespace Contacts.ViewModel
         /// </summary>
         private bool _actionStates;
 
+        /// <summary>
+        /// Возвращает и задает коллекцию контактов.
+        /// </summary>
         public ObservableCollection<Contact> Contacts
         {
-            get => _contacts;
+            get
+            {
+                return _contacts;
+            }
             set
             {
                 _contacts = value;
@@ -74,9 +80,15 @@ namespace Contacts.ViewModel
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает выбранный контакт.
+        /// </summary>
         public Contact SelectedContact
         {
-            get => _selectedContact;
+            get
+            {
+                return _selectedContact;
+            }
             set
             {
                 _selectedContact = value;
@@ -91,9 +103,15 @@ namespace Contacts.ViewModel
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает режим редактирования.
+        /// </summary>
         public bool IsEditMode
         {
-            get => _isEditMode;
+            get
+            {
+                return _isEditMode;
+            }
             set
             {
                 _isEditMode = value;
@@ -102,9 +120,15 @@ namespace Contacts.ViewModel
             }
         }
 
+        /// <summary>
+        /// Возвращает и задает видимость.
+        /// </summary>
         public Visibility Visibility
         {
-            get => _visibilityButton;
+            get
+            {
+                return _visibilityButton;
+            }
             set
             {
                 _visibilityButton = value;
@@ -112,11 +136,53 @@ namespace Contacts.ViewModel
             }
         }
 
-        public IRelayCommand AddCommand => _addCommand;
-        public IRelayCommand EditCommand => _editCommand;
-        public IRelayCommand RemoveCommand => _removeCommand;
-        public IRelayCommand ApplyCommand => _applyCommand;
+        /// <summary>
+        /// Возвращает команду добавления.
+        /// </summary>
+        public IRelayCommand AddCommand
+        {
+            get
+            {
+                return _addCommand;
+            }
+        }
 
+        /// <summary>
+        /// Возвращает команду редактирования.
+        /// </summary>
+        public IRelayCommand EditCommand
+        {
+            get
+            {
+                return _editCommand;
+            }
+        }
+
+        /// <summary>
+        /// Возвращает команду удаления.
+        /// </summary>
+        public IRelayCommand RemoveCommand
+        {
+            get
+            {
+                return _removeCommand;
+            }
+        }
+
+        /// <summary>
+        /// Возвращает команду применения изменений.
+        /// </summary>
+        public IRelayCommand ApplyCommand
+        {
+            get
+            {
+                return _applyCommand;
+            }
+        }
+
+        /// <summary>
+        /// Выполняет действие добавления нового контакта.
+        /// </summary>
         private void AddExecute()
         {
             SelectedContact = new Contact();
@@ -125,6 +191,9 @@ namespace Contacts.ViewModel
             _actionStates = true;
         }
 
+        /// <summary>
+        /// Выполняет действие редактирования контакта.
+        /// </summary>
         private void EditExecute()
         {
             _indexSelectedContact = Contacts.IndexOf(SelectedContact);
@@ -138,12 +207,18 @@ namespace Contacts.ViewModel
             _actionStates = false;
         }
 
+        /// <summary>
+        /// Выполняет действие удаления контакта.
+        /// </summary>
         private void RemoveExecute()
         {
             Contacts.Remove(SelectedContact);
             SelectedContact = Contacts.FirstOrDefault();
         }
 
+        /// <summary>
+        /// Выполняет действие применения изменений.
+        /// </summary>
         private void ApplyExecute()
         {
             if (_actionStates)
@@ -158,9 +233,27 @@ namespace Contacts.ViewModel
             }
         }
 
-        private bool CanAddExecute() => !IsEditMode;
-        private bool CanEditOrRemoveExecute() => SelectedContact != null && !IsEditMode;
+        /// <summary>
+        /// Определяет, может ли быть выполнено действие добавления контакта.
+        /// </summary>
+        /// <returns> true, если действие может быть выполнено; в противном случае — false.</returns>
+        private bool CanAddExecute()
+        {
+            return !IsEditMode;
+        }
 
+        /// <summary>
+        /// Определяет, может ли быть выполнено действие редактирования или удаления контакта.
+        /// </summary>
+        /// <returns>true, если действие может быть выполнено; в противном случае — false.</returns>
+        private bool CanEditOrRemoveExecute()
+        {
+            return SelectedContact != null && !IsEditMode;
+        }
+
+        /// <summary>
+        /// Обновляет интерфейс пользователя.
+        /// </summary>
         private void UpdateUI()
         {
             AddCommand.NotifyCanExecuteChanged();
@@ -177,6 +270,9 @@ namespace Contacts.ViewModel
             }
         }
 
+        /// <summary>
+        /// Создает экземпляр класса MainVM.
+        /// </summary>
         public MainVM()
         {
             Contacts = new ObservableCollection<Contact>();
@@ -186,7 +282,15 @@ namespace Contacts.ViewModel
             _applyCommand = new RelayCommand(ApplyExecute);
         }
 
+        /// <summary>
+        /// Событие изменения свойства.
+        /// </summary>
         public event PropertyChangedEventHandler PropertyChanged;
+
+        /// <summary>
+        /// Вызывает событие изменения свойства.
+        /// </summary>
+        /// <param name="prop">Имя измененного свойства.</param>
         public void OnPropertyChanged([CallerMemberName] string prop = "")
         {
             PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(prop));
