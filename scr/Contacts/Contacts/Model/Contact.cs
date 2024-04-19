@@ -6,8 +6,11 @@ namespace Contacts.Model
     /// <summary>
     /// Хранит данные о контактах.
     /// </summary>
-    public class Contact: INotifyPropertyChanged
+    public class Contact: INotifyPropertyChanged, IDataErrorInfo
     {
+
+        private string _error;
+
         /// <summary>
         /// ФИО контакта.
         /// </summary>
@@ -22,6 +25,95 @@ namespace Contacts.Model
         /// Номер телефона контакта.
         /// </summary>
         private string _phoneNumber;
+
+        /// <summary>
+        /// Видимость кнопки.
+        /// </summary>
+        private bool _visibility = false;
+
+        /// <summary>
+        /// Возвращает сообщение об ошибке.
+        /// </summary>
+        public string Error
+        {
+            get => _error;
+        }
+
+        public string this[string columnName]
+        {
+            get
+            {
+                _error = System.String.Empty;
+                switch(columnName) 
+                {
+                    case "Name":
+                        if (Name != null) 
+                        {
+                            if(Name.Length > 100) 
+                            {
+                                _error = "Length of name should be less 100 symbols";
+                            }
+                        }
+                        break;
+                    case "PhoneNumber":
+                        if (PhoneNumber != null) 
+                        {
+                            if (PhoneNumber.Length > 100) 
+                            {
+                                _error = "Length of phone number should be less 100 symbols";
+                            }
+                            for(int i = 0; i < PhoneNumber.Length; i++) 
+                            {
+                                if (PhoneNumber[i] != '+' && PhoneNumber[i] != '-' && PhoneNumber[i] != '(' &&
+                                    PhoneNumber[i] != ')' && PhoneNumber[i] != ' ' && !(PhoneNumber[i] >= '0' && PhoneNumber[i] <= '9'))
+                                {
+                                    _error = "Phone number can contains only numbers and symbols '+()-'";
+                                }
+                            }
+                        }
+                        break;
+                    case "Email":
+                        if (Email != null)
+                        {
+                            if (Email.Length > 100)
+                            {
+                                _error = "Length of email should be less 100 symbols";
+                            }
+                            if(!Email.Contains("@"))
+                            {
+                                _error = "Email should contains symbol '@'";
+                            }
+                        }
+                        break;
+                        
+                }
+                if (_error != System.String.Empty)
+                {
+                    Visibility = false;
+                }
+                else
+                {
+                    Visibility = true;
+                }
+                return _error;
+            }
+        }
+
+        /// <summary>
+        /// Возвращает и задает видимость.
+        /// </summary>
+        public bool Visibility
+        {
+            get
+            {
+                return _visibility;
+            }
+            set
+            {
+                _visibility = value;
+                OnPropertyChanged(nameof(Visibility));
+            }
+        }
 
         /// <summary>
         /// Возвращает и задает ФИО контакта.

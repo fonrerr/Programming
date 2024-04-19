@@ -5,7 +5,7 @@ using System.Linq;
 using System.Runtime.CompilerServices;
 using System.Windows;
 using CommunityToolkit.Mvvm.Input;
-using System.Windows.Input;
+using Contacts.Model.Services;
 
 namespace Contacts.ViewModel
 {
@@ -57,7 +57,7 @@ namespace Contacts.ViewModel
         /// <summary>
         /// Видимость кнопки.
         /// </summary>
-        private Visibility _visibilityButton = Visibility.Hidden;
+        private bool _visibilityButton = false;
 
         /// <summary>
         /// Переменная состояния действия.
@@ -123,7 +123,7 @@ namespace Contacts.ViewModel
         /// <summary>
         /// Возвращает и задает видимость.
         /// </summary>
-        public Visibility Visibility
+        public bool Visibility
         {
             get
             {
@@ -189,6 +189,7 @@ namespace Contacts.ViewModel
             _indexSelectedContact = -1;
             IsEditMode = true;
             _actionStates = true;
+            UpdateUI() ;
         }
 
         /// <summary>
@@ -200,8 +201,8 @@ namespace Contacts.ViewModel
             SelectedContact = new Contact()
             {
                 Name = SelectedContact.Name,
-                Email = SelectedContact.Email,
-                PhoneNumber = SelectedContact.PhoneNumber
+                PhoneNumber = SelectedContact.PhoneNumber,
+                Email = SelectedContact.Email
             };
             IsEditMode = true;
             _actionStates = false;
@@ -236,7 +237,6 @@ namespace Contacts.ViewModel
         /// <summary>
         /// Определяет, может ли быть выполнено действие добавления контакта.
         /// </summary>
-        /// <returns> true, если действие может быть выполнено; в противном случае — false.</returns>
         private bool CanAddExecute()
         {
             return !IsEditMode;
@@ -245,7 +245,6 @@ namespace Contacts.ViewModel
         /// <summary>
         /// Определяет, может ли быть выполнено действие редактирования или удаления контакта.
         /// </summary>
-        /// <returns>true, если действие может быть выполнено; в противном случае — false.</returns>
         private bool CanEditOrRemoveExecute()
         {
             return SelectedContact != null && !IsEditMode;
@@ -261,12 +260,12 @@ namespace Contacts.ViewModel
             RemoveCommand.NotifyCanExecuteChanged();
             if (IsEditMode)
             {
-                Visibility = Visibility.Visible;
+                Visibility = true;
             }
             else
             {
 
-                Visibility = Visibility.Hidden;
+                Visibility = false;
             }
         }
 
