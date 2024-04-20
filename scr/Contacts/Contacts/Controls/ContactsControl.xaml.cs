@@ -16,16 +16,26 @@ namespace Contacts.Controls
             DataObject.AddPastingHandler(PhoneTextBox, TextBoxPaste);
         }
 
+        /// <summary>
+        /// Обработчик предварительного ввода текста в поле ввода телефонного номера.
+        /// </summary>
+        /// <param name="sender">Элемент, вызвавший событие.</param>
+        /// <param name="e">Аргументы события TextCompositionEventArgs, содержащие информацию о введенном тексте.</param>
         private void PhoneTextBox_PreviewTextInput(object sender, System.Windows.Input.TextCompositionEventArgs e)
         {
-            int val;
+            int value;
             if (e.Text != "+" && e.Text != "-" && e.Text != "(" && e.Text != ")" && e.Text != " "
-                && !Int32.TryParse(e.Text, out val))
+                && !Int32.TryParse(e.Text, out value))
             {
                 e.Handled = true;
             }
         }
 
+        /// <summary>
+        /// Обработчик вставки текста в текстовое поле.
+        /// </summary>
+        /// <param name="sender">Элемент, вызвавший событие.</param>
+        /// <param name="e">Аргументы события DataObjectPastingEventArgs, содержащие информацию о вставляемом тексте.</param>
         private void TextBoxPaste(object sender, DataObjectPastingEventArgs e)
         {
             TextBox tb = sender as TextBox;

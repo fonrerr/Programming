@@ -26,7 +26,7 @@
         </Grid.ColumnDefinitions>
         <Image Height="100"
                    Grid.Column="0" VerticalAlignment="Top" 
-                   Width="100" Source="/Resources/resources-100.png"/>
+                   Width="100" Source="/Resources/resources_contact-100.png"/>
 
         <StackPanel Grid.Column="1" Margin="0,0,10,0">
             <Label Content="Name:" HorizontalAlignment="Left" 

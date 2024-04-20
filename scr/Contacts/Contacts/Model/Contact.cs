@@ -8,7 +8,9 @@ namespace Contacts.Model
     /// </summary>
     public class Contact: INotifyPropertyChanged, IDataErrorInfo
     {
-
+        /// <summary>
+        /// Сообщение об ошибке.
+        /// </summary>
         private string _error;
 
         /// <summary>
@@ -39,6 +41,11 @@ namespace Contacts.Model
             get => _error;
         }
 
+        /// <summary>
+        /// Проверяет значение на наличие ошибок.
+        /// </summary>
+        /// <param name="columnName">Имя свойства значения, которое нужно проверить.</param>
+        /// <returns>Возвращает сообщение об ошибке.</returns>
         public string this[string columnName]
         {
             get

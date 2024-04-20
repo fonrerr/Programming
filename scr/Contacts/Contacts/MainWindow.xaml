@@ -66,7 +66,7 @@
         <Grid Visibility="Hidden" Grid.Column="1" Grid.Row="3">
             <Image HorizontalAlignment="Left" Height="100"
                    VerticalAlignment="Top" 
-                   Width="100" Source="/Resources/resources-100.png"/>
+                   Width="100" Source="/Resources/resources_contact-100.png"/>
             <TextBox x:Name="NameTextBox" HorizontalAlignment="Stretch" 
                       TextWrapping="Wrap" 
                      Text="{Binding SelectedContact.Name}" 
