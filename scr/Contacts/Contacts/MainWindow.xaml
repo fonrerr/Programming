@@ -9,6 +9,7 @@
         Title="Contacts" Height="450" Width="800" Closed="Window_Closed" AutomationProperties.Name="Contacts">
     <Window.Resources>
         <converters:VisibilityConverter x:Key="visibilityConverter"/>
+        <converters:StringEmptyConverter x:Key="stringConverter"/>
     </Window.Resources>
     <Grid>
         <Grid.ColumnDefinitions>
@@ -85,6 +86,7 @@
             <Button x:Name="ApplyButton" Content="Apply" 
                     Command="{Binding ApplyCommand}" 
                     Visibility="{Binding Visibility, Converter={StaticResource visibilityConverter}}" 
+                    IsEnabled="{Binding SelectedContact.Error, Converter={StaticResource stringConverter}}" 
                     HorizontalAlignment="Left" 
                     VerticalAlignment="Top" Height="22" Width="55"/>
             <Label Content="Name:" HorizontalAlignment="Left" 

@@ -3,11 +3,12 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
              xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
              xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
-             xmlns:converters="clr-namespace:Contacts.Model.Services" xmlns:viewmodel="clr-namespace:Contacts.ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:MainVM}"
+             xmlns:converters="clr-namespace:Contacts.Model.Services" xmlns:viewmodel="clr-namespace:ViewModel;assembly=ViewModel" d:DataContext="{d:DesignInstance Type=viewmodel:MainVM}"
              mc:Ignorable="d" 
              d:DesignHeight="200" d:DesignWidth="800">
     <UserControl.Resources>
         <converters:VisibilityConverter x:Key="visibilityConverter"/>
+        <converters:StringEmptyConverter x:Key="stringConverter"/>
         <Style TargetType="TextBox">
             <Style.Triggers>
                 <Trigger Property="Validation.HasError" Value="True">
@@ -69,12 +70,14 @@
                     </Binding>
                 </TextBox.Text>
             </TextBox>
-            <Grid Margin="10">
+            <Grid Margin="30">
                 <Button x:Name="ApplyButton" Content="Apply" 
                     Command="{Binding ApplyCommand}" 
                     Visibility="{Binding Visibility, Converter={StaticResource visibilityConverter}}" 
-                    HorizontalAlignment="Left" 
-                    VerticalAlignment="Top" Height="22" Width="55"/>
+                    IsEnabled="{Binding SelectedContact.Error, Converter={StaticResource stringConverter}}" 
+                    
+                        HorizontalAlignment="Left" 
+                    VerticalAlignment="Center" Height="25" Width="80" Margin="-30,0,0,0" RenderTransformOrigin="-1.09,-0.638"/>
             </Grid>
         </StackPanel>
     </Grid>

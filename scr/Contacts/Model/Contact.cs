@@ -1,7 +1,8 @@
 ﻿using System.ComponentModel;
 using System.Runtime.CompilerServices;
 
-namespace Contacts.Model
+
+namespace Model
 {
     /// <summary>
     /// Хранит данные о контактах.
@@ -29,16 +30,18 @@ namespace Contacts.Model
         private string _phoneNumber;
 
         /// <summary>
-        /// Видимость кнопки.
-        /// </summary>
-        private bool _visibility = false;
-
-        /// <summary>
         /// Возвращает сообщение об ошибке.
         /// </summary>
         public string Error
         {
             get => _error;
+            set
+            {
+                if (_error == value)
+                    return;
+                _error = value;
+                OnPropertyChanged(nameof(Error));
+            }
         }
 
         /// <summary>
@@ -50,75 +53,50 @@ namespace Contacts.Model
         {
             get
             {
-                _error = System.String.Empty;
+                Error = System.String.Empty;
                 switch(columnName) 
                 {
-                    case "Name":
+                    case nameof(Name):
                         if (Name != null) 
                         {
                             if(Name.Length > 100) 
                             {
-                                _error = "Length of name should be less 100 symbols";
+                                Error = "Length of name should be less 100 symbols";
                             }
                         }
                         break;
-                    case "PhoneNumber":
+                    case nameof(PhoneNumber):
                         if (PhoneNumber != null) 
                         {
                             if (PhoneNumber.Length > 100) 
                             {
-                                _error = "Length of phone number should be less 100 symbols";
+                                Error = "Length of phone number should be less 100 symbols";
                             }
                             for(int i = 0; i < PhoneNumber.Length; i++) 
                             {
                                 if (PhoneNumber[i] != '+' && PhoneNumber[i] != '-' && PhoneNumber[i] != '(' &&
                                     PhoneNumber[i] != ')' && PhoneNumber[i] != ' ' && !(PhoneNumber[i] >= '0' && PhoneNumber[i] <= '9'))
                                 {
-                                    _error = "Phone number can contains only numbers and symbols '+()-'";
+                                    Error = "Phone number can contains only numbers and symbols '+()-'";
                                 }
                             }
                         }
                         break;
-                    case "Email":
+                    case nameof(Email):
                         if (Email != null)
                         {
                             if (Email.Length > 100)
                             {
-                                _error = "Length of email should be less 100 symbols";
+                                Error = "Length of email should be less 100 symbols";
                             }
                             if(!Email.Contains("@"))
                             {
-                                _error = "Email should contains symbol '@'";
+                                Error = "Email should contains symbol '@'";
                             }
                         }
-                        break;
-                        
-                }
-                if (_error != System.String.Empty)
-                {
-                    Visibility = false;
-                }
-                else
-                {
-                    Visibility = true;
+                        break;  
                 }
                 return _error;
-            }
-        }
-
-        /// <summary>
-        /// Возвращает и задает видимость.
-        /// </summary>
-        public bool Visibility
-        {
-            get
-            {
-                return _visibility;
-            }
-            set
-            {
-                _visibility = value;
-                OnPropertyChanged(nameof(Visibility));
             }
         }
 

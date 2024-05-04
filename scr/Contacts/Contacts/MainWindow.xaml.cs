@@ -1,5 +1,5 @@
 ﻿using Contacts.Model.Services;
-using Contacts.ViewModel;
+using ViewModel;
 using System;
 using System.Windows;
 

@@ -1,19 +1,22 @@
-﻿using Contacts.Model;
+﻿using Model;
 using System.Collections.ObjectModel;
 using System.ComponentModel;
 using System.Linq;
 using System.Runtime.CompilerServices;
-using System.Windows;
 using CommunityToolkit.Mvvm.Input;
-using Contacts.Model.Services;
 
-namespace Contacts.ViewModel
+namespace ViewModel
 {
     /// <summary>
     /// Метод связывающий поля в форме с Contact.
     /// </summary>
     public class MainVM : INotifyPropertyChanged
     {
+        /// <summary>
+        /// Сообщение об ошибке.
+        /// </summary>
+        private string _error;
+
         /// <summary>
         /// Выбранный контакт.
         /// </summary>
@@ -63,6 +66,14 @@ namespace Contacts.ViewModel
         /// Переменная состояния действия.
         /// </summary>
         private bool _actionStates;
+
+        /// <summary>
+        /// Возвращает сообщение об ошибке.
+        /// </summary>
+        public string Error
+        {
+            get => _error;
+        }
 
         /// <summary>
         /// Возвращает и задает коллекцию контактов.
@@ -189,7 +200,7 @@ namespace Contacts.ViewModel
             _indexSelectedContact = -1;
             IsEditMode = true;
             _actionStates = true;
-            UpdateUI() ;
+            UpdateUI();
         }
 
         /// <summary>
@@ -242,6 +253,11 @@ namespace Contacts.ViewModel
             return !IsEditMode;
         }
 
+        private bool CanApplyExecute()
+        {
+            return SelectedContact != null && SelectedContact.Error == "";
+        }
+
         /// <summary>
         /// Определяет, может ли быть выполнено действие редактирования или удаления контакта.
         /// </summary>
@@ -258,7 +274,8 @@ namespace Contacts.ViewModel
             AddCommand.NotifyCanExecuteChanged();
             EditCommand.NotifyCanExecuteChanged();
             RemoveCommand.NotifyCanExecuteChanged();
-            if (IsEditMode)
+            ApplyCommand.NotifyCanExecuteChanged();
+            if (IsEditMode && CanApplyExecute())
             {
                 Visibility = true;
             }
@@ -280,6 +297,7 @@ namespace Contacts.ViewModel
             _removeCommand = new RelayCommand(RemoveExecute, CanEditOrRemoveExecute);
             _applyCommand = new RelayCommand(ApplyExecute);
         }
+
 
         /// <summary>
         /// Событие изменения свойства.
